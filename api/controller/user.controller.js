@@ -1,8 +1,9 @@
 export const test = (req , res) => {
     res.json({
-     message : 'or suno  bete ',
+     message : 'or suno bete ',
     })
 }
+//This is feature 1 branch
 
-// i am tsering wangchu
-// i am Vikash vEmra
+
+//i have done editing to this page
