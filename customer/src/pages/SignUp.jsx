@@ -8,7 +8,7 @@ export default function SignUp() {
     <div className='bg-cover bg-center min-h-screen flex items-center justify-center' style={{
       backgroundImage: `url(${backgroundImage})`,
     }}>
-    <div className="max-w-lg mx-auto p-5 mt-12 backdrop-blur-sm rounded-3xl border shadow-lg">
+    <div className="max-w-lg mx-auto p-5 mt-12 backdrop-blur-md rounded-3xl border shadow-lg">
     <h2 className="text-3xl text-white text-center font-semibold my-7 ">Sign Up</h2>
       <div className="mb-4 ">
         <div className="flex items-center  rounded-lg p-2 w-full">
