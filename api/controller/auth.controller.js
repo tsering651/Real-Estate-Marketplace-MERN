@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import bcrypt from 'bcryptjs';
+import { errorHandler } from "../utils/error.js";
 
 
 export const signup= async (req,res)=>{
@@ -9,8 +10,10 @@ export const signup= async (req,res)=>{
    try {
       await newUser.save();
      res.status(201).json("user created succesfully");
-   } catch (error) {
+   } 
+   catch (error) {
       res.status(500).json(error.message);
+    //  res.status(errorHandler(550,"this is a error from function"));
    }
    
 }
