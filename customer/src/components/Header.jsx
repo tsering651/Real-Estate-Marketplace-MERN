@@ -3,7 +3,7 @@ import {FaSearch} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 export default function Header() {
   return (
-    <header className='backdrop-blur-lg bg-gradient-to-l from-blue-900 to-amber-300 shadow-lg border'>
+    <header className='backdrop-blur-lg bg-gradient-to-l from-blue-900 to-amber-400 shadow-lg border'>
         <div className='flex justify-between items-center max-w-6xl mx-auto p-3' >
        <Link to = '/'>
        <h1 className='font-bold text-sm  sm:text-xl flex flex-wrap'>
@@ -14,7 +14,7 @@ export default function Header() {
         
        <form className='bg-slate-100 p-2 rounded-2xl flex items-center'>
         <input type="text" placeholder=" Search..." className='bg-transparent focus:outline-none  w-24 sm:w-64'/>
-        <FaSearch className='text-slate-600 mr-2'/>
+        <FaSearch className='text-slate-500 mr-2'/>
        </form>
        <ul className='flex gap-4'>
        <Link to = "/"><li className='hidden sm:inline text-white font-semibold hover:text-slate-700'>Explore</li></Link> 
