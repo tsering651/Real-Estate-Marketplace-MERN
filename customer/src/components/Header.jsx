@@ -3,20 +3,12 @@ import {FaSearch} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 export default function Header() {
   return (
-    <header className='bg-slate-200 shadow-md'>
-        {/* text-sm for mobile size
-        sm:text-xl for desktop screen 
-        p-3 padding
-        max-w-6xl = zoom in/out specing 
-        mx - auto auto adjustment
-        rounded-3xl= border roundness of search
-        w-24 for small mobile screen 
-        sm:w-64 for bigger screen'*/}
+    <header className='backdrop-blur-lg bg-gradient-to-l from-blue-900 to-amber-300 shadow-lg border'>
         <div className='flex justify-between items-center max-w-6xl mx-auto p-3' >
        <Link to = '/'>
        <h1 className='font-bold text-sm  sm:text-xl flex flex-wrap'>
-        <span className='text-slate-500 mr-1'>TVA</span>
-        <span className='text-slate-700'>Property</span>
+        <span className='text-white mr-1'>TVA</span>
+        <span className='text-slate-700-contrast'>Group</span>
        </h1>
        </Link>
         
@@ -25,12 +17,20 @@ export default function Header() {
         <FaSearch className='text-slate-600 mr-2'/>
        </form>
        <ul className='flex gap-4'>
-       <Link to = "/"><li className='hidden sm:inline text-slate-500 font-semibold hover:text-slate-700'>Explore</li></Link> 
-       <Link to=  "/about"> <li className='hidden sm:inline text-slate-500 font-semibold hover:text-slate-700'>About</li></Link> 
-        <Link to = "/sign-in"><li className='text-slate-700 font-extrabold cursor-pointer hover:text-blue-700'>Sign In</li></Link>
+       <Link to = "/"><li className='hidden sm:inline text-white font-semibold hover:text-slate-700'>Explore</li></Link> 
+       <Link to=  "/about"> <li className='hidden sm:inline text-white font-semibold hover:text-slate-700'>About</li></Link> 
+        <Link to = "/sign-in"><li className='text-blue-900-contrast font-extrabold cursor-pointer hover:text-blue-700'>Sign In</li></Link>
        </ul>
         </div>
-     
     </header>
   )
 }
+
+   {/* text-sm for mobile size
+        sm:text-xl for desktop screen 
+        p-3 padding
+        max-w-6xl = zoom in/out specing 
+        mx - auto auto adjustment
+        rounded-3xl= border roundness of search
+        w-24 for small mobile screen 
+        sm:w-64 for bigger screen'*/}

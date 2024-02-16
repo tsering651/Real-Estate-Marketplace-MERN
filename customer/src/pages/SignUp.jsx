@@ -1,15 +1,18 @@
 import React from 'react'
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-
+import backgroundImage from "./images/abc.jpg"
 
 export default function SignUp() {
   return (
-    <div className="max-w-lg mx-auto p-3">
-    <h2 className="text-3xl text-slate-700 text-center font-semibold my-7">Sign Up</h2>
+    <div className='bg-cover bg-center min-h-screen flex items-center justify-center' style={{
+      backgroundImage: `url(${backgroundImage})`,
+    }}>
+    <div className="max-w-lg mx-auto p-5 mt-12 backdrop-blur-sm rounded-3xl border shadow-lg">
+    <h2 className="text-3xl text-white text-center font-semibold my-7 ">Sign Up</h2>
       <div className="mb-4 ">
-        <div className="flex items-center border border-gray-300 rounded-lg p-2 w-full">
-            <AiOutlineUser className="text-gray-500 mr-2" />
+        <div className="flex items-center  rounded-lg p-2 w-full">
+            <AiOutlineUser className="text-black mr-2" />
                <input
                 type='text'
                 placeholder='Username'
@@ -19,8 +22,8 @@ export default function SignUp() {
         </div>
     </div>
     <div className="mb-4">
-        <div className="flex items-center border border-gray-300 rounded-lg p-2">
-            <AiOutlineMail className="text-gray-500 mr-2" />
+        <div className="flex items-center  rounded-lg p-2">
+            <AiOutlineMail className="text-black mr-2" />
             <input
                 type='text'
                 placeholder='E-mail'
@@ -30,8 +33,8 @@ export default function SignUp() {
         </div>
     </div>
     <div className="mb-6">
-        <div className="flex items-center border border-gray-300 rounded-lg p-2">
-            <AiOutlineLock className="text-gray-500 mr-2" />
+        <div className="flex items-center  rounded-lg p-2">
+            <AiOutlineLock className="text-black mr-2 text" />
             <input
                 type='password'
                 placeholder='Password'
@@ -48,8 +51,10 @@ export default function SignUp() {
       <Link to = "/sign-in" >
         <span className='text-blue-700'>Sign In</span>
       </Link>
-
     </div>
 </div>
+
+    </div>
+
   )
 }
