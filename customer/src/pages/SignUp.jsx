@@ -59,4 +59,4 @@ export default function SignUp() {
   )
 }
 
-export default App;
+
