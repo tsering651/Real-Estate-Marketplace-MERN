@@ -3,7 +3,7 @@ import {FaSearch} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 export default function Header() {
   return (
-    <header className='backdrop-blur-lg bg-gradient-to-l from-blue-900 to-amber-400 shadow-lg border'>
+    <header className='backdrop-blur-lg bg-gradient-to-l from-blue-900 to-amber-400 shadow-lg '>
         <div className='flex justify-between items-center max-w-6xl mx-auto p-3' >
        <Link to = '/'>
        <h1 className='font-bold text-sm  sm:text-xl flex flex-wrap'>

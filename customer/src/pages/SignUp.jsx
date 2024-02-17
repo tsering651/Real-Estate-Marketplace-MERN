@@ -69,8 +69,7 @@ export default function SignUp() {
               />
             </div>
           </div>
-          <button type="submit" className="bg-blue-500 text-white p-2 rounded-2xl w-full hover:opacity-85">
-            Sign Up
+          <button type="submit" className="bg-blue-500 text-white p-2 rounded-2xl w-full hover:bg-red-500"><Link to = "/sign-in"> Sign Up</Link>
           </button>
         </form>
         <div className='text-white flex gap-2 mt-5'>
