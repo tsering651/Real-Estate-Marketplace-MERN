@@ -1,49 +1,16 @@
-import { useState } from 'react';
-import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
+import { AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import backgroundImage from "./images/abc.jpg"
 
 export default function SignIn() {
-  const [formData, setFormData] = useState({});
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    })
-  }
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const res=await fetch('/api/auth/signup',
-    {
-      method:'POST',
-      headers:{
-        'content-Type':'application/json',
-      },
-      body:JSON.stringify(formData),
-    }
-    );
-    const data=await res.json();
-    console.log(data);
-
-  }
   return (
     <div className='bg-cover bg-center min-h-screen flex items-center justify-center' style={{
       backgroundImage: `url(${backgroundImage})`,
     }}>
       <div className="max-w-lg mx-auto p-5 mt-12 backdrop-blur-md rounded-3xl border shadow-lg ">
         <h2 className="text-3xl text-white text-center font-semibold my-7">Sign In</h2>
-        <form onSubmit={handleSubmit}>
+        <form >
           <div className="mb-4 ">
-            {/* <div className="flex items-center  rounded-lg p-2 w-full hover:scale-110 transform transition duration-500">
-              <AiOutlineUser className="text-white mr-2" />
-              <input
-                type='text'
-                placeholder='Username'
-                className='border p-2 bg-slate-100 rounded-3xl w-full'
-                id='username'
-                onChange={handleChange}
-              />
-            </div> */}
           </div>
           <div className="mb-4">
             <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
@@ -52,8 +19,7 @@ export default function SignIn() {
                 type='text'
                 placeholder=' Email Address'
                 className='border p-2 bg-slate-100 rounded-3xl w-full'
-                id='email'
-                onChange={handleChange}
+                id='email'  
               />
             </div>
           </div>
@@ -65,7 +31,6 @@ export default function SignIn() {
                 placeholder=' Password'
                 className='border p-2 bg-slate-100 rounded-3xl w-full'
                 id='password'
-                onChange={handleChange}
               />
             </div>
           </div>
