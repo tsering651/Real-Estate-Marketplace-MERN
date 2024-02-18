@@ -1,8 +1,21 @@
+import { useState } from 'react';
 import { AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import backgroundImage from "./images/abc.jpg"
 
+
 export default function SignIn() {
+
+  const [loading, setLoading] = useState(false);
+
+  const handleSignUp = async () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      window.location.href = '/';// loading to Explore page
+    }, 2000); // Change the duration as per your requirement
+  };
+
   return (
     <div className='bg-cover bg-center min-h-screen flex items-center justify-center' style={{
       backgroundImage: `url(${backgroundImage})`,
@@ -34,13 +47,18 @@ export default function SignIn() {
               />
             </div>
           </div>
-          <button type="submit" className="bg-blue-500 text-white p-2 rounded-2xl w-full hover:opacity-70"> 
-          Sign In
+          <button
+            onClick={handleSignUp}
+            className={`bg-blue-500 text-white p-2 rounded-2xl w-full hover:bg-orange-400${
+              loading ? "" : ""
+            }`}
+            disabled={loading}>
+            {loading ? "Loading..." : "Sign In"}
           </button>
         </form>
         <div className='text-white flex gap-2 mt-5'>
           <p>Don't have an account?</p>
-          <Link to="/sign-in" >
+          <Link to="/sign-up" >
             <span className='text-blue-700'>Sign Up</span>
           </Link>
         </div>
