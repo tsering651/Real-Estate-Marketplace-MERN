@@ -17,7 +17,7 @@ export default function SignIn() {
   };
 
   return (
-    <div className='bg-cover bg-center min-h-screen flex items-center justify-center' style={{
+    <div className='bg-cover bg-center min-h-screen flex items-center justify-center ' style={{
       backgroundImage: `url(${backgroundImage})`,
     }}>
       <div className="max-w-lg mx-auto p-5 mt-12 backdrop-blur-md rounded-3xl border shadow-lg ">
@@ -47,7 +47,7 @@ export default function SignIn() {
               />
             </div>
           </div>
-          <button
+          <button type="submit"
             onClick={handleSignUp}
             className={`bg-blue-500 text-white p-2 rounded-2xl w-full hover:bg-orange-400${
               loading ? "" : ""

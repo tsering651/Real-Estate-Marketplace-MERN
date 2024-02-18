@@ -44,7 +44,7 @@ export default function SignUp() {
         backgroundImage: `url(${backgroundImage})`,
       }}
     >
-      <div className="max-w-lg mx-auto p-5 backdrop-blur-md rounded-3xl border shadow-lg ">
+      <div className="max-w-lg mx-auto p-10 backdrop-blur-md rounded-3xl border shadow-lg ">
         <h2 className="text-3xl text-white text-center font-semibold my-7">
           Sign Up
         </h2>
@@ -86,8 +86,8 @@ export default function SignUp() {
             </div>
           </div>
 
-          <button
-            onClick={handleSignUp}
+          <button type="submit"
+            onClick={handleSignUp} 
             className={`bg-orange-400 text-white p-2 rounded-2xl w-full hover:bg-blue-500${
               loading ? "" : ""
             }`}
