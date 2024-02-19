@@ -38,24 +38,6 @@ export default function SignUp() {
     })
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!formData || Object.keys(formData).length === 0) {
-      console.error("Form data is empty");
-      return;
-    }
-    const res=await fetch('/api/auth/signup',
-    {
-      method:'POST',
-      headers:{
-        'content-Type':'application/json',
-      },
-      body:JSON.stringify(formData),
-    }
-    );
-    const data=await res.json();
-    console.log(data);
-  }
   return (
     <div
       className="bg-center min-h-screen flex items-center justify-center"
