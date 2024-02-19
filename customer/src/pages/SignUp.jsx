@@ -8,11 +8,27 @@ export default function SignUp() {
   const [formData, setFormData] = useState({});
 
   const handleSignUp = async (e) => {
+    e.preventDefault();
+    if (!formData || Object.keys(formData).length === 0) {
+      console.error("Form data is empty");
+      return;
+    }
+    const res=await fetch('/api/auth/signup',
+    {
+      method:'POST',
+      headers:{
+        'content-Type':'application/json',
+      },
+      body:JSON.stringify(formData),
+    }
+    );
+    const data=await res.json();
+    console.log(data);
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
       window.location.href = '/sign-in';
-    }, 2000); // Change the duration as per your requirement
+    }, 2000); 
   };
 
   const handleChange = (e) => {
@@ -24,23 +40,21 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await res.json();
-      console.log(data);
-      window.location.href = '/sign-in';
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setLoading(false);
+    if (!formData || Object.keys(formData).length === 0) {
+      console.error("Form data is empty");
+      return;
     }
+    const res=await fetch('/api/auth/signup',
+    {
+      method:'POST',
+      headers:{
+        'content-Type':'application/json',
+      },
+      body:JSON.stringify(formData),
+    }
+    );
+    const data=await res.json();
+    console.log(data);
   }
   return (
     <div
@@ -53,7 +67,7 @@ export default function SignUp() {
         <h2 className="text-3xl text-white text-center font-semibold my-7">
           Sign Up
         </h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSignUp}>
           <div className="mb-4 ">
             <div className="flex items-center  rounded-lg p-2 w-full hover:scale-110 transform transition duration-500">
               <AiOutlineUser className="text-white mr-2" />
@@ -92,7 +106,6 @@ export default function SignUp() {
           </div>
 
           <button 
-            type="submit"
             className={`bg-orange-400 text-white p-2 rounded-2xl w-full hover:bg-blue-500${
               loading ? "" : ""
             }`}
