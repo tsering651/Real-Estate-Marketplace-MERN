@@ -5,8 +5,9 @@ import backgroundImage from "./images/abc.jpg"
 
 export default function SignUp() {
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({});
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (e) => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -14,7 +15,6 @@ export default function SignUp() {
     }, 2000); // Change the duration as per your requirement
   };
 
-  const [formData, setFormData] = useState({});
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -24,18 +24,23 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res=await fetch('/api/auth/signup',
-    {
-      method:'POST',
-      headers:{
-        'content-Type':'application/json',
-      },
-      body:JSON.stringify(formData),
+    setLoading(true);
+    try {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      console.log(data);
+      window.location.href = '/sign-in';
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setLoading(false);
     }
-    );
-    const data=await res.json();
-    console.log(data);
-
   }
   return (
     <div
@@ -44,7 +49,7 @@ export default function SignUp() {
         backgroundImage: `url(${backgroundImage})`,
       }}
     >
-      <div className="max-w-lg mx-auto p-10 backdrop-blur-md rounded-3xl border shadow-lg ">
+      <div className="max-w-lg mx-auto p-5 mt-12 backdrop-blur-md rounded-3xl border shadow-lg">
         <h2 className="text-3xl text-white text-center font-semibold my-7">
           Sign Up
         </h2>
@@ -86,8 +91,8 @@ export default function SignUp() {
             </div>
           </div>
 
-          <button type="submit"
-            onClick={handleSignUp} 
+          <button 
+            type="submit"
             className={`bg-orange-400 text-white p-2 rounded-2xl w-full hover:bg-blue-500${
               loading ? "" : ""
             }`}
