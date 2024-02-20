@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import backgroundImage from "./images/abc.jpg"
+import backgroundImage from "./images/vr.jpg"
 
 export default function SignUp() {
   const [loading, setLoading] = useState(false);
@@ -10,7 +10,7 @@ export default function SignUp() {
   const handleSignUp = async (e) => {
     e.preventDefault();
     if (!formData || Object.keys(formData).length === 0) {
-      console.error("Form data is empty");
+      alert("Please fill the details");
       return;
     }
     const res=await fetch('/api/auth/signup',
@@ -40,12 +40,13 @@ export default function SignUp() {
 
   return (
     <div
-      className="bg-center min-h-screen flex items-center justify-center"
+      className="bg-cover bg-bottom min-h-screen flex items-center "
       style={{
         backgroundImage: `url(${backgroundImage})`,
+         backgroundPosition: '10% 70%',
       }}
     >
-      <div className="max-w-lg mx-auto p-5 mt-12 backdrop-blur-md rounded-3xl border shadow-lg">
+      <div className="max-w-lg max-h-lg mx-auto p-8 ml-14 backdrop-blur-md rounded-3xl border shadow-2xl ">
         <h2 className="text-3xl text-white text-center font-semibold my-7">
           Sign Up
         </h2>
@@ -97,7 +98,7 @@ export default function SignUp() {
           
         </form>
         <div className="text-white flex gap-2 mt-5">
-          <p>Have an account?</p>
+          <p>Do you have an account?</p>
           <Link to="/sign-in">
             <span className="text-blue-700">Sign In</span>
           </Link>

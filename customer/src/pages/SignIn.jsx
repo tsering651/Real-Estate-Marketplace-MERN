@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import backgroundImage from "./images/abc.jpg"
+import backgroundImage from "./images/x.jpg"
 
 
 export default function SignIn() {
@@ -20,7 +20,7 @@ export default function SignIn() {
     <div className='bg-cover bg-center min-h-screen flex items-center justify-center ' style={{
       backgroundImage: `url(${backgroundImage})`,
     }}>
-      <div className="max-w-lg mx-auto p-5 mt-12 backdrop-blur-md rounded-3xl border shadow-lg ">
+      <div className="max-w-lg max-h-lg mx-auto p-8 ml-14 backdrop-blur-md rounded-3xl border shadow-2xl ">
         <h2 className="text-3xl text-white text-center font-semibold my-7">Sign In</h2>
         <form >
           <div className="mb-4 ">
