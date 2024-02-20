@@ -13,6 +13,7 @@ export default function SignUp() {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     const res=await fetch('/api/auth/signup',
     {
       method:'POST',
@@ -41,7 +42,7 @@ export default function SignUp() {
                 placeholder='Username'
                 className='border p-2 bg-slate-100 rounded-3xl w-full'
                 id='username'
-                onChange={handleChange}
+                onChange={handleChange} 
               />
             </div>
           </div>
