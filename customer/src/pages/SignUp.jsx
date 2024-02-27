@@ -10,7 +10,8 @@ export default function SignUp() {
   const handleSignUp = async (e) => {
     e.preventDefault();
     if (!formData || Object.keys(formData).length === 0) {
-      console.error("Form data is empty");
+     // console.error("Form data is empty");
+     alert("Form is empty");
       return;
     }
     const res=await fetch('/api/auth/signup',
@@ -42,7 +43,8 @@ export default function SignUp() {
     <div
       className="bg-center min-h-screen flex items-center justify-center"
       style={{
-        backgroundImage: `url(${backgroundImage})`,
+         backgroundImage: `url(${backgroundImage})`,
+       
       }}
     >
       <div className="max-w-lg mx-auto p-5 mt-12 backdrop-blur-md rounded-3xl border shadow-lg">
