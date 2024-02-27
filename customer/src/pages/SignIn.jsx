@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import backgroundImage from "./images/x.jpg";
+import OAuth from "../components/OAuth";
 
 export default function SignIn() {
   const [loading, setLoading] = useState(false);
@@ -57,7 +58,7 @@ export default function SignIn() {
         <h2 className="text-3xl text-white text-center font-semibold my-7">
           Sign In
         </h2>
-        <form onSubmit={handleSignIn}>
+        <form>
           <div className="mb-4 "></div>
           <div className="mb-4">
             <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
@@ -83,14 +84,15 @@ export default function SignIn() {
               />
             </div>
           </div>
-          <button
-            className={`bg-blue-500 text-white p-2 rounded-2xl w-full hover:bg-orange-400${
+          <button onClick={handleSignIn}
+            className={`bg-orange-500 text-white p-2 rounded-2xl w-full hover:opacity-70${
               loading ? "" : ""
             }`}
             disabled={loading}
           >
             {loading ? "Loading..." : "Sign In"}
           </button>
+          <OAuth />
         </form>
         <div className="text-white flex gap-2 mt-5">
           <p>Don't have an account?</p>
@@ -98,7 +100,7 @@ export default function SignIn() {
             <span className="text-blue-700">Sign Up</span>
           </Link>
         </div>
-        {error && <p className='text-red-700 font-semibold mt-3'>{error}</p>}
+        {error && <p className='text-red-500 font-semibold mt-3'>{error}</p>}
       </div>
     </div>
   );

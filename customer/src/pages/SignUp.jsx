@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import backgroundImage from "./images/vr.jpg"
+import OAuth from '../components/OAuth';
 
 export default function SignUp() {
   const [loading, setLoading] = useState(false);
@@ -9,7 +10,7 @@ export default function SignUp() {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    if (!formData || Object.keys(formData).length === 0) {
+    if (!formData || Object.keys(formData).length === 0 || Object.keys(formData).length === 1 || Object.keys(formData).length === 2 ) {
       alert("Please fill the details");
       return;
     }
@@ -50,7 +51,7 @@ export default function SignUp() {
         <h2 className="text-3xl text-white text-center font-semibold my-7">
           Create Account
         </h2>
-        <form onSubmit={handleSignUp}>
+        <form >
           <div className="mb-4 ">
             <div className="flex items-center  rounded-lg p-2 w-full hover:scale-110 transform transition duration-500">
               <AiOutlineUser className="text-white mr-2" />
@@ -67,7 +68,7 @@ export default function SignUp() {
             <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
               <AiOutlineMail className="text-white mr-2" />
               <input
-                type="text"
+                type="email"
                 placeholder="E-mail"
                 className="border p-2 bg-slate-100 rounded-3xl w-full"
                 id="email"
@@ -88,14 +89,15 @@ export default function SignUp() {
             </div>
           </div>
 
-          <button 
-            className={`bg-orange-400 text-white p-2 rounded-2xl w-full hover:bg-blue-500${
+          <button onClick={handleSignUp}
+            className={`bg-orange-500 text-white p-2 rounded-2xl w-full hover:opacity-70${
               loading ? "" : ""
             }`}
             disabled={loading}>
             {loading ? "Loading..." : "Sign Up"}
           </button>
-          
+
+          <OAuth />
         </form>
         <div className="text-white flex gap-2 mt-5">
           <p>Do you have an account?</p>
