@@ -1,22 +1,42 @@
 import React from "react";
-import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth'
+import {
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+  signInWithRedirect,
+} from "firebase/auth";
 import { app } from "../firebase";
 
-
 export default function OAuth() {
-  const handleGoogleClick = async() => {
+  const handleGoogleClick = async () => {
     try {
-      const provider = new GoogleAuthProvider()
-      const auth = getAuth(app)
-      const result = await signInWithPopup( auth , provider )
+      const provider = new GoogleAuthProvider();
+      const auth = getAuth(app);
+      const result = await signInWithPopup(auth, provider);
 
-      console.log(result);
+      const res = await fetch("/api/auth/google", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: result.user.displayName,
+          email: result.user.email,
+          photo: result.user.photoURL,
+        }),
+      });
+      const data = await res.json();
+      window.location.href = "/";
     } catch (error) {
-      console.log('Failed to Sign In with Google' , error)
+      console.log("Failed to Sign In with Google", error);
     }
-  }
+  };
   return (
-    <button onClick={handleGoogleClick} type ='button'className="bg-blue-500 text-white p-2 rounded-2xl w-full mt-4 inline-flex items-center justify-center hover:opacity-70">
+    <button
+      onClick={handleGoogleClick}
+      type="button"
+      className="bg-blue-500 text-white p-2 rounded-2xl w-full mt-4 inline-flex items-center justify-center hover:opacity-70"
+    >
       <svg
         className="w-4 h-4 me-2"
         aria-hidden="true"
