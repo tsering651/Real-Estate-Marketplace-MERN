@@ -1,6 +1,5 @@
 import videoback from "./images/video.mp4"
 import backgroundImage from "./images/Property-.jpg";
-import Header from "../components/Header";
 
 
 export default function Home() {
