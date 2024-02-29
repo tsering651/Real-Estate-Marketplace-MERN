@@ -1,9 +1,12 @@
 import videoback from "./images/video.mp4"
 import backgroundImage from "./images/Property-.jpg";
+import Header from "../components/Header";
 
 
 export default function Home() {
   return (
+    
+  
     <div
       className="bg-cover bg-center min-h-screen flex items-center justify-center "
       style={{
@@ -20,5 +23,7 @@ export default function Home() {
      <source src={videoback} type="video/mp4" />
       </video>
     </div>
+    
+   
   );
 }
