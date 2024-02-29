@@ -1,6 +1,8 @@
+
 import React from 'react'
 import {FaSearch} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+
 export default function Header() {
   return (
     <header className='bg-white bg-opacity-15 backdrop-blur-lg fixed w-full z-10'>
@@ -20,6 +22,17 @@ export default function Header() {
        <Link to = "/"><li className='hidden sm:inline text-white font-semibold hover:text-slate-700'>Explore</li></Link> 
        <Link to=  "/about"> <li className='hidden sm:inline text-white font-semibold hover:text-slate-700'>About</li></Link> 
         <Link to = "/sign-in"><li className='text-blue-900-contrast font-extrabold cursor-pointer hover:text-blue-700'>Sign In</li></Link>
+        {/* <Link to='/sign-in'>
+            {currentUser ? (
+              <img
+                className='rounded-full h-7 w-7 object-cover'
+                src={currentUser.avatar}
+                alt='profile'
+              />
+            ) : (
+              <li className=' text-slate-700 hover:underline'> Sign in</li>
+            )}
+          </Link> */}
        </ul>
         </div>
     </header>
