@@ -6,6 +6,7 @@ import {
 } from "firebase/auth";
 import { app } from "../firebase";
 
+
 export default function OAuth() {
   const handleGoogleClick = async () => {
     try {
