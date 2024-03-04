@@ -18,7 +18,7 @@ const userSchema=new mongoose.Schema({
     },
     avatar:{
         type: String ,
-        default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTocZNbepgpX1LE05TQxdp4Bal_V0eVnH0n4g&usqp=CAU"
+        default: "https://1000logos.net/wp-content/uploads/2017/05/Pepsi-Logo-1969.png"
     },
 },
 {
