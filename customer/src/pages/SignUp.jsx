@@ -62,7 +62,7 @@ export default function SignUp() {
         backgroundPosition: "10% 70%",
       }}
     >
-      <div className="max-w-lg max-h-lg mx-auto p-8 ml-14 mt-14 backdrop-blur-md rounded-3xl border shadow-2xl ">
+      <div className="max-w-lg max-h-lg mx-auto p-8 ml-14 mt-14 backdrop-blur-md rounded-3xl border shadow-2xl">
         <h2 className="text-3xl text-white text-center font-semibold my-7">
           Create Account
         </h2>
