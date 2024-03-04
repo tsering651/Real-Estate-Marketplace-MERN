@@ -1,57 +1,72 @@
-import { useState } from 'react';
-import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-import backgroundImage from "./images/vr.jpg"
-import OAuth from '../components/OAuth';
+import { useState } from "react";
+import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import backgroundImage from "./images/vr.jpg";
+import OAuth from "../components/OAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({});
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    if (!formData || Object.keys(formData).length === 0 || Object.keys(formData).length === 1 || Object.keys(formData).length === 2 ) {
+    if (
+      !formData ||
+      Object.keys(formData).length === 0 ||
+      Object.keys(formData).length === 1 ||
+      Object.keys(formData).length === 2
+    ) {
       alert("Please fill the details");
       return;
     }
-    const res=await fetch('/api/auth/signup',
-    {
-      method:'POST',
-      headers:{
-        'content-Type':'application/json',
-      },
-      body:JSON.stringify(formData),
-    }
-    );
-    const data=await res.json();
-    console.log(data);
-    setLoading(true);
-    setTimeout(() => {
+    try {
+      setLoading(true);
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.success === false) {
+        setLoading(false);
+        setError(data.message);
+        return;
+      }
       setLoading(false);
-      window.location.href = '/sign-in';
-    }, 2000); 
+      setError(null);
+      navigate("/sign-in");
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
+    }
   };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.id]: e.target.value,
-    })
-  }
+    });
+  };
 
   return (
     <div
       className="bg-cover bg-bottom min-h-screen flex items-center "
       style={{
         backgroundImage: `url(${backgroundImage})`,
-         backgroundPosition: '10% 70%',
+        backgroundPosition: "10% 70%",
       }}
     >
       <div className="max-w-lg max-h-lg mx-auto p-8 ml-14 mt-14 backdrop-blur-md rounded-3xl border shadow-2xl ">
         <h2 className="text-3xl text-white text-center font-semibold my-7">
           Create Account
         </h2>
-        <form >
+        <form>
           <div className="mb-4 ">
             <div className="flex items-center  rounded-lg p-2 w-full hover:scale-110 transform transition duration-500">
               <AiOutlineUser className="text-white mr-2" />
@@ -89,11 +104,13 @@ export default function SignUp() {
             </div>
           </div>
 
-          <button onClick={handleSignUp}
+          <button
+            onClick={handleSignUp}
             className={`bg-orange-500 text-white p-2 rounded-2xl w-full hover:opacity-70${
               loading ? "" : ""
             }`}
-            disabled={loading}>
+            disabled={loading}
+          >
             {loading ? "Loading..." : "Sign Up"}
           </button>
 

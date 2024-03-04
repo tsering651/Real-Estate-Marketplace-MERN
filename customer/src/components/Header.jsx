@@ -1,8 +1,10 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <header className="bg-white bg-opacity-15 backdrop-blur-lg fixed w-full z-10">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
@@ -22,26 +24,32 @@ export default function Header() {
         </form>
         <ul className="flex gap-4">
           <Link to="/">
-            <li className="hidden sm:inline text-white font-semibold hover:text-slate-700">
+            <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
               Explore
             </li>
           </Link>
          
           <Link to="/gallery">
-            <li className="hidden sm:inline text-white font-semibold hover:text-slate-700">
+            <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
               Gallery
             </li>
           </Link>
            <Link to="/about">
-            <li className="hidden sm:inline text-white font-semibold hover:text-slate-700">
+            <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
               About
             </li>
           </Link>
-          <Link to="/sign-in">
-            <li className="text-blue-900-contrast font-extrabold cursor-pointer hover:text-blue-700">
-              Sign In
-            </li>
-          </Link>         
+          <Link to="/profile">
+            {currentUser ? (
+              <li className="text-slate-700 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">
+                {currentUser.username}
+              </li>
+            ) : (
+              <Link to="/sign-in">
+              <li className="text-slate-700 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">Sign in</li>
+            </Link>
+            )}
+          </Link>  
         </ul>
       </div>
     </header>
@@ -58,3 +66,4 @@ export default function Header() {
         w-24 for small mobile screen 
         sm:w-64 for bigger screen'*/
 }
+

@@ -14,6 +14,7 @@ mongoose
   .catch((err) => {
     console.log("Error");
   });
+  
 const app = express();
 app.use(cors());
 app.use(express.json());
