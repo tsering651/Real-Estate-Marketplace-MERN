@@ -4,3 +4,5 @@ export const errorHandler=(codeStatus,message)=>{
     error.message = message;
     return error;
 }
+
+  

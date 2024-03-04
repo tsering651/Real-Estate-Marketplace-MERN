@@ -1,18 +1,20 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import backgroundImage from "./images/x.jpg";
 import OAuth from "../components/OAuth";
-import {useDispatch, useSelector} from 'react-redux'
-import {signInStart,signInFailure,signInSuccess} from '../redux/user/userSlice'
+import { useDispatch, useSelector } from "react-redux";
+import {
+  signInStart,
+  signInFailure,
+  signInSuccess,
+} from "../redux/user/userSlice";
 
 export default function SignIn() {
-  //const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({});
   const {loading,error}=useSelector((state)=> state.user);
-  //const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setFormData({
@@ -28,7 +30,6 @@ export default function SignIn() {
       return;
     }
     try {
-     // setLoading(true);
      dispatch(signInStart);
       const res = await fetch("/api/auth/signin", {
         method: "POST",
@@ -40,21 +41,17 @@ export default function SignIn() {
       const data = await res.json();
       console.log(data);
       if (data.success === false) {
-        // setLoading(false);
-        // setError(data.message);
+      
         dispatch(signInFailure(data.message));
         return;
       }
-      // setLoading(false);
-      // setError(null);
       dispatch(signInSuccess(data));
       navigate("/");
     } catch (error) {
-      // setLoading(false);
-      // setError(error.message);
-      dispatch(signInFailure(error.message))
+      dispatch(signInFailure(error.message));
     }
   };
+
   return (
     <div
       className="bg-cover bg-center min-h-screen flex items-center justify-center "
@@ -108,7 +105,9 @@ export default function SignIn() {
             <span className="text-blue-700">Sign Up</span>
           </Link>
         </div>
-        {error && <p className='text-red-500 font-semibold mt-3'>{error}</p>}
+        {error && (
+          <p className="text-red-500 font-semibold mt-3">{error}</p>
+        )}
       </div>
     </div>
   );

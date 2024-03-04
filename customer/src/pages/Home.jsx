@@ -11,14 +11,14 @@ export default function Home() {
       }}
     > 
      
-     <video
+     {/* <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
         loop
         muted
       >
      <source src={videoback} type="video/mp4" />
-      </video>
+      </video> */}
     </div>
   );
 }
