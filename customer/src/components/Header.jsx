@@ -8,12 +8,15 @@ export default function Header() {
   return (
     <header className="bg-white bg-opacity-15 backdrop-blur-lg fixed w-full z-10">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
-       
+        <Link to="/">
           <h1 className="font-bold text-sm  sm:text-xl flex flex-wrap ">
             <span className="text-white mr-1 ">TVA</span>
-            <span className="bg-gradient-to-l from-blue-900 to-red-500 bg-clip-text text-transparent">Group</span>
+            <span className="bg-gradient-to-l from-blue-900 to-red-500 bg-clip-text text-transparent">
+              Group
+            </span>
           </h1>
-       
+        </Link>
+
         <form className="bg-slate-100 p-2 rounded-2xl flex items-center">
           <input
             type="text"
@@ -28,13 +31,13 @@ export default function Header() {
               Explore
             </li>
           </Link>
-         
+
           <Link to="/gallery">
             <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
               Gallery
             </li>
           </Link>
-           <Link to="/about">
+          <Link to="/about">
             <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
               About
             </li>
@@ -46,10 +49,12 @@ export default function Header() {
               </li>
             ) : (
               <Link to="/sign-in">
-              <li className="text-slate-700 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">Sign in</li>
-            </Link>
+                <li className="text-slate-700 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">
+                  Sign in
+                </li>
+              </Link>
             )}
-          </Link>  
+          </Link>
         </ul>
       </div>
     </header>
@@ -66,4 +71,3 @@ export default function Header() {
         w-24 for small mobile screen 
         sm:w-64 for bigger screen'*/
 }
-

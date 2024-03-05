@@ -1,6 +1,6 @@
-import videoback from "./images/video.mp4"
-import backgroundImage from "./images/photo-1592595896551-12b371d546d5.avif";
 
+//import backgroundImage from "./images/photo-1592595896551-12b371d546d5.avif";
+import backgroundImage from "./images/a.jpg";
 
 export default function About() {
   return (

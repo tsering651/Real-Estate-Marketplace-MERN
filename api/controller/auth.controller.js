@@ -8,6 +8,8 @@ export const signup = async (req, res, next) => {
   const hashPassword = bcrypt.hashSync(password, 10);
   const newUser = new User({ username, email, password: hashPassword });
   try {
+    const validUser = await User.findOne({ email });
+    if (validUser) return next(errorHandler(403, "User already exist"));
     await newUser.save();
     res.status(201).json("User Created Successfully");
   } catch (error) {
@@ -35,6 +37,7 @@ export const signin = async (req, res, next) => {
     next(error);
   }
 };
+
 export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });

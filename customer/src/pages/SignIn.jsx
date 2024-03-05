@@ -63,7 +63,6 @@ export default function SignIn() {
           Sign In
         </h2>
         <form>
-          <div className="mb-4 "></div>
           <div className="mb-4">
             <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
               <AiOutlineMail className="text-white mr-2" />
@@ -105,7 +104,7 @@ export default function SignIn() {
           </Link>
         </div>
         {error && (
-          <p className="text-red-500 font-semibold mt-3">{error}</p>
+          <p className="text-red-500 mt-3">{error}</p>
         )}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import backgroundImage from "./images/a.jpg";
+import backgroundImage from "./images/photo-1592595896551-12b371d546d5.avif";
 import { useSelector } from "react-redux";
 import { useRef, useState, useEffect } from "react";
 import {
@@ -20,7 +20,7 @@ export default function Profile() {
   const fileRef = useRef(null);
 
   useEffect(() => {
-    if (file) {
+    if(file) {
       handleFileUpload(file);
     }
   }, [file]);
@@ -55,9 +55,9 @@ export default function Profile() {
         backgroundImage: `url(${backgroundImage})`,
       }}
     >
-      <div className="max-w-lg max-h-lg mx-auto p-4 mt-14 backdrop-blur-md rounded-3xl shadow-2xl border">
+      <div className="max-w-lg max-h-lg mx-auto p-8 mt-14 backdrop-blur-md rounded-3xl shadow-2xl border">
         <h2 className="text-3xl font-semibold text-center my-3 text-white">
-          Settings
+          Profile
         </h2>
         <form>
           <input
@@ -72,12 +72,11 @@ export default function Profile() {
               onClick={() => fileRef.current.click()}
               src={formData.avatar || currentUser.avatar}
               alt="profilepic"
-              className="rounded-full h-16 w-16 cursor-pointer"
+              className="rounded-full h-16 w-16 cursor-pointer mb-5"
             />
             <div className="absolute bottom-0">
               <div
-                className="text-black flex cursor-pointer font-thin"
-                style={{ marginBottom: "2px" }}
+                className="text-black flex cursor-pointer"
               >
                 <span
                   className="text-xs"
@@ -103,7 +102,7 @@ export default function Profile() {
               ""
             )}
           </p>
-          <div>
+          <div className="mb-4">
             <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
               <AiOutlineMail className="text-white mr-2" />
               <input
@@ -114,7 +113,7 @@ export default function Profile() {
               />
             </div>
           </div>
-          <div>
+          <div className="mb-4">
             <div className="flex items-center  rounded-lg p-2 w-full hover:scale-110 transform transition duration-500">
               <AiOutlineUser className="text-white mr-2 border rounded-xl" />
               <input
@@ -125,7 +124,7 @@ export default function Profile() {
               />
             </div>
           </div>
-          <div className="mb-1">
+          <div className="mb-4">
             <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
               <AiOutlineLock className="text-white mr-2 text border rounded-xl" />
               <input
@@ -137,7 +136,7 @@ export default function Profile() {
             </div>
           </div>
 
-          <div className="flex justify-between gap-4">
+          <div className="flex justify-between gap-4 mb-4">
             <Link
               to="/"
               className="bg-blue-500 text-white p-2 w-full text-center rounded-2xl  hover:bg-blue-500"
