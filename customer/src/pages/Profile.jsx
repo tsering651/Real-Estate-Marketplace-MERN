@@ -8,7 +8,7 @@ import {
 } from "firebase/storage";
 import { app } from "../firebase";
 import backgroundImage from "./images/a.jpg";
-import { Link } from "react-router-dom";
+
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { deleteUserFailure,deleteUserStart, deleteUserSuccess, updateUserFailure,updateUserStart,updateUserSuccess ,signOutUserStart, signOutUserFailure,signOutUserSuccess} from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
@@ -46,7 +46,7 @@ export default function Profile() {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setFilePerc(Math.round(progress));
       },
-      (error) => {
+      () => {
         setFileUploadError(true);
       },
       () => {
