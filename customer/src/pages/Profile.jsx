@@ -12,6 +12,7 @@ import backgroundImage from "./images/a.jpg";
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { deleteUserFailure,deleteUserStart, deleteUserSuccess, updateUserFailure,updateUserStart,updateUserSuccess ,signOutUserStart, signOutUserFailure,signOutUserSuccess} from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
+import {Link} from 'react-router-dom'
 export default function Profile() {
   const { currentUser,loading,error } = useSelector((state) => state.user);
   const [file, setFile] = useState(undefined);
@@ -118,129 +119,229 @@ export default function Profile() {
   };
 
   return (
-    <div
+//     <div
+//       className="bg-cover min-h-screen flex items-center  "
+//       style={{
+//         backgroundImage: `url(${backgroundImage})`,
+//       }}
+//     >
+//       <div className="max-w-lg max-h-lg mx-auto p-8 mt-14 backdrop-blur-md rounded-3xl shadow-2xl border">
+//         <h2 className="text-3xl font-semibold text-center my-3 text-white">
+//           Profile
+//         </h2>
+//         <form onSubmit={handleSubmit}>
+//           <input
+//             onChange={(e) => setFile(e.target.files[0])}
+//             type="file"
+//             ref={fileRef}
+//             hidden
+//             accept="image/*"
+//           />
+//           <div className="flex items-center justify-center relative overflow-hidden">
+//             <img
+//               onClick={() => fileRef.current.click()}
+//               src={formData.avatar || currentUser.avatar}
+//               alt="profilepic"
+//               className="rounded-full h-16 w-16 cursor-pointer mb-5"
+//             />
+//             <div className="absolute bottom-0">
+//               <div
+//                 className="text-black flex cursor-pointer"
+//               >
+//                 <span
+//                   className="text-xs"
+//                   onClick={() => fileRef.current.click()}
+//                 >
+//                   edit
+//                 </span>
+//               </div>
+//             </div>
+//           </div>
+//           <p className="text-sm self-center">
+//             {fileUploadError ? (
+//               <span className="text-red-500">
+//                 Error Image upload (image must be less than 2 mb)
+//               </span>
+//             ) : filePerc > 0 && filePerc < 100 ? (
+//               <span className="text-slate-700">{`Uploading ${filePerc}%`}</span>
+//             ) : filePerc === 100 ? (
+//               <span className="text-green-600">
+//                 Image successfully uploaded!
+//               </span>
+//             ) : (
+//               ""
+//             )}
+//           </p>
+//           <div className="mb-4">
+//             <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
+//               <AiOutlineMail className="text-white mr-2" />
+//               <input
+//                 type="email"
+//                 placeholder="E-mail"
+//                 defaultValue={currentUser.email}
+//                 className="border p-2 bg-slate-100 rounded-3xl w-full"
+//                 id="email"
+//                 onChange={handleChange}
+//               />
+//             </div>
+//           </div>
+//           <div className="mb-4">
+//             <div className="flex items-center  rounded-lg p-2 w-full hover:scale-110 transform transition duration-500">
+//               <AiOutlineUser className="text-white mr-2 border rounded-xl" />
+//               <input
+//                 type="text"
+//                 placeholder="Username"
+//                 defaultValue={currentUser.username}
+//                 className="border p-2 bg-slate-100 rounded-3xl w-full"
+//                 id="username"
+//                 onChange={handleChange}
+//               />
+//             </div>
+//           </div>
+//           <div className="mb-4">
+//             <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
+//               <AiOutlineLock className="text-white mr-2 text border rounded-xl" />
+//               <input
+//                 type="password"
+//                 placeholder="Password"
+//                 className="border p-2 bg-slate-100 rounded-3xl w-full"
+//                 id="password"
+//                 onChange={handleChange}
+//               />
+//             </div>
+//           </div>
+
+//           <div className="flex justify-center mt-5">
+           
+           
+//           <button disabled={loading} className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80">
+//           {loading ? 'Loading...':'Update'}
+//        </button>
+      
+          
+//        {/* <button onClick={handleSignOut}  className="bg-red-500 text-white p-2 w-full rounded-2xl text-center hover:bg-red-400">Sign Out</button>
+//         */}
+           
+          
+//             {/* is link ko change karna h  */}
+//           </div>
+//           <Link  className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95" to={"/create-listing"}>
+//         Create Listing
+//        </Link>
+//         </form>
+       
+//         <div className='flex justify-between mt-5'>
+//   <span
+//     onClick={handleDeleteUser}
+//     className='bg-red-500 text-white px-4 py-2 rounded-md text-sm hover:bg-red-400 cursor-pointer transition duration-300'
+//   >
+//     Delete account
+//   </span>
+//   <span onClick={handleSignOut} className='bg-red-500 text-white px-4 py-2 rounded-md text-sm hover:bg-red-400 cursor-pointer transition duration-300'>
+//     Sign out
+//   </span>
+// </div>
+
+//         <p className="text-red-700 mt-5">{error? error:''}</p>
+//         <p className="text-green-700 mt-5">{updateSuccess?'User is updated SuccessFully!':''}</p>
+//       </div>
+    
+//     </div>
+
+<>
+<div
       className="bg-cover min-h-screen flex items-center  "
       style={{
         backgroundImage: `url(${backgroundImage})`,
       }}
     >
-      <div className="max-w-lg max-h-lg mx-auto p-8 mt-14 backdrop-blur-md rounded-3xl shadow-2xl border">
-        <h2 className="text-3xl font-semibold text-center my-3 text-white">
-          Profile
-        </h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            onChange={(e) => setFile(e.target.files[0])}
-            type="file"
-            ref={fileRef}
-            hidden
-            accept="image/*"
+     
+  <div className="bg-cover min-h-screen flex items-center">
+    <div className="max-w-lg max-h-lg mx-auto p-8 mt-14 backdrop-blur-md rounded-3xl shadow-2xl border">
+      <h2 className="text-3xl font-semibold text-center my-3 text-white">Profile</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="flex items-center justify-center relative overflow-hidden">
+          <img
+            onClick={() => fileRef.current.click()}
+            src={formData.avatar || currentUser.avatar}
+            alt="profilepic"
+            className="rounded-full h-16 w-16 cursor-pointer mb-5"
           />
-          <div className="flex items-center justify-center relative overflow-hidden">
-            <img
-              onClick={() => fileRef.current.click()}
-              src={formData.avatar || currentUser.avatar}
-              alt="profilepic"
-              className="rounded-full h-16 w-16 cursor-pointer mb-5"
-            />
-            <div className="absolute bottom-0">
-              <div
-                className="text-black flex cursor-pointer"
-              >
-                <span
-                  className="text-xs"
-                  onClick={() => fileRef.current.click()}
-                >
-                  edit
-                </span>
-              </div>
+          <div className="absolute bottom-0">
+            <div className="text-black flex cursor-pointer">
+              <span className="text-xs" onClick={() => fileRef.current.click()}>edit</span>
             </div>
           </div>
-          <p className="text-sm self-center">
-            {fileUploadError ? (
-              <span className="text-red-500">
-                Error Image upload (image must be less than 2 mb)
-              </span>
-            ) : filePerc > 0 && filePerc < 100 ? (
-              <span className="text-slate-700">{`Uploading ${filePerc}%`}</span>
-            ) : filePerc === 100 ? (
-              <span className="text-green-600">
-                Image successfully uploaded!
-              </span>
-            ) : (
-              ""
-            )}
-          </p>
-          <div className="mb-4">
-            <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
-              <AiOutlineMail className="text-white mr-2" />
-              <input
-                type="email"
-                placeholder="E-mail"
-                defaultValue={currentUser.email}
-                className="border p-2 bg-slate-100 rounded-3xl w-full"
-                id="email"
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="mb-4">
-            <div className="flex items-center  rounded-lg p-2 w-full hover:scale-110 transform transition duration-500">
-              <AiOutlineUser className="text-white mr-2 border rounded-xl" />
-              <input
-                type="text"
-                placeholder="Username"
-                defaultValue={currentUser.username}
-                className="border p-2 bg-slate-100 rounded-3xl w-full"
-                id="username"
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-          <div className="mb-4">
-            <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
-              <AiOutlineLock className="text-white mr-2 text border rounded-xl" />
-              <input
-                type="password"
-                placeholder="Password"
-                className="border p-2 bg-slate-100 rounded-3xl w-full"
-                id="password"
-                onChange={handleChange}
-              />
-            </div>
-          </div>
+        </div>
+        <p className="text-sm text-center">
+          {fileUploadError ? (
+            <span className="text-red-500">Error: Image upload failed (image must be less than 2 MB)</span>
+          ) : filePerc > 0 && filePerc < 100 ? (
+            <span className="text-slate-700">{`Uploading ${filePerc}%`}</span>
+          ) : filePerc === 100 ? (
+            <span className="text-green-600">Image successfully uploaded!</span>
+          ) : ("")}
+        </p>
+        <div className="flex items-center rounded-lg p-2 bg-slate-100 hover:scale-110 transform transition duration-500">
+          <AiOutlineMail className="text-white mr-2" />
+          <input
+            type="email"
+            placeholder="E-mail"
+            defaultValue={currentUser.email}
+            className="border p-2 bg-slate-100 rounded-3xl w-full"
+            id="email"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex items-center rounded-lg p-2 bg-slate-100 hover:scale-110 transform transition duration-500">
+          <AiOutlineUser className="text-white mr-2 border rounded-xl" />
+          <input
+            type="text"
+            placeholder="Username"
+            defaultValue={currentUser.username}
+            className="border p-2 bg-slate-100 rounded-3xl w-full"
+            id="username"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex items-center rounded-lg p-2 bg-slate-100 hover:scale-110 transform transition duration-500">
+          <AiOutlineLock className="text-white mr-2 text border rounded-xl" />
+          <input
+            type="password"
+            placeholder="Password"
+            className="border p-2 bg-slate-100 rounded-3xl w-full"
+            id="password"
+            onChange={handleChange}
+          />
+        </div>
 
-          <div className="flex justify-center mt-5">
-           
-           
+        <div className="flex justify-center">
           <button disabled={loading} className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80">
-          {loading ? 'Loading...':'Update'}
-       </button>
-          
-       {/* <button onClick={handleSignOut}  className="bg-red-500 text-white p-2 w-full rounded-2xl text-center hover:bg-red-400">Sign Out</button>
-        */}
-           
-          
-            {/* is link ko change karna h  */}
-          </div>
-        </form>
-       
-        <div className='flex justify-between mt-5'>
-  <span
-    onClick={handleDeleteUser}
-    className='bg-red-500 text-white px-4 py-2 rounded-md text-sm hover:bg-red-400 cursor-pointer transition duration-300'
-  >
-    Delete account
-  </span>
-  <span onClick={handleSignOut} className='bg-red-500 text-white px-4 py-2 rounded-md text-sm hover:bg-red-400 cursor-pointer transition duration-300'>
-    Sign out
-  </span>
-</div>
+            {loading ? 'Loading...' : 'Update'}
+          </button>
+        </div>
 
-        <p className="text-red-700 mt-5">{error? error:''}</p>
-        <p className="text-green-700 mt-5">{updateSuccess?'User is updated SuccessFully!':''}</p>
-      </div>
-    
+        <Link className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95 block text-center" to={"/create-listing"}>
+          Create Listing
+        </Link>
+
+        <div className='flex justify-between mt-5'>
+          <span onClick={handleDeleteUser} className='bg-red-500 text-white px-4 py-2 rounded-md text-sm hover:bg-red-400 cursor-pointer transition duration-300'>
+            Delete account
+          </span>
+          <span onClick={handleSignOut} className='bg-red-500 text-white px-4 py-2 rounded-md text-sm hover:bg-red-400 cursor-pointer transition duration-300'>
+            Sign out
+          </span>
+        </div>
+
+        <p className="text-red-700 mt-5">{error ? error : ''}</p>
+        <p className="text-green-700 mt-5">{updateSuccess ? 'User updated successfully!' : ''}</p>
+      </form>
     </div>
-  );
+  </div>
+  </div>
+  </>
+   
+);
+  
 }
