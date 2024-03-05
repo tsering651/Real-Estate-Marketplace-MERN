@@ -7,7 +7,10 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "../firebase";
-import { deleteUserFailure,deleteUserStart, deleteUserSuccess, updateUserFailure,updateUserStart,updateUserSuccess } from "../redux/user/userSlice";
+import backgroundImage from "./images/a.jpg";
+import { Link } from "react-router-dom";
+import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
+import { deleteUserFailure,deleteUserStart, deleteUserSuccess, updateUserFailure,updateUserStart,updateUserSuccess ,signOutUserStart, signOutUserFailure,signOutUserSuccess} from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 export default function Profile() {
   const { currentUser,loading,error } = useSelector((state) => state.user);
@@ -99,71 +102,145 @@ export default function Profile() {
                dispatch(deleteUserFailure(error.message))
             }
   }
-  return (
-    <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl font-semibold text-center my-7">Profile page</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input
-          onChange={(e) => setFile(e.target.files[0])}
-          type="file"
-          ref={fileRef}
-          hidden
-          accept="image/*"
-        />
-        <img
-          onClick={() => fileRef.current.click()}
-          src={formData.avatar || currentUser.avatar}
-          alt="profilepic"
-          className="rounded-full h-24 w-24 object-cover cursor-pointer
-           self-center mt-2"
-        />
-        <p className="text-sm self-center">
-          {fileUploadError ? (
-            <span className="text-red-700">
-              Error Image upload (image must be less than 2 mb)
-            </span>
-          ) : filePerc > 0 && filePerc < 100 ? (
-            <span className="text-slate-700">{`Uploading ${filePerc}%`}</span>
-          ) : filePerc === 100 ? (
-            <span className="text-green-700">Image successfully uploaded!</span>
-          ) : (
-            ""
-          )}
-        </p>
-        <input
-          type="text"
-          placeholder="username"
-          defaultValue={currentUser.username}
-          id="username"
-          className="border p-3 rounded-lg"
-          onChange={handleChange}
-        />
+  const handleSignOut = async () => {
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch('/api/auth/signout');
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
 
-        <input
-          type="email"
-          placeholder="email"
-          defaultValue={currentUser.email}
-          id="email"
-          className="border p-3 rounded-lg"
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          id="password"
-          className="border p-3 rounded-lg"
-          onChange={handleChange}
-        />
-        <button disabled={loading} className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80">
+  return (
+    <div
+      className="bg-cover min-h-screen flex items-center  "
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+      }}
+    >
+      <div className="max-w-lg max-h-lg mx-auto p-8 mt-14 backdrop-blur-md rounded-3xl shadow-2xl border">
+        <h2 className="text-3xl font-semibold text-center my-3 text-white">
+          Profile
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            onChange={(e) => setFile(e.target.files[0])}
+            type="file"
+            ref={fileRef}
+            hidden
+            accept="image/*"
+          />
+          <div className="flex items-center justify-center relative overflow-hidden">
+            <img
+              onClick={() => fileRef.current.click()}
+              src={formData.avatar || currentUser.avatar}
+              alt="profilepic"
+              className="rounded-full h-16 w-16 cursor-pointer mb-5"
+            />
+            <div className="absolute bottom-0">
+              <div
+                className="text-black flex cursor-pointer"
+              >
+                <span
+                  className="text-xs"
+                  onClick={() => fileRef.current.click()}
+                >
+                  edit
+                </span>
+              </div>
+            </div>
+          </div>
+          <p className="text-sm self-center">
+            {fileUploadError ? (
+              <span className="text-red-500">
+                Error Image upload (image must be less than 2 mb)
+              </span>
+            ) : filePerc > 0 && filePerc < 100 ? (
+              <span className="text-slate-700">{`Uploading ${filePerc}%`}</span>
+            ) : filePerc === 100 ? (
+              <span className="text-green-600">
+                Image successfully uploaded!
+              </span>
+            ) : (
+              ""
+            )}
+          </p>
+          <div className="mb-4">
+            <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
+              <AiOutlineMail className="text-white mr-2" />
+              <input
+                type="email"
+                placeholder="E-mail"
+                defaultValue={currentUser.email}
+                className="border p-2 bg-slate-100 rounded-3xl w-full"
+                id="email"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className="mb-4">
+            <div className="flex items-center  rounded-lg p-2 w-full hover:scale-110 transform transition duration-500">
+              <AiOutlineUser className="text-white mr-2 border rounded-xl" />
+              <input
+                type="text"
+                placeholder="Username"
+                defaultValue={currentUser.username}
+                className="border p-2 bg-slate-100 rounded-3xl w-full"
+                id="username"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className="mb-4">
+            <div className="flex items-center  rounded-lg p-2  hover:scale-110 transform transition duration-500">
+              <AiOutlineLock className="text-white mr-2 text border rounded-xl" />
+              <input
+                type="password"
+                placeholder="Password"
+                className="border p-2 bg-slate-100 rounded-3xl w-full"
+                id="password"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="flex justify-center mt-5">
+           
+           
+          <button disabled={loading} className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80">
           {loading ? 'Loading...':'Update'}
-        </button>
-      </form>
-      <div className="flex justify-between mt-5">
-        <span onClick={handleDeleteUser} className="text-red-700 cursor-pointer">Delete account</span>
-        <span className="text-red-700 cursor-pointer">Sign out</span>
+       </button>
+          
+       {/* <button onClick={handleSignOut}  className="bg-red-500 text-white p-2 w-full rounded-2xl text-center hover:bg-red-400">Sign Out</button>
+        */}
+           
+          
+            {/* is link ko change karna h  */}
+          </div>
+        </form>
+       
+        <div className='flex justify-between mt-5'>
+  <span
+    onClick={handleDeleteUser}
+    className='bg-red-500 text-white px-4 py-2 rounded-md text-sm hover:bg-red-400 cursor-pointer transition duration-300'
+  >
+    Delete account
+  </span>
+  <span onClick={handleSignOut} className='bg-red-500 text-white px-4 py-2 rounded-md text-sm hover:bg-red-400 cursor-pointer transition duration-300'>
+    Sign out
+  </span>
+</div>
+
+        <p className="text-red-700 mt-5">{error? error:''}</p>
+        <p className="text-green-700 mt-5">{updateSuccess?'User is updated SuccessFully!':''}</p>
       </div>
-      <p className="text-red-700 mt-5">{error? error:''}</p>
-      <p className="text-green-700 mt-5">{updateSuccess?'User is updated SuccessFully!':''}</p>
+    
     </div>
   );
 }

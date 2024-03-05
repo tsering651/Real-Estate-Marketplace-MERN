@@ -1,8 +1,8 @@
-import React from "react";
+
 import {
   GoogleAuthProvider,
   getAuth,
-  signInWithPopup,
+  signInWithPopup,   
   signInWithRedirect,
 } from "firebase/auth";
 import { app } from "../firebase";
