@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import backgroundImage from "./images/x.jpg";
+import backgroundImage from "./images/SIGNIN.jpg";
 import OAuth from "../components/OAuth";
 import { useDispatch, useSelector } from "react-redux";
 import {

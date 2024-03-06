@@ -1,5 +1,5 @@
-import backgroundImage from "./images/photo-1592595896551-12b371d546d5.avif";
-import { useSelector } from "react-redux";
+import backgroundImage from "./images/profile.jpg";
+import { useDispatch, useSelector } from "react-redux";
 import { useRef, useState, useEffect } from "react";
 import {
   getStorage,
@@ -7,6 +7,15 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
+import {
+  //updateUserStart,
+  //updateUserSuccess,
+  //updateUserFailure,
+  deleteUserFailure,
+  //deleteUserStart,
+  deleteUserSuccess,
+  signOutUserStart,
+} from '../redux/user/userSlice';
 import { app } from "../firebase";
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -18,6 +27,7 @@ export default function Profile() {
   const [fileUploadError, setFileUploadError] = useState(false);
   const [formData, setFormData] = useState({});
   const fileRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if(file) {
@@ -48,6 +58,21 @@ export default function Profile() {
     );
   };
 
+  const handleSignOut = async () => {
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch('/api/auth/signout');
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(data.message));
+    }
+  };
+
   return (
     <div
       className="bg-cover min-h-screen flex items-center  "
@@ -76,7 +101,7 @@ export default function Profile() {
             />
             <div className="absolute bottom-0">
               <div
-                className="text-black flex cursor-pointer"
+                className="text-white flex cursor-pointer"
               >
                 <span
                   className="text-xs"
@@ -107,7 +132,7 @@ export default function Profile() {
               <AiOutlineMail className="text-white mr-2" />
               <input
                 type="email"
-                placeholder="E-mail"
+                placeholder="Update E-mail"
                 className="border p-2 bg-slate-100 rounded-3xl w-full"
                 id="email"
               />
@@ -118,7 +143,7 @@ export default function Profile() {
               <AiOutlineUser className="text-white mr-2 border rounded-xl" />
               <input
                 type="text"
-                placeholder="Username"
+                placeholder="New Username"
                 className="border p-2 bg-slate-100 rounded-3xl w-full"
                 id="username"
               />
@@ -129,34 +154,40 @@ export default function Profile() {
               <AiOutlineLock className="text-white mr-2 text border rounded-xl" />
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="New password"
                 className="border p-2 bg-slate-100 rounded-3xl w-full"
                 id="password"
               />
             </div>
           </div>
-
-          <div className="flex justify-between gap-4 mb-4">
+          {/* <div className="flex justify-between gap-4 mb-4">
+            <Link>
+            <button  className="bg-red-700 text-white p-2  text-center rounded-2xl  hover:opacity-75">Delete account</button>
+            </Link> 
+          </div> */}
+           <div className="flex justify-between gap-4 mb-4">
             <Link
-              to="/"
-              className="bg-blue-500 text-white p-2 w-full text-center rounded-2xl  hover:bg-blue-500"
+              to="/sign-up"
+              className="bg-blue-500 text-white p-2 w-full text-center rounded-xl  hover:opacity-75"
             >
               <button>Update</button>
             </Link>
 
             <Link
-              to="/gallery"
-              className="bg-red-500 text-white p-2 w-full rounded-2xl text-center hover:bg-red-400"
+              to="/sign-in"
+              className="bg-red-500 text-white p-2 w-full rounded-xl text-center hover:opacity-75"
             >
-              <button className="">Sign Out</button>
+              <button onClick={handleSignOut} >Sign Out</button>
             </Link>
-            {/* is link ko change karna h  */}
           </div>
         </form>
-        <div className="text-white flex mt-2 gap-2">
+        <Link>
+            <button  className="bg-red-600 text-white p-2 w-full text-center rounded-lg  hover:opacity-75">Delete account</button>
+            </Link> 
+        {/* <div className="text-white flex mt-2 gap-2">
           <p>Delete account ?</p>
           <span className="text-red-600 cursor-pointer">Delete</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );

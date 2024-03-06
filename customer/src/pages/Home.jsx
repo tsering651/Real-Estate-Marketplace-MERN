@@ -1,5 +1,5 @@
-import videoback from "./images/video.mp4"
-import backgroundImage from "./images/Property-.jpg";
+//import videoback from "./images/video.mp4"
+import backgroundImage from "./images/home.jpg";
 
 
 export default function Home() {

@@ -1,4 +1,4 @@
-import backgroundImage from "./images/photo-1580587771525-78b9dba3b914.avif";
+import backgroundImage from "./images/gallary.jpg";
 
 
 export default function Gallery() {

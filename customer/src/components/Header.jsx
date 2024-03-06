@@ -11,7 +11,7 @@ export default function Header() {
         <Link to="/">
           <h1 className="font-bold text-sm  sm:text-xl flex flex-wrap ">
             <span className="text-white mr-1 ">TVA</span>
-            <span className="bg-gradient-to-l from-blue-900 to-red-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-l from-blue-600 to-red-500 bg-clip-text text-transparent">
               Group
             </span>
           </h1>
@@ -44,12 +44,12 @@ export default function Header() {
           </Link>
           <Link to="/profile">
             {currentUser ? (
-              <li className="text-slate-700 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">
+              <li className="text-gray-300 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ">
                 {currentUser.username}
               </li>
             ) : (
               <Link to="/sign-in">
-                <li className="text-slate-700 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">
+                <li className="text-gray-400 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ">
                   Sign in
                 </li>
               </Link>
@@ -71,3 +71,4 @@ export default function Header() {
         w-24 for small mobile screen 
         sm:w-64 for bigger screen'*/
 }
+
