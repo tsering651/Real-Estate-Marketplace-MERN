@@ -119,7 +119,7 @@ export default function SignUp() {
         <div className="text-white flex gap-2 mt-5">
           <p>Do you have an account?</p>
           <Link to="/sign-in">
-            <span className="text-blue-700">Sign In</span>
+            <span className="text-blue-600">Sign In</span>
           </Link>
         </div>
         {error && (

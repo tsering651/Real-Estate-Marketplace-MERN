@@ -160,11 +160,6 @@ export default function Profile() {
               />
             </div>
           </div>
-          {/* <div className="flex justify-between gap-4 mb-4">
-            <Link>
-            <button  className="bg-red-700 text-white p-2  text-center rounded-2xl  hover:opacity-75">Delete account</button>
-            </Link> 
-          </div> */}
            <div className="flex justify-between gap-4 mb-4">
             <Link
               to="/sign-up"

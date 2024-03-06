@@ -1,10 +1,11 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
+  const location = useLocation();
   return (
     <header className="bg-white bg-opacity-15 backdrop-blur-lg fixed w-full z-10">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
@@ -27,29 +28,29 @@ export default function Header() {
         </form>
         <ul className="flex gap-4">
           <Link to="/">
-            <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/' ? 'underline' : ''}`}>
               Explore
             </li>
           </Link>
 
           <Link to="/gallery">
-            <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/gallery' ? 'underline' : ''}`}>
               Gallery
             </li>
           </Link>
           <Link to="/about">
-            <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/about' ? 'underline' : ''}`}>
               About
             </li>
           </Link>
           <Link to="/profile">
             {currentUser ? (
-              <li className="text-gray-300 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ">
+              <li className={`text-slate-300 bg-slate-700 border-x-[1px] p-1 rounded-lg font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ${location.pathname === '/profile' ? 'underline' : ''}`}>
                 {currentUser.username}
               </li>
             ) : (
               <Link to="/sign-in">
-                <li className="text-gray-400 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ">
+                <li className="text-slate-300 bg-slate-600 border-x-[1px] p-1 rounded-lg font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">
                   Sign in
                 </li>
               </Link>
