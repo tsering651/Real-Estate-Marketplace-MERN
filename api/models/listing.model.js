@@ -36,23 +36,23 @@ const listingSchema = new mongoose.Schema(
     },
     parking: {
       type: Boolean,
-      required: true,
+    //  required: true,
     },
     type: {
       type: String,
-      required: true,
+     // required: true,
     },
     offer: {
       type: Boolean,
-      required: true,
+   //   required: true,
     },
     imageUrls: {
       type: Array,
-      required: true,
+    //  required: true,
     },
     userRef: {
       type: String,
-      required: true,
+   //   required: true,
     },
   },
   { timestamps: true }

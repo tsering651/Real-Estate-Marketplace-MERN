@@ -1,9 +1,13 @@
+
 //import videoback from "./images/video.mp4"
 import backgroundImage from "./images/home.jpg";
 
 
+
 export default function Home() {
   return (
+    
+  
     <div
       className="bg-cover bg-bottom min-h-screen flex items-center justify-center "
       style={{
@@ -11,6 +15,7 @@ export default function Home() {
       }}
     > 
      
+
      {/* <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
@@ -19,6 +24,9 @@ export default function Home() {
       >
      <source src={videoback} type="video/mp4" />
       </video> */}
+
     </div>
+    
+   
   );
 }

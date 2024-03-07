@@ -1,14 +1,14 @@
-import React from "react";
+
 import {
   GoogleAuthProvider,
   getAuth,
-  signInWithPopup,
+  signInWithPopup,   
+  signInWithRedirect,
 } from "firebase/auth";
 import { app } from "../firebase";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signInSuccess } from "../redux/user/userSlice";
-
 
 export default function OAuth() {
   const dispatch = useDispatch();
@@ -60,3 +60,6 @@ export default function OAuth() {
     </button>
   );
 }
+
+
+
