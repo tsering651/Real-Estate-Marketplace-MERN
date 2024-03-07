@@ -13,7 +13,7 @@ import { app } from "../firebase";
 
 
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
-import { deleteUserFailure,deleteUserStart, deleteUserSuccess, updateUserFailure,updateUserStart,updateUserSuccess ,signOutUserStart, signOutUserFailure,signOutUserSuccess} from "../redux/user/userSlice";
+import { deleteUserFailure,deleteUserStart, deleteUserSuccess, updateUserFailure,updateUserStart,updateUserSuccess ,signOutUserStart } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import {Link} from 'react-router-dom'
 export default function Profile() {
@@ -141,7 +141,7 @@ export default function Profile() {
 
       <div className="max-w-lg max-h-lg mx-auto p-8 mt-14 backdrop-blur-md rounded-3xl shadow-2xl border">
         <h2 className="text-3xl font-semibold text-center my-3 text-white">
-          Profile
+          Settings
         </h2>
         <form onSubmit = {handleSubmit}>
            <input

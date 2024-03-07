@@ -8,6 +8,7 @@ import {
 import { app } from '../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import backgroundImage from "./images/listing.jpg";
 
 export default function CreateListing() {
   const { currentUser } = useSelector((state) => state.user);
@@ -155,8 +156,14 @@ export default function CreateListing() {
     }
   };
   return (
+    <div
+    className="bg-cover bg-center min-h-screen flex items-center justify-center "
+    style={{
+      backgroundImage: `url(${backgroundImage})`,
+    }}
+  > 
     <main className='p-9 max-w-4xl mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7'>
+      <h1 className='text-3xl font-semibold text-center text-white my-7'>
         Create a Listing
       </h1>
       <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4'>
@@ -368,5 +375,6 @@ export default function CreateListing() {
         </div>
       </form>
     </main>
+    </div>
   );
 }
