@@ -6,8 +6,13 @@ import {
   signInWithRedirect,
 } from "firebase/auth";
 import { app } from "../firebase";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { signInSuccess } from "../redux/user/userSlice";
 
 export default function OAuth() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleGoogleClick = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -26,7 +31,8 @@ export default function OAuth() {
         }),
       });
       const data = await res.json();
-      window.location.href = "/";
+      dispatch(signInSuccess(data));
+      navigate("/")
     } catch (error) {
       console.log("Failed to Sign In with Google", error);
     }
