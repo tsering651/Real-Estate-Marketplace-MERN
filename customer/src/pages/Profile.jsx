@@ -1,7 +1,6 @@
 
 import { useSelector } from "react-redux";
 import backgroundImage from "./images/profile.jpg";
-import { useDispatch } from "react-redux";
 import { useRef, useState, useEffect } from "react";
 import {
   getStorage,
@@ -145,13 +144,13 @@ export default function Profile() {
           Profile
         </h2>
         <form onSubmit = {handleSubmit}>
-//           <input
-//             onChange={(e) => setFile(e.target.files[0])}
-//             type="file"
-//             ref={fileRef}
-//             hidden
-//             accept="image/*"
-//           />
+           <input
+             onChange={(e) => setFile(e.target.files[0])}
+             type="file"
+             ref={fileRef}
+             hidden
+             accept="image/*"
+           />
           <div className="flex items-center justify-center relative overflow-hidden">
             <img
               onClick={() => fileRef.current.click()}
@@ -174,8 +173,8 @@ export default function Profile() {
           </div>
           <p className="text-sm self-center">
             {fileUploadError ? (
-              <span className="text-red-500">
-                Error Image upload (Image should be less than 2 MB)
+              <span className="text-red-500 ml-4">
+                Image should be less than 2 MB
               </span>
             ) : filePerc > 0 && filePerc < 100 ? (
               <span className="text-slate-700">{`Uploading ${filePerc}%`}</span>
@@ -192,7 +191,6 @@ export default function Profile() {
               <AiOutlineMail className="text-white mr-2" />
               <input
                 type="email"
-                placeholder="Update E-mail"
                 defaultValue = {currentUser.email}
                 className="border p-2 bg-slate-100 rounded-3xl w-full"
                 id="email"
@@ -206,7 +204,6 @@ export default function Profile() {
               <input
                 type="text"
                 placeholder="New Username"
-                defaultValue = {currentUser.username}
                 className="border p-2 bg-slate-100 rounded-3xl w-full"
                 id="username"
                   onChange= {handleChange}
@@ -225,50 +222,22 @@ export default function Profile() {
               />
             </div>
           </div>
-          
-//            <div className="flex justify-between gap-4 mb-4">
-//             <Link
-//               to="/sign-up"
-//               className="bg-blue-500 text-white p-2 w-full text-center rounded-xl  hover:opacity-75"
-//             >
-//               <button>Update</button>
-//             </Link>
-
-//             <Link
-//               to="/sign-in"
-//               className="bg-red-500 text-white p-2 w-full rounded-xl text-center hover:opacity-75"
-//             >
-//               <button onClick={handleSignOut} >Sign Out</button>
-//             </Link>
-//           </div>
- <div className="flex justify-center">
-          <button disabled={loading} className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80">
+         <div className="flex justify-between gap-4 mb-4">
+          <button disabled={loading} className="bg-blue-500 text-white p-2 w-full text-center rounded-xl  hover:opacity-75">
             {loading ? 'Loading...' : 'Update'}
           </button>
-        </div>
-         <Link className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95 block text-center" to={"/create-listing"}>
-          Create Listing
-        </Link>
-
-        <div className='flex justify-between mt-5'>
-          <span onClick={handleDeleteUser} className='bg-red-500 text-white px-4 py-2 rounded-md text-sm hover:bg-red-400 cursor-pointer transition duration-300'>
-            Delete account
-          </span>
-          <span onClick={handleSignOut} className='bg-red-500 text-white px-4 py-2 rounded-md text-sm hover:bg-red-400 cursor-pointer transition duration-300'>
-            Sign out
-          </span>
-        </div>
-
-        <p className="text-red-700 mt-5">{error ? error : ''}</p>
-        <p className="text-green-700 mt-5">{updateSuccess ? 'User updated successfully!' : ''}</p>
+                       <Link
+              to="/sign-in"
+               className="bg-red-500 text-white p-2 w-full rounded-xl text-center hover:opacity-75"
+             >               <button onClick={handleSignOut} >Sign Out</button>
+             </Link>
+         </div>
+        <p className="text-red-500 mt-3">{error ? error : ''}</p>
+        <p className="text-green-500 mt-3">{updateSuccess ? 'User updated successfully!' : ''}</p>
         </form>
         <Link>
-            <button  className="bg-red-600 text-white p-2 w-full text-center rounded-lg  hover:opacity-75">Delete account</button>
+            <button onClick={handleDeleteUser}  className="bg-red-600 text-white p-2 w-full text-center rounded-lg  hover:opacity-75">Delete account</button>
             </Link> 
-        {/* <div className="text-white flex mt-2 gap-2">
-          <p>Delete account ?</p>
-          <span className="text-red-600 cursor-pointer">Delete</span>
-        </div> */}
       </div>
     </div>
   );

@@ -1,6 +1,3 @@
-
-import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
@@ -47,10 +44,13 @@ export default function Header() {
             </li>
           </Link>
           <Link to="/about">
-
             <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/about' ? 'underline' : ''}`}>
-
               About
+            </li>
+          </Link>
+          <Link to="/create-listing">
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/create-listing' ? 'underline' : ''}`}>
+              Listing
             </li>
           </Link>
           <Link to="/profile">
