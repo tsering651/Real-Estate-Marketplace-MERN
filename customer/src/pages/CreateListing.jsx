@@ -62,6 +62,7 @@ export default function CreateListing() {
     }
   };
 
+ 
   const storeImage = async (file) => {
     return new Promise((resolve, reject) => {
       const storage = getStorage(app);
@@ -319,7 +320,7 @@ export default function CreateListing() {
             </span>
           </p>
           <div className='flex gap-4'>
-            <input
+          <input
               onChange={(e) => setFiles(e.target.files)}
               className='p-3 border border-gray-300 rounded w-full'
               type='file'
@@ -327,7 +328,7 @@ export default function CreateListing() {
               accept='image/*'
               multiple
             />
-            <button
+             <button
               type='button'
               disabled={uploading}
               onClick={handleImageSubmit}

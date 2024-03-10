@@ -1,72 +1,19 @@
-// import { FaSearch } from "react-icons/fa";
-// import { Link } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// // import { useEffect, useState } from 'react';
-
-// export default function Header() {
-//   const { currentUser } = useSelector((state) => state.user);
-
-//   return (
-//     <header className="bg-slate-200 shadow-md">
-//       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
-//         <Link to="/">
-//           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-//             <span className="text-slate-500">TVA</span>
-//             <span className="text-slate-700">Estate</span>
-//           </h1>
-//         </Link>
-//         <form className="bg-slate-100 p-3 rounded-lg flex items-center">
-//           <input
-//             type="text"
-//             placeholder="Search..."
-//             className="bg-transparent focus:outline-none w-24 sm:w-64"
-//           />
-//           <button>
-//             <FaSearch className="text-slate-600" />
-//           </button>
-//         </form>
-//         <ul className="flex gap-4">
-//           <Link to="/">
-//             <li className="hidden sm:inline text-slate-700 hover:underline">
-//               Home
-//             </li>
-//           </Link>
-//           <Link to="/about">
-//             <li className="hidden sm:inline text-slate-700 hover:underline">
-//               About
-//             </li>
-//           </Link>
-//           <Link to="/profile">
-//             {currentUser ? (
-//               <img
-//                 className="rounded-full h-7 w-7 object-cover"
-//                 src={currentUser.avatar}
-//                 alt="profile"
-//               />
-//             ) : (
-//               <li className=" text-slate-700 hover:underline"> Sign in</li>
-//             )}
-//           </Link>
-//         </ul>
-//       </div>
-//     </header>
-//   );
-// }
-
-
+import React from "react";
 import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
+  const location = useLocation();
   return (
     <header className="bg-white bg-opacity-15 backdrop-blur-lg fixed w-full z-10">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
           <h1 className="font-bold text-sm  sm:text-xl flex flex-wrap ">
             <span className="text-white mr-1 ">TVA</span>
-            <span className="bg-gradient-to-l from-blue-900 to-red-500 bg-clip-text text-transparent">
+
+            <span className="bg-gradient-to-l from-blue-600 to-red-500 bg-clip-text text-transparent">
               Group
             </span>
           </h1>
@@ -82,29 +29,42 @@ export default function Header() {
         </form>
         <ul className="flex gap-4">
           <Link to="/">
-            <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
+
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/' ? 'underline' : ''}`}>
+
               Explore
             </li>
           </Link>
 
           <Link to="/gallery">
-            <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
+
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/gallery' ? 'underline' : ''}`}>
+
               Gallery
             </li>
           </Link>
           <Link to="/about">
-            <li className=" text-white font-semibold transition-transform hover:scale-125 duration-500">
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/about' ? 'underline' : ''}`}>
               About
+            </li>
+          </Link>
+          <Link to="/create-listing">
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/create-listing' ? 'underline' : ''}`}>
+              Listing
             </li>
           </Link>
           <Link to="/profile">
             {currentUser ? (
-              <li className="text-slate-700 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">
+
+              <li className={`text-slate-300 bg-slate-700 border-x-[1px] p-1 rounded-lg font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ${location.pathname === '/profile' ? 'underline' : ''}`}>
+
                 {currentUser.username}
               </li>
             ) : (
               <Link to="/sign-in">
-                <li className="text-slate-700 font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">
+
+                <li className="text-slate-300 bg-slate-600 border-x-[1px] p-1 rounded-lg font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">
+
                   Sign in
                 </li>
               </Link>
@@ -125,4 +85,7 @@ export default function Header() {
         rounded-3xl= border roundness of search
         w-24 for small mobile screen 
         sm:w-64 for bigger screen'*/
+
 }
+
+
