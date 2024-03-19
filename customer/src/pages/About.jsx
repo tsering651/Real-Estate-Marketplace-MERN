@@ -42,7 +42,7 @@ export default function About() {
         </p>
         <h1 className="text-2xl font-bold mb-2 p-2  text-white">TVA Management</h1>
         {/* Display photos with descriptions */}
-        <div className="flex justify-between ">e``
+        <div className="flex justify-between ">
           <PhotoWithDescription
             photoUrl={photo1}
             description="Tsering Wangchu"
@@ -70,7 +70,7 @@ export default function About() {
             download="Terms and Conditions.pdf"
             className="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
           >
-            Terms and Conditions
+            Terms & Conditions
           </a>
         </div>
       </div>
