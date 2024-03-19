@@ -24,7 +24,7 @@ export default function About() {
     >
       <div className="py-30 px-4 max-w-6xl max-h-6xl mx-auto">
         <h1 className="text-3xl font-bold mb-2 text-white">About TVA Group</h1>
-        <p className="mb-8 text-slate-200">
+        <p className="mb-6 text-slate-200">
           One of the top real estate companies, TVA Group, focuses on assisting
           customers in purchasing, renting out, and selling real estate in the
           most sought-after areas. Our seasoned team of agents is committed to
@@ -42,7 +42,7 @@ export default function About() {
         </p>
         <h1 className="text-2xl font-bold mb-2 p-2  text-white">TVA Management</h1>
         {/* Display photos with descriptions */}
-        <div className="flex justify-between ">
+        <div className="flex justify-between ">e``
           <PhotoWithDescription
             photoUrl={photo1}
             description="Tsering Wangchu"
