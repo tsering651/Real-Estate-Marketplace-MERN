@@ -61,6 +61,7 @@ export default function About() {
             contact="Contact : 9354040507"
             email="Email : vkvermavk96@gmail.com"
           />
+          
         </div>
         {/* Downloadable button for PDF file */}
         <div className="flex justify-center mt-10">

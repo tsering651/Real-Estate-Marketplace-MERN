@@ -52,9 +52,7 @@ export default function Header() {
           </Link>
           <Link to="/profile">
             {currentUser ? (
-
-              <li className={`text-slate-300 bg-slate-700 border-x-[1px] p-1 rounded-lg font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ${location.pathname === '/profile' ? 'border rounded-2xl' : ''}`}>
-
+              <li className={`text-slate-300 bg-slate-700 border-x-[1px] p-1 rounded-lg uppercase font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ${location.pathname === '/profile' ? 'border rounded-2xl' : ''}`}>
                 {currentUser.username}
               </li>
             ) : (
