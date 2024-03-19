@@ -1,7 +1,7 @@
 // import React, { useState } from "react";
 // import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 // import { Link, useNavigate } from "react-router-dom";
- import backgroundImage from "./images/SIGNIN.jpg";
+import backgroundImage from "./images/SIGNIN.jpg";
 // import OAuth from "../components/OAuth";
 // import { useDispatch, useSelector } from "react-redux";
 // import {
@@ -115,16 +115,20 @@ import { useState } from "react";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
-import {useDispatch, useSelector} from 'react-redux'
-import {signInStart,signInFailure,signInSuccess} from '../redux/user/userSlice'
+import { useDispatch, useSelector } from "react-redux";
+import {
+  signInStart,
+  signInFailure,
+  signInSuccess,
+} from "../redux/user/userSlice";
 
 export default function SignIn() {
   //const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({});
-  const {loading,error}=useSelector((state)=> state.user);
+  const { loading, error } = useSelector((state) => state.user);
   //const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setFormData({
@@ -135,13 +139,17 @@ export default function SignIn() {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-    if (!formData || Object.keys(formData).length === 0 || Object.keys(formData).length === 1 ) {
+    if (
+      !formData ||
+      Object.keys(formData).length === 0 ||
+      Object.keys(formData).length === 1
+    ) {
       alert("Please fill the details");
       return;
     }
     try {
-     // setLoading(true);
-     dispatch(signInStart());
+      // setLoading(true);
+      dispatch(signInStart());
       const res = await fetch("/api/auth/signin", {
         method: "POST",
         headers: {
@@ -164,7 +172,7 @@ export default function SignIn() {
     } catch (error) {
       // setLoading(false);
       // setError(error.message);
-      dispatch(signInFailure(error.message))
+      dispatch(signInFailure(error.message));
     }
   };
   return (
@@ -204,7 +212,8 @@ export default function SignIn() {
               />
             </div>
           </div>
-          <button onClick={handleSignIn}
+          <button
+            onClick={handleSignIn}
             className={`bg-orange-500 text-white p-2 rounded-2xl w-full hover:opacity-70${
               loading ? "" : ""
             }`}
@@ -220,7 +229,7 @@ export default function SignIn() {
             <span className="text-blue-700">Sign Up</span>
           </Link>
         </div>
-        {error && <p className='text-red-500 font-semibold mt-3'>{error}</p>}
+        {error && <p className="text-red-500 font-semibold mt-3">{error}</p>}
       </div>
     </div>
   );

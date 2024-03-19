@@ -1,9 +1,7 @@
-
 import {
   GoogleAuthProvider,
   getAuth,
-  signInWithPopup,   
-  signInWithRedirect,
+  signInWithPopup,
 } from "firebase/auth";
 import { app } from "../firebase";
 import { useDispatch } from "react-redux";
@@ -32,7 +30,7 @@ export default function OAuth() {
       });
       const data = await res.json();
       dispatch(signInSuccess(data));
-      navigate("/")
+      navigate("/");
     } catch (error) {
       console.log("Failed to Sign In with Google", error);
     }
@@ -60,6 +58,3 @@ export default function OAuth() {
     </button>
   );
 }
-
-
-

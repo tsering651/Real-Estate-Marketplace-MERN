@@ -17,29 +17,29 @@ import image7 from "./gallery/d.avif";
 
 export default function Gallery() {
   const images = [
-    { imageUrl: image1},
-    { imageUrl: image12},
-    { imageUrl: image2},
-    { imageUrl: image3},
-    { imageUrl: image6},
-    { imageUrl: image4},
-    { imageUrl: image5},
-    { imageUrl: image7},
-    { imageUrl: image8},
+    { imageUrl: image1 },
+    { imageUrl: image12 },
+    { imageUrl: image2 },
+    { imageUrl: image3 },
+    { imageUrl: image6 },
+    { imageUrl: image4 },
+    { imageUrl: image5 },
+    { imageUrl: image7 },
+    { imageUrl: image8 },
   ];
 
   const cards = [
-    { imageUrl: image1},
-    { imageUrl: image2},
-    { imageUrl: image3},
-    { imageUrl: image4},
-    { imageUrl: image5},
-    { imageUrl: image6},
-    { imageUrl: image7},
-    { imageUrl: image8},
-    { imageUrl: image9},
-    { imageUrl: image10},
-    { imageUrl: image11},
+    { imageUrl: image1 },
+    { imageUrl: image2 },
+    { imageUrl: image3 },
+    { imageUrl: image4 },
+    { imageUrl: image5 },
+    { imageUrl: image6 },
+    { imageUrl: image7 },
+    { imageUrl: image8 },
+    { imageUrl: image9 },
+    { imageUrl: image10 },
+    { imageUrl: image11 },
     { imageUrl: image12 },
   ];
   const interval = 3000; // Interval between slides in milliseconds
@@ -51,8 +51,8 @@ export default function Gallery() {
         autoPlay
         infiniteLoop
         interval={interval}
-        showStatus={false}
-        showThumbs={false}
+        showStatus={false} // uper wale 1 of 7 wale
+        showThumbs={false} // niche wale icons
       >
         {images.map((image, index) => (
           <div key={index} style={{ marginTop }}>
@@ -62,7 +62,7 @@ export default function Gallery() {
               style={{
                 maxWidth: "100%",
                 maxHeight: "750px",
-                width: "100%",
+                width: "99.5%",
                 height: "auto",
               }}
             />
@@ -72,7 +72,7 @@ export default function Gallery() {
 
       <div className="flex flex-wrap justify-center">
         {cards.map((image, index) => (
-          <ImageCard key={index} imageUrl={image.imageUrl}/>
+          <ImageCard key={index} imageUrl={image.imageUrl} />
         ))}
       </div>
     </div>
