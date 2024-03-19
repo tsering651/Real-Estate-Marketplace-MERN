@@ -47,7 +47,7 @@ export default function Header() {
           </Link>
           <Link to="/create-listing">
             <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/create-listing' ? 'border rounded-2xl' : ''}`}>
-              Listing
+              List Property
             </li>
           </Link>
           <Link to="/profile">
