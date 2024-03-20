@@ -235,7 +235,7 @@ export default function Profile() {
          
         </Link>
         <div className="text-white flex gap-2 mt-5">
-          <p>Don't have an account?</p>
+          <p>Delete account?</p>
           <button
             onClick={handleDeleteUser}
             className="text-red-700 hover:opacity-75"
