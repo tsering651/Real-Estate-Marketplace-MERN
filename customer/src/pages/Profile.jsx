@@ -232,13 +232,17 @@ export default function Profile() {
           </p>
         </form>
         <Link>
+         
+        </Link>
+        <div className="text-white flex gap-2 mt-5">
+          <p>Don't have an account?</p>
           <button
             onClick={handleDeleteUser}
-            className="bg-red-600 text-white p-2 w-full text-center rounded-lg  hover:opacity-75"
+            className="text-red-700 hover:opacity-75"
           >
-            Delete account
+            Delete
           </button>
-        </Link>
+        </div>
       </div>
     </div>
   );

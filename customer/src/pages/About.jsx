@@ -53,7 +53,7 @@ export default function About() {
             photoUrl={photo2}
             description="Vicky Verma"
             contact="Contact : +91 99052 60820"
-            email="Email : akankuma2302@gmail.com"
+            email="Email : vikkuma2302@gmail.com"
           />
           <PhotoWithDescription
             photoUrl={photo3}
