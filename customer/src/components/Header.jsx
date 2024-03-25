@@ -30,33 +30,31 @@ export default function Header() {
         <ul className="flex gap-4">
           <Link to="/">
 
-            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/' ? 'underline' : ''}`}>
-
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/' ? 'text-red-600' : ''}`}>
               Explore
             </li>
           </Link>
 
           <Link to="/gallery">
 
-            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/gallery' ? 'underline' : ''}`}>
-
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/gallery' ? 'text-red-600' : ''}`}>
               Gallery
             </li>
           </Link>
           <Link to="/about">
-            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/about' ? 'underline' : ''}`}>
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/about' ? 'text-red-600' : ''}`}>
               About
             </li>
           </Link>
           <Link to="/create-listing">
-            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/create-listing' ? 'underline' : ''}`}>
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/create-listing' ? 'text-red-600' : ''}`}>
               Listing
             </li>
           </Link>
           <Link to="/profile">
             {currentUser ? (
 
-              <li className={`text-slate-300 bg-slate-700 border-x-[1px] p-1 rounded-lg font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ${location.pathname === '/profile' ? 'underline' : ''}`}>
+              <li className={`text-slate-300 bg-slate-700 border-x-[1px] p-1 rounded-lg font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ${location.pathname === '/profile' ? 'text-red-600' : ''}`}>
 
                 {currentUser.username}
               </li>
@@ -64,7 +62,6 @@ export default function Header() {
               <Link to="/sign-in">
 
                 <li className="text-slate-300 bg-slate-600 border-x-[1px] p-1 rounded-lg font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500">
-
                   Sign in
                 </li>
               </Link>
