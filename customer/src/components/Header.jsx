@@ -1,10 +1,11 @@
-import React from "react";
+
 import { FaSearch } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
+ 
   const location = useLocation();
   return (
     <header className="bg-white bg-opacity-15 backdrop-blur-lg fixed w-full z-10">
@@ -29,33 +30,35 @@ export default function Header() {
         </form>
         <ul className="flex gap-4">
           <Link to="/">
-
-            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/' ? 'text-red-600' : ''}`}>
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/' ? 'border rounded-2xl' : ''}`}>
               Explore
             </li>
           </Link>
 
           <Link to="/gallery">
 
-            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/gallery' ? 'text-red-600' : ''}`}>
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/gallery' ? 'border rounded-2xl' : ''}`}>
               Gallery
             </li>
           </Link>
           <Link to="/about">
-            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/about' ? 'text-red-600' : ''}`}>
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/about' ? 'border rounded-2xl' : ''}`}>
               About
             </li>
           </Link>
           <Link to="/create-listing">
-            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/create-listing' ? 'text-red-600' : ''}`}>
-              Listing
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/create-listing' ? 'border rounded-2xl' : ''}`}>
+              List Property
+            </li>
+          </Link>
+          <Link to="/show-listing">
+            <li className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${location.pathname === '/create-listing' ? 'border rounded-2xl' : ''}`}>
+              Show Listings
             </li>
           </Link>
           <Link to="/profile">
             {currentUser ? (
-
-              <li className={`text-slate-300 bg-slate-700 border-x-[1px] p-1 rounded-lg font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ${location.pathname === '/profile' ? 'text-red-600' : ''}`}>
-
+              <li className={`text-slate-300 bg-slate-700 border-x-[1px] p-1 rounded-lg uppercase font-extrabold cursor-pointer transition-transform hover:scale-125 duration-500 ${location.pathname === '/profile' ? 'border rounded-2xl' : ''}`}>
                 {currentUser.username}
               </li>
             ) : (

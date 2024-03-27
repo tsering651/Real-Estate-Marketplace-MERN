@@ -19,7 +19,6 @@ import {
   updateUserStart,
   updateUserSuccess,
   signOutUserStart,
- 
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -37,11 +36,6 @@ export default function Profile() {
   const fileRef = useRef(null);
   const dispatch = useDispatch();
 
-  // firebase storage
-  // allow read;
-  // allow write: if
-  // request.resource.size< 2 *1024 *1024 &&
-  // request.resource.contentType.matches('image/.*')
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
@@ -130,39 +124,6 @@ export default function Profile() {
       dispatch(deleteUserFailure(error.message));
     }
   };
-  const handleShowListing = async () => {
-    try {
-      setShowListingError(false);
-      const res = await fetch(`api/user/listings/${currentUser._id}`);
-      const data = await res.json();
-      if (data.success == false) {
-        setShowListingError(true);
-        return;
-      }
-      setUserListings(data);
-    } catch (error) {
-      setShowListingError(true);
-    }
-  };
-
-  const handleListingDelete=async (listingId)=>{
-      try {
-         const res=await fetch(`/api/listing/delete/${listingId}`,
-         {
-          method:'DELETE',
-         });
-         const data=await res.json();
-         if(data.success==false){
-           console.log(data.message);
-           return;
-         }
-
-         setUserListings((prev)=>prev.filter((listing)=>listing._id !==listingId))
-         
-      } catch (error) {
-        console.log(error.message);
-      }
-  }
 
   return (
     <div
@@ -273,56 +234,17 @@ export default function Profile() {
           </p>
         </form>
         <Link>
+         
+        </Link>
+        <div className="text-white flex gap-2 mt-5">
+          <p>Delete account?</p>
           <button
             onClick={handleDeleteUser}
-            className="bg-red-600 text-white p-2 w-full text-center rounded-lg  hover:opacity-75"
+            className="text-red-700 hover:opacity-75"
           >
-            Delete account
+            Delete
           </button>
-        </Link>
-        <button
-          onClick={handleShowListing}
-          className="bg-green-600 text-white p-2 w-full text-center rounded-lg  hover:opacity-75"
-        >
-          Show Listing
-        </button>
-        <p className="text-red-500 mt-3">
-          {showListingError ? "Error showing listing..." : ""}
-        </p>
-        {userListings && userListings.length > 0 && (
-          <div className="flex flex-col gap-4"> 
-            <h1 className="text-center mt-7 text-2xl font-semibold text-white">
-              Your Listings
-            </h1>
-           {userListings.map((listing) => (
-            <div
-              key={listing._id}
-              className="border rounded-lg p-3 flex justify-between items-center gap-4"
-            >
-              <Link to={`/listing/${listing._id}`}>
-                <img
-                  src={listing.imageUrls[0]}
-                  alt="listing cover"
-                  className="h-16 w-16 object-contain"
-                />
-              </Link>
-              <Link
-                className="text-slate-700 font-semibold  hover:underline truncate flex-1"
-                to={`/listing/${listing._id}`}
-              >
-                <p className="text-white">{listing.name}</p>
-              </Link>
-              <div className="flex flex-col item-center">
-                <button onClick={()=>handleListingDelete(listing._id)} className="text-red-700 uppercase">Delete</button>
-                <Link to={`/update-listing/${listing._id}`}>
-                  <button className="text-green-700 uppercase">Edit</button>
-                </Link>
-              </div>
-            </div>
-            ))}
-          </div>
-        )}
-        ;
+        </div>
       </div>
     </div>
   );

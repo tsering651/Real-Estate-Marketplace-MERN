@@ -154,7 +154,7 @@ export default function CreateListing() {
       if (data.success === false) {
         setError(data.message);
       }
-      navigate(`/listing/${data._id}`);
+      navigate(`/`);
     } catch (error) {
       setError(error.message);
       setLoading(false);
@@ -383,14 +383,13 @@ export default function CreateListing() {
 
           <div className="flex flex-col">
             <p className="font-bold text-white mt-6 mb-2">
-              Images:
+              Images({formData.imageUrls.length}):
             </p>
             <div className="flex gap-4">
               <input
                 onChange={(e) => setFiles(e.target.files)}
                 className="p-2 border rounded-2xl w-full bg-slate-100"
                 type="file"
-                id="images"
                 accept="image/*"
                 multiple
               />
@@ -410,15 +409,17 @@ export default function CreateListing() {
               formData.imageUrls.map((url, index) => (
                 <div
                   key={url}
+                  className="flex items-center justify-between gap-2 mt-2"
                 >
                   <img
                     src={url}
-                    alt="listing image"
+                    alt="Image uploaded by user"
+                    className="p-1 w-40 h-20 object-contain rounded-lg border"
                   />
                   <button
                     type="button"
                     onClick={() => handleRemoveImage(index)}
-                    className="p-3 text-red-700 rounded-lg uppercase hover:opacity-75"
+                    className="p-1 text-white bg-red-600 border rounded-lg hover:opacity-75"
                   >
                     Delete
                   </button>
