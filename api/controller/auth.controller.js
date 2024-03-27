@@ -19,6 +19,9 @@ export const signin = async (req, res, next) => {
   const { email, password } = req.body;
   try {
     const validUser = await User.findOne({ email });
+    if(validUser.isDeleted){
+      return next(errorHandler(404, "User not found!"));
+    }
     if (!validUser) return next(errorHandler(404, "User not found!")); //next id for giving control to the middleware
     const validPassword = bcrypt.compareSync(password, validUser.password);
     if (!validPassword) return next(errorHandler(404, "Wrong Credentials")); //next id for giving control to the middleware

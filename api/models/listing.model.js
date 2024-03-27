@@ -22,6 +22,9 @@ const listingSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    swimmingpool: {
+      type: Boolean,
+    },
     bathrooms: {
       type: Number,
       required: true,
