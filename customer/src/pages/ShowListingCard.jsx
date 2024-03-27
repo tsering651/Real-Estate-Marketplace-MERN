@@ -1,7 +1,8 @@
 // ShowListingCard.jsx
 
-import { useSelector } from "react-redux";
+
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 
 const ShowListingCard = ({
@@ -22,9 +23,10 @@ const ShowListingCard = ({
   type,
   offer,
   imageUrls,
+  setlisting
 }) => {
   
-  const [userListings, setUserListings] = useState([]);
+  
 
   const handleListingDelete = async (listingId) => {
     try {
@@ -39,7 +41,7 @@ const ShowListingCard = ({
         return;
       }
 
-       setUserListings((prev) =>
+       setlisting((prev) =>
         prev.filter((listing) => listing._id !== listingId)
       );
     } catch (error) {
@@ -118,6 +120,9 @@ const ShowListingCard = ({
       >
         Delete
       </button>
+      <Link to={`/update-listing/${_id}`}>
+          <button className='text-green-700 uppercase'>Edit</button>
+       </Link>
     </div>
   );
 };
