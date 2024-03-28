@@ -20,7 +20,7 @@ export default function CreateListing() {
     name: "",
     description: "",
     address: "",
-    type: "Rent",
+    type: "",
     bedrooms: 1,
     bathrooms: 1,
     kitchens: 1,
@@ -180,7 +180,7 @@ export default function CreateListing() {
                 className="rounded-2xl p-2 "
                 id="name"
                 maxLength="62"
-                minLength="10"
+                minLength="2"
                 required
                 onChange={handleChange}
                 value={formData.name}
@@ -312,7 +312,7 @@ export default function CreateListing() {
                   />
                   <div className="flex items-center">
                     <p className="text-white">Regular price</p>
-                    {formData.type === "rent" && (
+                    {formData.type === "Rent" && (
                       <span className="text-xs text-white">(₹/month)</span>
                     )}
                   </div>
@@ -372,7 +372,7 @@ export default function CreateListing() {
                   <div className="flex items-center gap-1">
                     <p className="text-white">Discounted price</p>
 
-                    {formData.type === "rent" && (
+                    {formData.type === "Rent" && (
                       <span className="text-xs text-white">(₹/month)</span>
                     )}
                   </div>
@@ -425,6 +425,7 @@ export default function CreateListing() {
                   </button>
                 </div>
               ))}
+
             <button
               disabled={loading || uploading}
               className="p-2 bg-green-700 text-white border rounded-lg mt-3 hover:opacity-75 disabled:opacity-80"
