@@ -19,7 +19,7 @@ export default function CreateListing() {
     name: '',
     description: '',
     address: '',
-    type: 'rent',
+    type: '',
     bedrooms: 1,
     bathrooms: 1,
     regularPrice: 50,
@@ -109,7 +109,7 @@ export default function CreateListing() {
   };
 
   const handleChange = (e) => {
-    if (e.target.id === 'sale' || e.target.id === 'rent') {
+    if (e.target.id === 'Sale' || e.target.id === 'Rent') {
       setFormData({
         ...formData,
         type: e.target.id,
@@ -182,7 +182,7 @@ export default function CreateListing() {
             className='border p-3 rounded-lg'
             id='name'
             maxLength='62'
-            minLength='10'
+            minLength='3'
             required
             onChange={handleChange}
             value={formData.name}
@@ -209,10 +209,10 @@ export default function CreateListing() {
             <div className='flex gap-2'>
               <input
                 type='checkbox'
-                id='sale'
+                id='Sale'
                 className='w-5'
                 onChange={handleChange}
-                checked={formData.type === 'sale'}
+                checked={formData.type === 'Sale'}
               />
               <span>Sell</span>
             </div>
