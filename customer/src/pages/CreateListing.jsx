@@ -154,7 +154,7 @@ export default function CreateListing() {
       if (data.success === false) {
         setError(data.message);
       }
-      navigate(`/`);
+      navigate(`/show-listing`);
     } catch (error) {
       setError(error.message);
       setLoading(false);

@@ -4,10 +4,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import backgroundImage from "./images/show.jpg";
 
+
 export default function ShowListing() {
   const { currentUser } = useSelector((state) => state.user);
   const [showListingsError, setShowListingsError] = useState(false);
   const [userListings, setUserListings] = useState([]);
+
   useEffect(()=>{
     const handleShowListings = async () => {
       try {
@@ -18,7 +20,7 @@ export default function ShowListing() {
           },
         });
         console.log(res);
-  
+
         if (!res.ok) {
           throw new Error("Failed to fetch listings");
         }
@@ -32,6 +34,7 @@ export default function ShowListing() {
     }; 
     handleShowListings();
   },[userListings])
+
 
   return (
     <div

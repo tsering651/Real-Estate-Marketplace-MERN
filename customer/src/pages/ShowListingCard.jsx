@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 const ShowListingCard = ({
   _id,
   name,
@@ -18,6 +19,7 @@ const ShowListingCard = ({
   imageUrls,
   setlisting,
 }) => {
+
   const handleListingDelete = async (listingId) => {
     try {
       console.log(listingId);
@@ -32,6 +34,7 @@ const ShowListingCard = ({
       }
 
       setlisting((prev) => prev.filter((listing) => listing._id !== listingId));
+
     } catch (error) {
       console.log(error.message);
     }
@@ -112,7 +115,7 @@ const ShowListingCard = ({
           ))}
         </div>
 
-      )}
+
       <div className="flex space-x-4">
         <button
           onClick={() => handleListingDelete(_id)}
@@ -120,21 +123,29 @@ const ShowListingCard = ({
         >
           Delete
         </button>
-
-        <button
+        
+        <Link to={`/update-listing/${_id}`}>
+   <button
           onClick={() => handleListingDelete(_id)}
           className="text-white bg-green-600 uppercase p-1 rounded-lg w-[30%] mt-4 2"
         >
           Edit
         </button>
-
-        <button
+  </Link>
+  <Link to={`/listing/${_id}`}>
+    <button
           onClick={() => handleListingDelete(_id)}
           className="text-white bg-blue-600 uppercase  p-1 rounded-lg w-[30%] mt-4 2"
         >
           View
         </button>
+  </Link>
+
+        
+
+       
       </div>
+
     </div>
   );
 };

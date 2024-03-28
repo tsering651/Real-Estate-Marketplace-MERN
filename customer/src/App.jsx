@@ -9,6 +9,8 @@ import PrivateRoute from "./components/PrivateRoute";
 import CreateListing from "./pages/CreateListing";
 import Gallery from "./pages/Gallery";
 import ShowListing from "./pages/ShowListing";
+import UpdateListing from './pages/UpdateListing';
+import Listing from "./pages/Listing";
 
 export default function App() {
   return (
@@ -22,9 +24,14 @@ export default function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/create-listing" element={<CreateListing />} />
           <Route path="/show-listing" element={<ShowListing />} />
+          <Route
+            path='/update-listing/:listingId'
+            element={<UpdateListing />}
+          />
           
         </Route>
         <Route path="/about" element={<About />} />
+        <Route path="/listing/:listingId" element={<Listing />} />
         <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </BrowserRouter>
