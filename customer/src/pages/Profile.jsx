@@ -233,9 +233,7 @@ export default function Profile() {
             {updateSuccess ? "User updated successfully!" : ""}
           </p>
         </form>
-        <Link>
-         
-        </Link>
+       
         <div className="text-white flex gap-2 mt-5">
           <p>Delete account?</p>
           <button

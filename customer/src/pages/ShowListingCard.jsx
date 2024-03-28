@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 const ShowListingCard = ({
   _id,
   name,
-  description,
-  address,
   regularPrice,
   discountPrice,
   swimmingpool,
@@ -19,7 +17,6 @@ const ShowListingCard = ({
   imageUrls,
   setlisting,
 }) => {
-
   const handleListingDelete = async (listingId) => {
     try {
       console.log(listingId);
@@ -32,24 +29,83 @@ const ShowListingCard = ({
         console.log(data.message);
         return;
       }
-
       setlisting((prev) => prev.filter((listing) => listing._id !== listingId));
-
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  return (
-    <div className="backdrop-blur-md border rounded-lg text-white p-2 mt-10 transition-transform hover:scale-105 hover:backdrop-blur-lg duration-500">
+  const handleEdit = async (e) => {
+    e.preventDefault();
+    try {
+      if (formData.imageUrls.length < 1)
+        return setError("You must upload at least one image");
+      if (+formData.regularPrice < +formData.discountPrice)
+        return setError("Discount price must be lower than regular price");
+      setLoading(true);
+      setError(false);
+      const res = await fetch("/api/listing/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          userRef: currentUser._id,
+        }),
+      });
+      const data = await res.json();
+      setLoading(false);
+      if (data.success === false) {
+        setError(data.message);
+      }
+      navigate(`/show-listing`);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  };
 
+  const handleView = async (e) => {
+    e.preventDefault();
+    try {
+      if (formData.imageUrls.length < 1)
+        return setError("You must upload at least one image");
+      if (+formData.regularPrice < +formData.discountPrice)
+        return setError("Discount price must be lower than regular price");
+      setLoading(true);
+      setError(false);
+      const res = await fetch("/api/listing/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          userRef: currentUser._id,
+        }),
+      });
+      const data = await res.json();
+      setLoading(false);
+      if (data.success === false) {
+        setError(data.message);
+      }
+      navigate(`/show-listing`);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="backdrop-blur-md border rounded-lg text-white p-2 mt-10 hover:backdrop-blur-xl duration-500">
       <div className="flex items-center justify-between p-1 mb-1">
-           <h2 className="text-xl font-semibold">{name}</h2>
-           <p>
-            <strong className="bg-blue-600 p-1 rounded-lg ">{type}</strong> 
-          </p>
+        <h2 className="text-xl font-semibold">{name}</h2>
+        <p>
+          <strong className="bg-blue-600 p-1 rounded-lg ">{type}</strong>
+        </p>
       </div>
-      
+
       <div className="flex justify-between items-center mt-3 p-1">
         <span className="text-lg font-semibold">
           Amount : ${regularPrice - discountPrice}
@@ -61,12 +117,11 @@ const ShowListingCard = ({
         )}
       </div>
 
-
       <div className="flex items-center justify-between p-1">
-      <div>
-        <p>
+        <div>
+          <p>
             <strong>Regular Price:</strong> ${regularPrice}
-          </p> 
+          </p>
           <p>
             <strong>Swimming Pool:</strong> {swimmingpool ? "Yes" : "No"}
           </p>
@@ -79,11 +134,10 @@ const ShowListingCard = ({
           <p>
             <strong>Parking:</strong> {parking ? "Yes" : "No"}
           </p>
-          
         </div>
 
         <div>
-        <p>
+          <p>
             <strong>Discount Price:</strong> ${discountPrice}
           </p>
           <p>
@@ -92,7 +146,7 @@ const ShowListingCard = ({
           <p>
             <strong>Halls:</strong> {halls}
           </p>
-          
+
           <p>
             <strong>Bathrooms:</strong> {bathrooms}
           </p>
@@ -103,7 +157,6 @@ const ShowListingCard = ({
       </div>
 
       {imageUrls && imageUrls.length > 0 && (
-
         <div className="mt-4 grid grid-cols-2 gap-2">
           {imageUrls.map((imageUrl, index) => (
             <img
@@ -114,47 +167,31 @@ const ShowListingCard = ({
             />
           ))}
         </div>
-
-
-      <div className="flex space-x-4">
+      )}
+      <div className="flex space-x-4 mb-2">
         <button
           onClick={() => handleListingDelete(_id)}
-          className="text-white bg-red-500 uppercase  p-1 rounded-lg w-[30%] mt-4 2"
+          className="text-white bg-red-500 uppercase  p-1 rounded-lg w-[30%] mt-4 hover:bg-opacity-75"
         >
           Delete
         </button>
-        
-        <Link to={`/update-listing/${_id}`}>
-   <button
-          onClick={() => handleListingDelete(_id)}
-          className="text-white bg-green-600 uppercase p-1 rounded-lg w-[30%] mt-4 2"
-        >
-          Edit
-        </button>
-  </Link>
-  <Link to={`/listing/${_id}`}>
-    <button
-          onClick={() => handleListingDelete(_id)}
-          className="text-white bg-blue-600 uppercase  p-1 rounded-lg w-[30%] mt-4 2"
-        >
-          View
-        </button>
-  </Link>
 
-        
+        <button
+          onClick={handleEdit}
+          className="text-white bg-green-600 uppercase p-1 rounded-lg w-[30%] mt-4 hover:bg-opacity-75"
+        >
+          <Link to={`/update-listing/${_id}`}>Edit</Link>
+        </button>
 
-       
+        <button
+          onClick={handleView}
+          className="text-white bg-blue-600 uppercase  p-1 rounded-lg w-[30%] mt-4 hover:bg-opacity-75"
+        >
+          <Link to={`/listing/${_id}`}>View</Link>
+        </button>
       </div>
-
     </div>
   );
 };
 
 export default ShowListingCard;
-
-{
-  /*
-   border black
-   text coulour --  blue with white and red
-*/
-}
