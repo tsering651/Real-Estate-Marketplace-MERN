@@ -1,7 +1,6 @@
 // ShowListingCard.jsx
 
 
-import { useState } from "react";
 import { Link } from 'react-router-dom';
 
 
@@ -114,15 +113,20 @@ const ShowListingCard = ({
           ))}
         </div>
       )}
-      <button
-        onClick={() => handleListingDelete(_id)}
-        className="text-red-700 uppercase"
-      >
-        Delete
-      </button>
-      <Link to={`/update-listing/${_id}`}>
-          <button className='text-green-700 uppercase'>Edit</button>
-       </Link>
+    <div className="flex space-x-4">
+  <button
+    onClick={() => handleListingDelete(_id)}
+    className="text-red-700 uppercase mb-4"
+  >
+    Delete
+  </button>
+  <Link to={`/update-listing/${_id}`}>
+    <button className="text-green-700 uppercase mr-4">Edit</button>
+  </Link>
+  <Link to={`/listing/${_id}`}>
+    <button className="text-green-700 uppercase">View List</button>
+  </Link>
+</div>
     </div>
   );
 };

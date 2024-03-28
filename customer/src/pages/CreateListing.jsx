@@ -20,7 +20,7 @@ export default function CreateListing() {
     name: "",
     description: "",
     address: "",
-    type: "rent",
+    type: "Rent",
     bedrooms: 1,
     bathrooms: 1,
     kitchens: 1,
@@ -99,7 +99,7 @@ export default function CreateListing() {
   };
 
   const handleChange = (e) => {
-    if (e.target.id === "sale" || e.target.id === "rent") {
+    if (e.target.id === "Sale" || e.target.id === "Rent") {
       setFormData({
         ...formData,
         type: e.target.id,
@@ -154,7 +154,7 @@ export default function CreateListing() {
       if (data.success === false) {
         setError(data.message);
       }
-      navigate(`/`);
+      navigate(`/show-listing`);
     } catch (error) {
       setError(error.message);
       setLoading(false);
@@ -210,9 +210,9 @@ export default function CreateListing() {
                 <div className="flex gap-2 items-center">
                   <input
                     type="checkbox"
-                    id="sale"
+                    id="Sale"
                     onChange={handleChange}
-                    checked={formData.type === "sale"}
+                    checked={formData.type === "Sale"}
                   />
                   <span className="text-white">Sell</span>
                 </div>
@@ -220,9 +220,9 @@ export default function CreateListing() {
                 <div className="flex gap-2 items-center">
                   <input
                     type="checkbox"
-                    id="rent"
+                    id="Rent"
                     onChange={handleChange}
-                    checked={formData.type === "rent"}
+                    checked={formData.type === "Rent"}
                   />
                   <span className="text-white">Rent</span>
                 </div>
