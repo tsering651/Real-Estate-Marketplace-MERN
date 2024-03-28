@@ -20,7 +20,7 @@ export default function CreateListing() {
     name: "",
     description: "",
     address: "",
-    type: "rent",
+    type: "",
     bedrooms: 1,
     bathrooms: 1,
     kitchens: 1,
@@ -99,7 +99,7 @@ export default function CreateListing() {
   };
 
   const handleChange = (e) => {
-    if (e.target.id === "sale" || e.target.id === "rent") {
+    if (e.target.id === "Sale" || e.target.id === "Rent") {
       setFormData({
         ...formData,
         type: e.target.id,
@@ -180,7 +180,7 @@ export default function CreateListing() {
                 className="rounded-2xl p-2 "
                 id="name"
                 maxLength="62"
-                minLength="10"
+                minLength="2"
                 required
                 onChange={handleChange}
                 value={formData.name}
@@ -210,9 +210,9 @@ export default function CreateListing() {
                 <div className="flex gap-2 items-center">
                   <input
                     type="checkbox"
-                    id="sale"
+                    id="Sale"
                     onChange={handleChange}
-                    checked={formData.type === "sale"}
+                    checked={formData.type === "Sale"}
                   />
                   <span className="text-white">Sell</span>
                 </div>
@@ -220,9 +220,9 @@ export default function CreateListing() {
                 <div className="flex gap-2 items-center">
                   <input
                     type="checkbox"
-                    id="rent"
+                    id="Rent"
                     onChange={handleChange}
-                    checked={formData.type === "rent"}
+                    checked={formData.type === "Rent"}
                   />
                   <span className="text-white">Rent</span>
                 </div>
@@ -312,7 +312,7 @@ export default function CreateListing() {
                   />
                   <div className="flex items-center">
                     <p className="text-white">Regular price</p>
-                    {formData.type === "rent" && (
+                    {formData.type === "Rent" && (
                       <span className="text-xs text-white">(₹/month)</span>
                     )}
                   </div>
@@ -372,7 +372,7 @@ export default function CreateListing() {
                   <div className="flex items-center gap-1">
                     <p className="text-white">Discounted price</p>
 
-                    {formData.type === "rent" && (
+                    {formData.type === "Rent" && (
                       <span className="text-xs text-white">(₹/month)</span>
                     )}
                   </div>
@@ -425,6 +425,7 @@ export default function CreateListing() {
                   </button>
                 </div>
               ))}
+
             <button
               disabled={loading || uploading}
               className="p-2 bg-green-700 text-white border rounded-lg mt-3 hover:opacity-75 disabled:opacity-80"
