@@ -2,14 +2,13 @@ import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
-import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/bundle';
+// import backgroundImage from "./images/show.jpg";
 import {
     FaBath,
     FaBed,
     FaChair,
-    FaMapMarkedAlt,
     FaMapMarkerAlt,
     FaParking,
     FaShare,
@@ -21,7 +20,6 @@ export default function Listing() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [copied, setCopied] = useState(false);
-    // const [contact, setContact] = useState(false);
     const params=useParams();
     useEffect(() => {
         const fetchListing = async () => {
@@ -46,7 +44,10 @@ export default function Listing() {
         fetchListing();
       },[params.listingId]);
   return (
-    <main>
+
+    <div
+    className="bg-slate-300 min-h-screen ">
+        <main>
       {loading && <p className='text-center my-7 text-2xl'>Loading...</p>}
       {error && (
         <p className='text-center my-7 text-2xl'>Something went wrong!</p>
@@ -131,19 +132,13 @@ export default function Listing() {
                 {listing.furnished ? 'Furnished' : 'Unfurnished'}
               </li>
             </ul>
-            {/* {currentUser && listing.userRef !== currentUser._id && !contact && (
-              <button
-                onClick={() => setContact(true)}
-                className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
-              >
-                Contact landlord
-              </button>
-            )}
-             */}
           </div>
         </div>
       )}
     </main>
+   
+  </div>
+
   );
             }
 

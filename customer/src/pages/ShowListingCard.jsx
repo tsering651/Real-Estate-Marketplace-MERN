@@ -98,7 +98,7 @@ const ShowListingCard = ({
   };
 
   return (
-    <div className="backdrop-blur-md border rounded-lg text-white p-2 mt-10 hover:backdrop-blur-xl duration-500">
+    <div className="backdrop-blur-sm border rounded-lg text-white p-2 mt-10 hover:backdrop-blur-xl duration-500">
       <div className="flex items-center justify-between p-1 mb-1">
         <h2 className="text-xl font-semibold">{name}</h2>
         <p className="bg-blue-600 rounded-lg p-1">
