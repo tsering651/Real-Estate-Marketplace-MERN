@@ -90,7 +90,7 @@ export default function Listing() {
               />
             </div>
             {copied && (
-              <p className="fixed top-9 right-8 z-10 border rounded-2xl text-white p-1">
+              <p className="fixed top-16 right-8 z-10 border rounded-xl text-white bg-slate-400 p-1">
                 Link Copied
               </p>
             )}

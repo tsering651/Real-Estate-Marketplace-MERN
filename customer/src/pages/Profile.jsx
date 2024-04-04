@@ -29,9 +29,6 @@ export default function Profile() {
   const [filePerc, setFilePerc] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
   const [formData, setFormData] = useState({});
-  const [showListingError, setShowListingError] = useState(false);
-  const [userListings, setUserListings] = useState([]);
-
   const [updateSuccess, setupdateSuccess] = useState(false);
   const fileRef = useRef(null);
   const dispatch = useDispatch();
@@ -134,7 +131,7 @@ export default function Profile() {
     >
       <div className="max-w-lg max-h-lg mx-auto p-8 mt-14 backdrop-blur-md rounded-3xl shadow-2xl border">
         <h2 className="text-3xl font-semibold text-center my-3 text-white">
-          Profile
+          Settings
         </h2>
         <form onSubmit={handleSubmit}>
           <input
