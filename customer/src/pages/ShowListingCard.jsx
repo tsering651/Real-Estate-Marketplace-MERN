@@ -98,15 +98,15 @@ const ShowListingCard = ({
   };
 
   return (
-    <div className="backdrop-blur-sm border rounded-lg text-white p-2 mt-10 hover:backdrop-blur-xl duration-500">
-      <div className="flex items-center justify-between p-1 mb-1">
-        <h2 className="text-xl font-semibold">{name}</h2>
-        <p className="bg-blue-600 rounded-lg p-1">
+    <div className="backdrop-blur-md border rounded-lg text-white p-2 mt-10 hover:backdrop-blur-xl duration-500">
+      <div className="flex items-center justify-between p-1">
+        <h2 className="text-xl font-semibold uppercase">{name}</h2>
+        <p className="bg-blue-600 rounded-lg w-[20%] text-center">
           {type}
         </p>
       </div>
 
-      <div className="flex justify-between items-center mt-3 p-1">
+      <div className="flex justify-between items-center p-1 rounded-lg">
         <span className="text-lg font-semibold">
           Amount : ${regularPrice - discountPrice}
         </span>
@@ -117,7 +117,7 @@ const ShowListingCard = ({
         )}
       </div>
 
-      <div className="flex items-center justify-between p-1">
+      <div className="flex items-center justify-between p-2 ">
         <div>
           <p>
             <strong>Regular Price:</strong> ${regularPrice}
@@ -125,8 +125,9 @@ const ShowListingCard = ({
           <p>
             <strong>Swimming Pool:</strong> {swimmingpool ? "Yes" : "No"}
           </p>
-          <p>
-            <strong>Balcony:</strong> {balcony ? "Yes" : "No"}
+          <p className="flex gap-1">
+            <strong>Balcony:</strong> {balcony ? "Yes" : "No"} 
+            <p className="font-semibold">({balcony})</p>
           </p>
           <p>
             <strong>Furnished:</strong> {furnished ? "Yes" : "No"}
@@ -157,7 +158,7 @@ const ShowListingCard = ({
       </div>
 
       {imageUrls && imageUrls.length > 0 && (
-        <div className="mt-4 grid grid-cols-2 gap-2">
+        <div className="mt-4 grid grid-cols-2 gap-2 border rounded-xl p-1">
           {imageUrls.map((imageUrl, index) => (
             <img
               key={index}

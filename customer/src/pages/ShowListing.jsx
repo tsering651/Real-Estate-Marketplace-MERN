@@ -2,7 +2,7 @@ import ShowListingCard from "./ShowListingCard.jsx";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
-import backgroundImage from "./images/show.jpg";
+import backgroundImage from "./images/SIGNIN.jpg";
 
 
 export default function ShowListing() {
@@ -38,14 +38,14 @@ export default function ShowListing() {
 
   return (
     <div
-    className="bg-cover min-h-screen flex items-center  "
+    className="bg-cover bg-center min-h-screen flex items-center  "
     style={{
       backgroundImage: `url(${backgroundImage})`,
     }}
   >
      <div className="container mx-auto mt-14">
       <h1 className="text-2xl font-bold text-white">Your Listings :</h1>
-      <div className="grid sm:grid-cols-3 gap-3"
+      <div className="grid sm:grid-cols-3 gap-4"
           style={{ maxHeight: "calc(100vh - 200px)", overflowY: "auto" }}>
         {userListings.map(({ id, ...property }) => (
           <ShowListingCard key={id} {...property} setListing = {setUserListings}/>
