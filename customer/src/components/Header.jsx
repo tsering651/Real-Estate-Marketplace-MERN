@@ -128,44 +128,10 @@ export default function Header() {
                 </li>
 
                 {showMenu && (
-                  <ul className="absolute top-13 shadow-xl bg-slate-300 bg-opacity-55 py-2 px-4 font-semibold rounded-md">
-                    <Link to="/profile">
-                      <li
-                        className={`text-black p-1 font-semibold transition-transform hover:scale-105 duration-500 ${
-                          location.pathname === "/profile" ? "text-white" : ""
-                        }`}
-                      >
-                        Settings
-                      </li>
-                    </Link>
-                    <Link to="/about">
-                      <li
-                        className={`text-black p-1 font-semibold transition-transform hover:scale-105 duration-500 ${
-                          location.pathname === "/" ? "text-white" : ""
-                        }`}
-                      >
-                        Contact Us
-                      </li>
-                    </Link>
-
-                    <Link to="/terms">
-                      <li
-                        className={`text-black p-1 font-semibold transition-transform hover:scale-105 duration-500 ${
-                          location.pathname === "/terms" ? "text-white" : ""
-                        }`}
-                        onClick={() => {
-                          const link = document.createElement("a");
-                          link.href = terms;
-                          link.download = "Terms and Conditions.pdf";
-                          link.click();
-                        }}
-                      >
-                        Terms & Conditions
-                      </li>
-                    </Link>
+                  <ul className="absolute top-13 shadow-xl bg-white bg-opacity-45 py-2 px-4 rounded-lg">
                     <Link to="/create-listing">
                       <li
-                        className={`text-black p-1 font-semibold transition-transform hover:scale-105 duration-500 ${
+                        className={`text-black p-1 font-thick transition-transform hover:scale-105 duration-500 ${
                           location.pathname === "/create-listing"
                             ? "text-white"
                             : ""
@@ -176,7 +142,7 @@ export default function Header() {
                     </Link>
                     <Link to="/show-listing">
                       <li
-                        className={`text-black p-1 font-semibold transition-transform hover:scale-105 duration-500 ${
+                        className={`text-black p-1 font-thick transition-transform hover:scale-105 duration-500 ${
                           location.pathname === "/show-listing"
                             ? "text-white"
                             : ""
@@ -185,9 +151,42 @@ export default function Header() {
                         Your Listings
                       </li>
                     </Link>
+                    <Link to="/about">
+                      <li
+                        className={`text-black p-1 font-thick transition-transform hover:scale-105 duration-500 ${
+                          location.pathname === "/" ? "text-white" : ""
+                        }`}
+                      >
+                        Contact Us
+                      </li>
+                    </Link>
+
+                    <Link to="">
+                      <li
+                        className={`text-black p-1 font-thick transition-transform hover:scale-105 duration-500 ${
+                          location.pathname === "" ? "text-white" : ""
+                        }`}
+                        onClick={() => {
+                          const link = document.createElement("a");
+                          link.href = terms;
+                          link.click();
+                        }}
+                      >
+                        Terms & Conditions
+                      </li>
+                    </Link>
+                    <Link to="/profile">
+                      <li
+                        className={`text-black p-1 font-thick transition-transform hover:scale-105 duration-500 ${
+                          location.pathname === "/profile" ? "text-white" : ""
+                        }`}
+                      >
+                        Settings
+                      </li>
+                    </Link>
                     <button
                       onClick={handleSignOut}
-                      className="text-black p-1 font-semibold transition-transform hover:scale-105 duration-500 hover:text-white"
+                      className="text-black p-1 font-thick transition-transform hover:scale-105 duration-500 hover:text-white hover:font-semibold"
                     >
                       Sign Out
                     </button>
