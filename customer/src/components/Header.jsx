@@ -120,7 +120,7 @@ export default function Header() {
                 onMouseLeave={handleUsernameLeave}
               >
                 <li
-                  className={`text-white bg-slate-700 border-x-[1px] p-1 rounded-lg uppercase  cursor-pointer transition-transform hover:scale-105 duration-500 ${
+                  className={`text-white bg-slate-700 border-x-[1px] p-1 font-bold rounded-lg uppercase  cursor-pointer transition-transform hover:scale-105 duration-500 ${
                     location.pathname === "" ? "border rounded-2xl" : ""
                   }`}
                 >
@@ -128,12 +128,12 @@ export default function Header() {
                 </li>
 
                 {showMenu && (
-                  <ul className="absolute top-13 shadow-xl bg-white bg-opacity-45 py-2 px-4 rounded-lg">
+                  <ul className="absolute top-[78%] shadow-xl bg-white bg-opacity-45 py-2 px-4 rounded-lg">
                     <Link to="/create-listing">
                       <li
-                        className={`text-black p-1 font-thick transition-transform hover:scale-105 duration-500 ${
+                          className={`text-black p-1 font-semibold transition-transform text-center hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
                           location.pathname === "/create-listing"
-                            ? "text-white"
+                            ? "text-white hover:text-black"
                             : ""
                         }`}
                       >
@@ -142,9 +142,9 @@ export default function Header() {
                     </Link>
                     <Link to="/show-listing">
                       <li
-                        className={`text-black p-1 font-thick transition-transform hover:scale-105 duration-500 ${
+                        className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
                           location.pathname === "/show-listing"
-                            ? "text-white"
+                            ? "text-white hover:text-black"
                             : ""
                         }`}
                       >
@@ -153,8 +153,8 @@ export default function Header() {
                     </Link>
                     <Link to="/about">
                       <li
-                        className={`text-black p-1 font-thick transition-transform hover:scale-105 duration-500 ${
-                          location.pathname === "/" ? "text-white" : ""
+                        className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
+                          location.pathname === "/" ? "text-white hover:text-black" : ""
                         }`}
                       >
                         Contact Us
@@ -163,8 +163,8 @@ export default function Header() {
 
                     <Link to="">
                       <li
-                        className={`text-black p-1 font-thick transition-transform hover:scale-105 duration-500 ${
-                          location.pathname === "" ? "text-white" : ""
+                        className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
+                          location.pathname === "" ? "text-white hover:text-black" : ""
                         }`}
                         onClick={() => {
                           const link = document.createElement("a");
@@ -177,8 +177,8 @@ export default function Header() {
                     </Link>
                     <Link to="/profile">
                       <li
-                        className={`text-black p-1 font-thick transition-transform hover:scale-105 duration-500 ${
-                          location.pathname === "/profile" ? "text-white" : ""
+                        className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
+                          location.pathname === "/profile" ? "text-white hover:text-black" : ""
                         }`}
                       >
                         Settings
@@ -186,7 +186,7 @@ export default function Header() {
                     </Link>
                     <button
                       onClick={handleSignOut}
-                      className="text-black p-1 font-thick transition-transform hover:scale-105 duration-500 hover:text-white hover:font-semibold"
+                      className="text-white p-1 font-semibold text-center transition-transform hover:scale-105 duration-500  bg-red-600 rounded-2xl w-full"
                     >
                       Sign Out
                     </button>
