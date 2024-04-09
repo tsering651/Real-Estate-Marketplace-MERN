@@ -1,4 +1,4 @@
-import backgroundImage from "./images/SIGNIN.jpg";
+import backgroundImage from "./images/show.jpg";
 import { useState } from "react";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
