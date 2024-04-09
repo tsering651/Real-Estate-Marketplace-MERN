@@ -169,6 +169,7 @@ export default function Header() {
                         onClick={() => {
                           const link = document.createElement("a");
                           link.href = terms;
+                          link.setAttribute('download', '');
                           link.click();
                         }}
                       >
