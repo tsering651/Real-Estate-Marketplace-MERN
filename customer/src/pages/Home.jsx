@@ -54,7 +54,7 @@ export default function Home() {
           background: `url(${exploreImage}) center fixed no-repeat`,
           backgroundSize: "cover",
         }}
-        className="h-[690px] mb-9  mx-auto rounded-sm"
+        className="h-[710px] mb-9  mx-auto rounded-sm"
       ></div>
 
       {/* top */}
