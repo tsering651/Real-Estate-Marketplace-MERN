@@ -77,6 +77,7 @@ export default function Listing() {
                 </SwiperSlide>
               ))}
             </Swiper>
+            
             <div className="fixed top-5 right-5 z-10 rounded-full w-8 h-8 flex justify-center items-center bg-slate-500 cursor-pointer">
               <FaShare
               className="text-white"
@@ -184,7 +185,7 @@ export default function Listing() {
               </button>
 
               <button className="bg-blue-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2">
-                <Link to="/show-listing">Back</Link>
+                <Link to="/">Back</Link>
               </button>
             </div>
           </div>

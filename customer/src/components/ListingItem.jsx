@@ -4,7 +4,7 @@ import { MdLocationOn } from 'react-icons/md';
 
 export default function ListingItem({ listing }) {
   return (
-    <div className='bg-slate-300 shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-[330px]'>
+    <div className='bg-slate-300 shadow-lg hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-[330px]'>
       <Link to={`/listing/${listing._id}`}>
         <img
           src={
@@ -12,7 +12,7 @@ export default function ListingItem({ listing }) {
             'https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Sales_Blog/real-estate-business-compressor.jpg?width=595&height=400&name=real-estate-business-compressor.jpg'
           }
           alt='listing cover'
-          className='h-[320px] sm:h-[220px] w-full object-cover hover:scale-105 transition-scale duration-300'
+          className=' sm:h-[220px] w-full object-cover hover:scale-105 transition-scale duration-300'
         />
         <div className='p-3 flex flex-col gap-2 w-full'>
           <p className='truncate text-lg font-semibold text-slate-700'>
@@ -32,7 +32,7 @@ export default function ListingItem({ listing }) {
             {listing.offer
               ? listing.discountPrice.toLocaleString('en-US')
               : listing.regularPrice.toLocaleString('en-US')}
-            {listing.type === 'rent' && ' / month'}
+            {listing.type === 'rent' && '/- Month'}
           </p>
           <div className='text-slate-700 flex gap-4'>
             <div className='font-bold text-xs'>

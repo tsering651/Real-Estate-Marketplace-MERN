@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-5 px-4">
+    <footer className="bg-gray-800 backdrop-blur-md text-white py-5 px-4">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
-        <div className="flex flex-col md:flex-row md:space-x-4">
+        <div className="flex flex-col md:flex-row md:space-x-4 items-center">
           <a href="/" className="text-xl font-bold text-white hover:text-gray-400">
             TVA Group
           </a>
@@ -15,7 +16,8 @@ const Footer = () => {
         </div>
 
         <div className="flex space-x-4">
-          <a href="#" className="text-gray-200 hover:text-gray-300">
+          <Link to = '/' className='text-gray-300'>Contact Us</Link>
+          <a href="#" className="text-gray-400 hover:text-gray-300">
             <FontAwesomeIcon icon={faFacebookF} />
           </a>
           <a href="#" className="text-gray-400 hover:text-gray-300">
