@@ -79,7 +79,7 @@ export default function Header() {
           <Link to="/">
             <li
               className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/" ? "border rounded-2xl" : ""
+                location.pathname === "/" ? "border rounded-2xl bg-slate-400" : ""
               }`}
             >
               Explore
@@ -88,7 +88,7 @@ export default function Header() {
           <Link to="/gallery">
             <li
               className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/gallery" ? "border rounded-2xl" : ""
+                location.pathname === "/gallery" ? "border rounded-2xl bg-slate-400" : ""
               }`}
             >
               Gallery
@@ -97,7 +97,7 @@ export default function Header() {
           <Link to="/about">
             <li
               className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/about" ? "border rounded-2xl" : ""
+                location.pathname === "/about" ? "border rounded-2xl bg-slate-400" : ""
               }`}
             >
               About
@@ -106,7 +106,7 @@ export default function Header() {
           <Link to="/about">
             <li
               className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/" ? "border rounded-2xl" : ""
+                location.pathname === "/" ? "border rounded-2xl bg-slate-400" : ""
               }`}
             >
               Contact Us

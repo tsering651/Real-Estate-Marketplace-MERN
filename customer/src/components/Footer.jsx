@@ -1,8 +1,9 @@
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8 px-4">
+    <footer className="bg-gray-800 text-white py-5 px-4">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         <div className="flex flex-col md:flex-row md:space-x-4">
           <a href="/" className="text-xl font-bold text-white hover:text-gray-400">
@@ -14,17 +15,17 @@ const Footer = () => {
         </div>
 
         <div className="flex space-x-4">
-          <a href="#" className="text-gray-400 hover:text-gray-300">
-            <i className="fab fa-facebook-f"></i>
+          <a href="#" className="text-gray-200 hover:text-gray-300">
+            <FontAwesomeIcon icon={faFacebookF} />
           </a>
           <a href="#" className="text-gray-400 hover:text-gray-300">
-            <i className="fab fa-twitter"></i>
+            <FontAwesomeIcon icon={faTwitter} />
           </a>
           <a href="#" className="text-gray-400 hover:text-gray-300">
-            <i className="fab fa-linkedin-in"></i>
+            <FontAwesomeIcon icon={faLinkedinIn} />
           </a>
           <a href="#" className="text-gray-400 hover:text-gray-300">
-            <i className="fab fa-instagram"></i>
+            <FontAwesomeIcon icon={faInstagram} />
           </a>
         </div>
       </div>

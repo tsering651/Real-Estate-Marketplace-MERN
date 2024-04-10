@@ -51,7 +51,7 @@ export default function Gallery() {
   const marginTop = '30px';
 
   return (
-    <div className="bg-slate-600 min-h-screen">
+    <div className="bg-slate-200 min-h-screen">
       <Carousel autoPlay infiniteLoop interval={3000} showStatus={false} showThumbs={false}>
         {images.map((image, index) => (
           <div key={index} style={{ marginTop }}>
