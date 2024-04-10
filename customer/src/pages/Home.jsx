@@ -79,7 +79,7 @@ export default function Home() {
       </div>
 
       {/* listing results for offer, sale and rent */}
-      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 items-center mt-11 container bg-blue-200 rounded-lg" >
+      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 items-center mt-11 container bg-blue-200 rounded-2xl" >
         {/* {offerListings && offerListings.length > 0 && (
           <div className="bg-slate-300  p-3 mt-3 rounded-2xl">
             <div className="">
