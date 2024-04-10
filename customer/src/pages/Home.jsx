@@ -47,18 +47,18 @@ export default function Home() {
     fetchOfferListings();
   }, []);
   return (
-    <div className="bg-blue-300">
+    <div>
       {/* explore image */}
       <div
         style={{
           background: `url(${exploreImage}) center fixed no-repeat`,
           backgroundSize: "cover",
         }}
-        className="h-[650px] mb-9  mx-auto rounded-sm"
+        className="h-[690px] mb-9  mx-auto rounded-sm"
       ></div>
 
       {/* top */}
-      <div className=" flex flex-col gap-6 p-20 px-3 max-w-7xl mx-auto items-center bg-blue-200 rounded-2xl">
+      <div className=" flex flex-col gap-6 p-20 px-3 max-w-7xl mx-auto items-center bg-blue-300 rounded-2xl">
         <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl">
           Trendy Cosmopolitan Beachfront
           <br />
@@ -79,7 +79,7 @@ export default function Home() {
       </div>
 
       {/* listing results for offer, sale and rent */}
-      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 items-center mt-11 container bg-slate-200 rounded-lg" >
+      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 items-center mt-11 container bg-blue-200 rounded-lg" >
         {/* {offerListings && offerListings.length > 0 && (
           <div className="bg-slate-300  p-3 mt-3 rounded-2xl">
             <div className="">
@@ -101,7 +101,7 @@ export default function Home() {
           </div>
         )} */}
         {rentListings && rentListings.length > 0 && (
-          <div className="bg-blue-200  p-3 mt-3 rounded-2xl">
+          <div className="bg-blue-300  p-3 mt-3 rounded-2xl">
             <div className="my-3">
               <h2 className="text-2xl font-semibold text-slate-600">
                 Recent places for rent
@@ -121,7 +121,7 @@ export default function Home() {
           </div>
         )}
         {saleListings && saleListings.length > 0 && (
-          <div className="bg-blue-200  p-3 mt-3 rounded-2xl">
+          <div className="bg-blue-300  p-3 mt-3 rounded-2xl">
             <div className="my-3">
               <h2 className="text-2xl font-semibold text-slate-600">
                 Recent places for sale
