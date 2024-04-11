@@ -95,7 +95,7 @@ export default function Header() {
                 onMouseLeave={handleUsernameLeave}
               >
                 <li
-                  className={`text-white bg-blue-700 border-x-[1px] p-1 font-bold rounded-lg uppercase  cursor-pointer transition-transform hover:scale-105 duration-500 ${
+                  className={`text-white  border-x-[4px]  p-1 font-bold rounded-lg uppercase  cursor-pointer transition-transform hover:scale-105 duration-500 ${
                     location.pathname === "" ? "border rounded-2xl" : ""
                   }`}
                 >
@@ -107,8 +107,8 @@ export default function Header() {
 
                      <Link to="/about">
                       <li
-                        className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
-                          location.pathname === "/about" ? "text-white hover:text-black" : ""
+                        className={`text-black p-1 font-semibold  text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
+                          location.pathname === "/about" ? "text-white border hover:text-black" : ""
                         }`}
                       >
                         About
@@ -119,7 +119,7 @@ export default function Header() {
                       <li
                           className={`text-black p-1 font-semibold transition-transform text-center hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
                           location.pathname === "/create-listing"
-                            ? "text-white hover:text-black"
+                            ? "text-white border hover:text-black"
                             : ""
                         }`}
                       >
@@ -130,7 +130,7 @@ export default function Header() {
                       <li
                         className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
                           location.pathname === "/show-listing"
-                            ? "text-white hover:text-black"
+                            ? "text-white border hover:text-black"
                             : ""
                         }`}
                       >
@@ -141,7 +141,7 @@ export default function Header() {
                    <Link to="/request">
                       <li
                         className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
-                          location.pathname === "/" ? "text-white hover:text-black" : ""
+                          location.pathname === "/" ? "text-white border hover:text-black" : ""
                         }`}
                       >
                         Request info
@@ -151,7 +151,7 @@ export default function Header() {
                     <Link to="">
                       <li
                         className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
-                          location.pathname === "" ? "text-white hover:text-black" : ""
+                          location.pathname === "" ? "text-white border hover:text-black" : ""
                         }`}
                         onClick={() => {
                           const link = document.createElement("a");
@@ -166,7 +166,7 @@ export default function Header() {
                     <Link to="/profile">
                       <li
                         className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
-                          location.pathname === "/profile" ? "text-white hover:text-black" : ""
+                          location.pathname === "/profile" ? "text-white border hover:text-black" : ""
                         }`}
                       >
                         Settings
@@ -183,7 +183,7 @@ export default function Header() {
               </li>
             ) : (
               <Link to="/sign-in">
-                <li className="text-white bg-blue-600 border-x-[1px] font-thin p-1 rounded-lg cursor-pointer transition-transform hover:scale-125 duration-500">
+                <li className="text-white border-x-[3px] font-bold p-1 rounded-lg cursor-pointer transition-transform hover:scale-125 duration-500">
                   Sign in
                 </li>
               </Link>
