@@ -29,7 +29,7 @@ export default function Header() {
         return;
       }
       dispatch(deleteUserSuccess(data));
-      window.location.href = "/sign-in";
+      window.location.href = "/sign-up";
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
     }
