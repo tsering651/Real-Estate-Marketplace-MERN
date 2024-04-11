@@ -63,8 +63,8 @@ export default function Header() {
         >
           <Link to="/">
             <li
-              className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/" ? "border rounded-2xl " : ""
+              className={`p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
+                location.pathname === "/" ? "border border-black rounded-2xl " : ""
               }`}
             >
               Explore
@@ -72,8 +72,8 @@ export default function Header() {
           </Link>
           <Link to="/gallery">
             <li
-              className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/gallery" ? "border rounded-2xl " : ""
+              className={`p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
+                location.pathname === "/gallery" ? "border border-black rounded-2xl " : ""
               }`}
             >
               Gallery
@@ -81,8 +81,8 @@ export default function Header() {
           </Link>
           <Link to="/about">
             <li
-              className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/about" ? "border rounded-2xl " : ""
+              className={`p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
+                location.pathname === "/about" ? "border border-black rounded-2xl" : ""
               }`}
             >
               About
