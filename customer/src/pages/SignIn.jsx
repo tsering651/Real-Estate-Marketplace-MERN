@@ -2,7 +2,6 @@ import backgroundImage from "./images/show.jpg";
 import { useState } from "react";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import OAuth from "../components/OAuth";
 import { useDispatch, useSelector } from "react-redux";
 import {
   signInStart,
@@ -93,14 +92,14 @@ export default function SignIn() {
           </div>
           <button
             onClick={handleSignIn}
-            className={`bg-orange-500 text-white p-2 rounded-2xl w-full hover:opacity-70${
+            className={`bg-blue-500 text-white p-2 rounded-2xl w-full hover:opacity-70${
               loading ? "" : ""
             }`}
             disabled={loading}
           >
             {loading ? "Loading..." : "Sign In"}
           </button>
-          <OAuth />
+         
         </form>
         <div className="text-white flex gap-2 mt-5">
           <p>Don't have an account?</p>

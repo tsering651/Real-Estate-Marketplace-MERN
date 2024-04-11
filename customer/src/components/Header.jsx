@@ -182,7 +182,7 @@ export default function Header() {
                 )}
               </li>
             ) : (
-              <Link to="/sign-in">
+              <Link to="/sign-up">
                 <li className="text-white border-x-[3px] font-bold p-1 rounded-lg cursor-pointer transition-transform hover:scale-125 duration-500">
                   Sign in
                 </li>
