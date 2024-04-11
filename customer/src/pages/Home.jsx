@@ -128,7 +128,7 @@ export default function Home() {
       </div>
 
         {/* Display photos with descriptions */}
-        <div className="p-9 mt-5 flex justify-between ">
+        <div className="p-9 mt-5 flex justify-between">
           <PhotoWithDescription
             photoUrl={photo1}
             description="Tsering Wangchu"
