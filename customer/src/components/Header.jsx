@@ -39,9 +39,9 @@ export default function Header() {
     <header className="bg-white bg-opacity-15 backdrop-blur-lg fixed w-full z-10">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <h1 className="font-bold bg-white bg-opacity-55 rounded-lg p-1 text-sm sm:text-xl flex flex-wrap gap-2">
+          <h1 className="font-bold bg-blue-100 bg-opacity-65 rounded-lg p-1 text-sm sm:text-xl flex flex-wrap gap-2">
             <span className="bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">TVA</span>
-            <span className="text-orange-400">
+            <span className="bg-gradient-to-l from-blue-400 to-blue-800 bg-clip-text text-transparent">
               Group
             </span>
           </h1>
@@ -63,8 +63,8 @@ export default function Header() {
         >
           <Link to="/">
             <li
-              className={`p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/" ? "border border-black rounded-2xl " : ""
+              className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
+                location.pathname === "/" ? "border text-blue-400  bg-blue-100 rounded-lg " : ""
               }`}
             >
               Explore
@@ -72,8 +72,8 @@ export default function Header() {
           </Link>
           <Link to="/gallery">
             <li
-              className={`p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/gallery" ? "border border-black rounded-2xl " : ""
+              className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
+                location.pathname === "/gallery" ? "border text-blue-400  bg-blue-100 rounded-lg " : ""
               }`}
             >
               Gallery
@@ -81,8 +81,8 @@ export default function Header() {
           </Link>
           <Link to="/about">
             <li
-              className={`p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/about" ? "border border-black rounded-2xl" : ""
+              className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
+                location.pathname === "/about" ? "border text-blue-400  bg-blue-100 rounded-lg " : ""
               }`}
             >
               About
@@ -95,7 +95,7 @@ export default function Header() {
                 onMouseLeave={handleUsernameLeave}
               >
                 <li
-                  className={`text-white bg-blue-600 border-x-[1px] p-1 font-bold rounded-lg uppercase  cursor-pointer transition-transform hover:scale-105 duration-500 ${
+                  className={`text-white bg-blue-700 border-x-[1px] p-1 font-bold rounded-lg uppercase  cursor-pointer transition-transform hover:scale-105 duration-500 ${
                     location.pathname === "" ? "border rounded-2xl" : ""
                   }`}
                 >

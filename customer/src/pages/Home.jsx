@@ -78,7 +78,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-blue-100">
       <div
         style={{
           background: `url(${exploreImage}) center fixed no-repeat`,
