@@ -104,17 +104,6 @@ export default function Header() {
 
                 {showMenu && (
                   <ul className="absolute top-[78%] shadow-xl bg-white bg-opacity-45 py-2 px-4 rounded-lg">
-
-                     <Link to="/about">
-                      <li
-                        className={`text-black p-1 font-semibold  text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
-                          location.pathname === "/about" ? "text-white border hover:text-black" : ""
-                        }`}
-                      >
-                        About
-                      </li>
-                    </Link>
-
                     <Link to="/create-listing">
                       <li
                           className={`text-black p-1 font-semibold transition-transform text-center hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
