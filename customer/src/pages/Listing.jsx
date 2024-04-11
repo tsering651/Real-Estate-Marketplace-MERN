@@ -55,6 +55,11 @@ export default function Listing() {
     const goBack = () => {
       navigate(-1);
     }
+
+    const goList = () => {
+      navigate('/create-listing');
+    }
+    
   
   return (
     <div className="bg-slate-100 min-h-screen">
@@ -187,8 +192,9 @@ export default function Listing() {
             </div>
 
             <div className="flex justify-between max-w-4xl mx-auto mt-2 p-2">
-              <button className="bg-green-600 hover:bg-opacity-85 text-center w-[30%] text-white rounded-3xl p-2">
-                <Link to="/create-listing">List Property</Link>
+              <button onClick={goList}
+              className="bg-green-600 hover:bg-opacity-85 text-center w-[30%] text-white rounded-3xl p-2">
+                List Property
               </button>
 
               <button 
@@ -204,78 +210,3 @@ export default function Listing() {
 }
 
 
-// import React, { useEffect, useState } from "react";
-// import { useParams, Link, useNavigate } from "react-router-dom"; // Import useNavigate
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import SwiperCore from "swiper";
-// import { Navigation } from "swiper/modules";
-// import "swiper/css/bundle";
-// import {
-//   FaBath,
-//   FaBed,
-//   FaChair,
-//   FaMapMarkerAlt,
-//   FaParking,
-//   FaShare,
-//   FaUtensils,
-//   FaBuilding,
-//   FaSwimmingPool,
-//   FaRegBuilding,
-// } from "react-icons/fa";
-
-// export default function Listing() {
-//   SwiperCore.use([Navigation]);
-//   const [listing, setListing] = useState(null);
-//   const [loading, setLoading] = useState(false);
-//   const [error, setError] = useState(false);
-//   const [copied, setCopied] = useState(false);
-//   const params = useParams();
-//   const navigate = useNavigate(); // Use useNavigate instead of useHistory
-
-//   useEffect(() => {
-//     const fetchListing = async () => {
-//       try {
-//         setLoading(true);
-//         const res = await fetch(`/api/listing/get/${params.listingId}`);
-//         const data = await res.json();
-//         console.log(data);
-//         if (!data.success) {
-//           setError(true);
-//         } else {
-//           setListing(data);
-//         }
-//       } catch (error) {
-//         setError(true);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-//     fetchListing();
-//   }, [params.listingId]);
-
-//   const goBack = () => {
-//     navigate(-1); // Use navigate(-1) to go back
-//   };
-
-//   return (
-//     <div className="bg-slate-100 min-h-screen">
-//       <main className="container mx-auto">
-//         {loading && <p className="text-center my-7 text-2xl">Loading...</p>}
-//         {error && (
-//           <p className="text-center my-7 text-2xl">Something went wrong!</p>
-//         )}
-//         {listing && !loading && !error && (
-//           <div>
-//             {/* Your listing display code here */}
-//             <button
-//               onClick={goBack}
-//               className="bg-blue-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2"
-//             >
-//               Back
-//             </button>
-//           </div>
-//         )}
-//       </main>
-//     </div>
-//   );
-// }
