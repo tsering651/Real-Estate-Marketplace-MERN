@@ -15,8 +15,8 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex space-x-4">
-          <Link to = '/' className='text-gray-300'>Contact Us</Link>
+        <div className="flex space-x-10">
+          <Link to = '/' className='text-gray-300'>Request info</Link>
           <a href="#" className="text-gray-400 hover:text-gray-300">
             <FontAwesomeIcon icon={faFacebookF} />
           </a>

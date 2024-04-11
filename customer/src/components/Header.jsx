@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteUserFailure, deleteUserSuccess, signOutUserStart } from "../redux/user/userSlice";
@@ -10,10 +10,6 @@ export default function Header() {
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
   const dispatch = useDispatch();
-
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
 
   const handleUsernameHover = () => {
     setShowMenu(true);
@@ -33,7 +29,6 @@ export default function Header() {
         return;
       }
       dispatch(deleteUserSuccess(data));
-      // Redirect to sign-in page after signing out
       window.location.href = "/sign-in";
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
@@ -52,24 +47,14 @@ export default function Header() {
           </h1>
         </Link>
 
-        <form className="bg-slate-100 p-2 rounded-2xl flex items-center">
+        {/* <form className="bg-slate-100 p-2 rounded-2xl flex items-center">
           <input
             type="text"
             placeholder="Search..."
             className="bg-transparent focus:outline-none w-24 sm:w-64"
           />
           <FaSearch className="text-slate-500 mr-2" />
-        </form>
-
-        <div className="sm:hidden">
-          <button onClick={toggleMenu}>
-            {showMenu ? (
-              <FaTimes className="text-white" />
-            ) : (
-              <FaBars className="text-white" />
-            )}
-          </button>
-        </div>
+        </form> */}
 
         <ul
           className={`flex gap-4 ${
@@ -103,16 +88,6 @@ export default function Header() {
               About
             </li>
           </Link>
-          <Link to="/about">
-            <li
-              className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/" ? "border rounded-2xl " : ""
-              }`}
-            >
-              Contact Us
-            </li>
-          </Link>
-
           <Link>
             {currentUser ? (
               <li
@@ -120,7 +95,7 @@ export default function Header() {
                 onMouseLeave={handleUsernameLeave}
               >
                 <li
-                  className={`text-white bg-slate-700 border-x-[1px] p-1 font-bold rounded-lg uppercase  cursor-pointer transition-transform hover:scale-105 duration-500 ${
+                  className={`text-white bg-blue-600 border-x-[1px] p-1 font-bold rounded-lg uppercase  cursor-pointer transition-transform hover:scale-105 duration-500 ${
                     location.pathname === "" ? "border rounded-2xl" : ""
                   }`}
                 >
@@ -129,6 +104,17 @@ export default function Header() {
 
                 {showMenu && (
                   <ul className="absolute top-[78%] shadow-xl bg-white bg-opacity-45 py-2 px-4 rounded-lg">
+
+                     <Link to="/about">
+                      <li
+                        className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
+                          location.pathname === "/about" ? "text-white hover:text-black" : ""
+                        }`}
+                      >
+                        About
+                      </li>
+                    </Link>
+
                     <Link to="/create-listing">
                       <li
                           className={`text-black p-1 font-semibold transition-transform text-center hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
@@ -151,13 +137,14 @@ export default function Header() {
                         Your Listings
                       </li>
                     </Link>
-                    <Link to="/about">
+
+                   <Link to="/request">
                       <li
                         className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
                           location.pathname === "/" ? "text-white hover:text-black" : ""
                         }`}
                       >
-                        Contact Us
+                        Request info
                       </li>
                     </Link>
 
@@ -196,7 +183,7 @@ export default function Header() {
               </li>
             ) : (
               <Link to="/sign-in">
-                <li className="text-white bg-slate-600 border-x-[1px] font-thin p-1 rounded-lg cursor-pointer transition-transform hover:scale-125 duration-500">
+                <li className="text-white bg-blue-600 border-x-[1px] font-thin p-1 rounded-lg cursor-pointer transition-transform hover:scale-125 duration-500">
                   Sign in
                 </li>
               </Link>

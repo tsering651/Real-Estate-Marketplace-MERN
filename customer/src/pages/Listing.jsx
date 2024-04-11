@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
@@ -18,6 +18,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+
 export default function Listing() {
   SwiperCore.use([Navigation]);
   const [listing, setListing] = useState(null);
@@ -25,6 +26,7 @@ export default function Listing() {
   const [error, setError] = useState(false);
   const [copied, setCopied] = useState(false);
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -49,6 +51,11 @@ export default function Listing() {
     fetchListing();
   }, [params.listingId]);
 
+ 
+    const goBack = () => {
+      navigate(-1);
+    }
+  
   return (
     <div className="bg-slate-100 min-h-screen">
       <main className="container mx-auto">
@@ -77,8 +84,8 @@ export default function Listing() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            
-            <div className="fixed top-5 right-5 z-10 rounded-full w-8 h-8 flex justify-center items-center bg-slate-500 cursor-pointer">
+
+            <div className="fixed top-5 right-5 z-10 rounded-full w-8 h-8 flex justify-center items-center bg-slate-400 cursor-pointer">
               <FaShare
               className="text-white"
                 onClick={() => {
@@ -96,7 +103,7 @@ export default function Listing() {
               </p>
             )}
 
-            <div className="flex flex-col max-w-4xl mx-auto p-5 mt-3 gap-3 rounded-2xl bg-slate-400 shadow-2xl">
+            <div className="flex flex-col max-w-4xl mx-auto p-5 mt-3 gap-3 rounded-2xl bg-blue-200 shadow-2xl">
               <p className="font-semibold uppercase">
                 {listing.name} - ${" "}
                 {listing.offer
@@ -184,8 +191,9 @@ export default function Listing() {
                 <Link to="/create-listing">List Property</Link>
               </button>
 
-              <button className="bg-blue-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2">
-                <Link to="/">Back</Link>
+              <button 
+              onClick={goBack} className="bg-blue-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2">
+                Back
               </button>
             </div>
           </div>
@@ -194,3 +202,80 @@ export default function Listing() {
     </div>
   );
 }
+
+
+// import React, { useEffect, useState } from "react";
+// import { useParams, Link, useNavigate } from "react-router-dom"; // Import useNavigate
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import SwiperCore from "swiper";
+// import { Navigation } from "swiper/modules";
+// import "swiper/css/bundle";
+// import {
+//   FaBath,
+//   FaBed,
+//   FaChair,
+//   FaMapMarkerAlt,
+//   FaParking,
+//   FaShare,
+//   FaUtensils,
+//   FaBuilding,
+//   FaSwimmingPool,
+//   FaRegBuilding,
+// } from "react-icons/fa";
+
+// export default function Listing() {
+//   SwiperCore.use([Navigation]);
+//   const [listing, setListing] = useState(null);
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState(false);
+//   const [copied, setCopied] = useState(false);
+//   const params = useParams();
+//   const navigate = useNavigate(); // Use useNavigate instead of useHistory
+
+//   useEffect(() => {
+//     const fetchListing = async () => {
+//       try {
+//         setLoading(true);
+//         const res = await fetch(`/api/listing/get/${params.listingId}`);
+//         const data = await res.json();
+//         console.log(data);
+//         if (!data.success) {
+//           setError(true);
+//         } else {
+//           setListing(data);
+//         }
+//       } catch (error) {
+//         setError(true);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+//     fetchListing();
+//   }, [params.listingId]);
+
+//   const goBack = () => {
+//     navigate(-1); // Use navigate(-1) to go back
+//   };
+
+//   return (
+//     <div className="bg-slate-100 min-h-screen">
+//       <main className="container mx-auto">
+//         {loading && <p className="text-center my-7 text-2xl">Loading...</p>}
+//         {error && (
+//           <p className="text-center my-7 text-2xl">Something went wrong!</p>
+//         )}
+//         {listing && !loading && !error && (
+//           <div>
+//             {/* Your listing display code here */}
+//             <button
+//               onClick={goBack}
+//               className="bg-blue-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2"
+//             >
+//               Back
+//             </button>
+//           </div>
+//         )}
+//       </main>
+//     </div>
+//   );
+// }

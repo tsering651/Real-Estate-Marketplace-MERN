@@ -1,11 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css/bundle";
 import ListingItem from "../components/ListingItem";
 import exploreImage from "./gallery/ann.jpg";
+import photo1 from "./gallery/wanchu.png";
+import photo2 from "./gallery/my.jpg";
+import photo3 from "./gallery/vikash.jpg";
+
+const PhotoWithDescription = ({ photoUrl, description, contact, email }) => (
+  <div className="container flex flex-col items-center ">
+    <img src={photoUrl} alt="Photo" className="w-40 h-40 border rounded-full shadow-xl" />
+    <p className="text-black text-center font-semibold mt-2">{description}</p>
+    <p className="text-black text-center font-semibold">{contact}</p>
+    <p className="text-black text-center font-bold">{email}</p>
+  </div>
+);
 
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
@@ -46,17 +57,55 @@ export default function Home() {
     };
     fetchOfferListings();
   }, []);
+
+  const [isSearchVisible, setIsSearchVisible] = useState(true);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const threshold = 300; // Adjust this value as needed
+      
+      if (scrollPosition > threshold) {
+        setIsSearchVisible(false);
+      } else {
+        setIsSearchVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div>
-      {/* explore image */}
       <div
         style={{
           background: `url(${exploreImage}) center fixed no-repeat`,
           backgroundSize: "cover",
         }}
-        className="h-[710px] mb-9  mx-auto rounded-sm"
-      ></div>
-
+        className="h-[710px] mb-9 mx-auto rounded-sm relative"
+      >
+        {isSearchVisible && (
+          <form className=" absolute p-2 gap-3 rounded-2xl inset-0  flex items-center justify-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="p-2 fixed bg-slate-200 top-[35%] rounded-full w-[35%] focus:outline-none"
+            />
+             <div className="fixed px-80 container max-w-7xl mx-auto items-center  top-[44%] text-white">
+        <p>
+         <span className="text-orange-500 font-bold bg-slate-200 rounded-2xl p-1">TVA Group</span>, is your trusted partner for
+          buying, selling, and renting Luxury Property. Our
+          dedicated and experienced team of agents are committed to providing
+          exceptional service and support, ensuring a seamless experience for
+          our clients.
+        </p>
+      </div>
+     </form>
+     )}
+        
+    </div>
       {/* top */}
       <div className=" flex flex-col gap-6 p-20 px-3 max-w-7xl mx-auto items-center bg-blue-300 rounded-2xl">
         <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl">
@@ -78,28 +127,31 @@ export default function Home() {
         </Link>
       </div>
 
+        {/* Display photos with descriptions */}
+        <div className="p-9 mt-5 flex justify-between ">
+          <PhotoWithDescription
+            photoUrl={photo1}
+            description="Tsering Wangchu"
+            contact="Contact : +91 99717 07580"
+            email="Email : tseringwang4039@gmail.com"
+          />
+          <PhotoWithDescription
+            photoUrl={photo2}
+            description="Vicky Verma"
+            contact="Contact : +91 99052 60820"
+            email="Email : vikkuma2302@gmail.com"
+          />
+          <PhotoWithDescription
+            photoUrl={photo3}
+            description="Vikash Verma"
+            contact="Contact : 9354040507"
+            email="Email : vkvermavk96@gmail.com"
+          />
+          
+        </div>
+
       {/* listing results for offer, sale and rent */}
-      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 items-center mt-11 container bg-blue-200 rounded-2xl" >
-        {/* {offerListings && offerListings.length > 0 && (
-          <div className="bg-slate-300  p-3 mt-3 rounded-2xl">
-            <div className="">
-              <h2 className="text-2xl font-semibold text-slate-600">
-                Recent offers
-              </h2>
-              <Link
-                className="text-sm text-blue-800 hover:underline"
-                to={"/search?offer=true"}
-              >
-                Show more offers
-              </Link>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              {offerListings.map((listing) => (
-                <ListingItem listing={listing} key={listing._id} />
-              ))}
-            </div>
-          </div>
-        )} */}
+      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 items-center mt-11 container bg-blue-200 rounded-2xl">
         {rentListings && rentListings.length > 0 && (
           <div className="bg-blue-300  p-3 mt-3 rounded-2xl">
             <div className="my-3">
