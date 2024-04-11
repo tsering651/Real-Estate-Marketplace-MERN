@@ -106,7 +106,7 @@ export default function Header() {
                   <ul className="absolute top-[78%] shadow-xl bg-white bg-opacity-45 py-2 px-4 rounded-lg">
                     <Link to="/create-listing">
                       <li
-                          className={`text-black p-1 font-semibold transition-transform text-center hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
+                          className={`text-black p-1 font-thick transition-transform text-center hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
                           location.pathname === "/create-listing"
                             ? "text-white border hover:text-black"
                             : ""
@@ -117,7 +117,7 @@ export default function Header() {
                     </Link>
                     <Link to="/show-listing">
                       <li
-                        className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
+                        className={`text-black p-1 font-thick text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
                           location.pathname === "/show-listing"
                             ? "text-white border hover:text-black"
                             : ""
@@ -129,7 +129,7 @@ export default function Header() {
 
                    <Link to="/request">
                       <li
-                        className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
+                        className={`text-black p-1 font-thick text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
                           location.pathname === "/" ? "text-white border hover:text-black" : ""
                         }`}
                       >
@@ -139,7 +139,7 @@ export default function Header() {
 
                     <Link to="">
                       <li
-                        className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
+                        className={`text-black p-1 font-thick text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
                           location.pathname === "" ? "text-white border hover:text-black" : ""
                         }`}
                         onClick={() => {
@@ -154,7 +154,7 @@ export default function Header() {
                     </Link>
                     <Link to="/profile">
                       <li
-                        className={`text-black p-1 font-semibold text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
+                        className={`text-black p-1 font-thick text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
                           location.pathname === "/profile" ? "text-white border hover:text-black" : ""
                         }`}
                       >
@@ -163,7 +163,7 @@ export default function Header() {
                     </Link>
                     <button
                       onClick={handleSignOut}
-                      className="text-white p-1 font-semibold text-center transition-transform hover:scale-105 duration-500  bg-red-600 rounded-2xl w-full"
+                      className="text-white p-1 font-thick text-center transition-transform hover:scale-105 duration-500  bg-red-600 rounded-2xl w-full"
                     >
                       Sign Out
                     </button>
