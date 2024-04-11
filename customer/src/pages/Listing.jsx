@@ -62,7 +62,7 @@ export default function Listing() {
     
   
   return (
-    <div className="bg-slate-100 min-h-screen">
+    <div className="bg-slate-200 min-h-screen">
       <main className="container mx-auto">
         {loading && <p className="text-center my-7 text-2xl">Loading...</p>}
         {error && (
@@ -108,7 +108,7 @@ export default function Listing() {
               </p>
             )}
 
-            <div className="flex flex-col max-w-4xl mx-auto p-5 mt-3 gap-3 rounded-2xl bg-blue-200 shadow-2xl">
+            <div className="flex flex-col max-w-4xl mx-auto p-5 mt-3 gap-3 rounded-2xl bg-blue-300 shadow-2xl">
               <p className="font-semibold uppercase">
                 {listing.name} - ${" "}
                 {listing.offer
