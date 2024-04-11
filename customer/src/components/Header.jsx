@@ -39,7 +39,7 @@ export default function Header() {
     <header className="bg-white bg-opacity-15 backdrop-blur-lg fixed w-full z-10">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <h1 className="font-bold text-sm sm:text-xl flex flex-wrap gap-2">
+          <h1 className="font-bold bg-white bg-opacity-55 rounded-lg p-1 text-sm sm:text-xl flex flex-wrap gap-2">
             <span className="bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">TVA</span>
             <span className="text-orange-400">
               Group
