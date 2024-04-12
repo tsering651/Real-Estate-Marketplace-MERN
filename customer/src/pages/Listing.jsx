@@ -18,7 +18,6 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
 export default function Listing() {
   SwiperCore.use([Navigation]);
   const [listing, setListing] = useState(null);
@@ -51,16 +50,14 @@ export default function Listing() {
     fetchListing();
   }, [params.listingId]);
 
- 
-    const goBack = () => {
-      navigate(-1);
-    }
+  const goBack = () => {
+    navigate(-1);
+  };
 
-    const goList = () => {
-      navigate('/create-listing');
-    }
-    
-  
+  const goList = () => {
+    navigate("/create-listing");
+  };
+
   return (
     <div className="bg-slate-200 min-h-screen">
       <main className="container mx-auto">
@@ -92,7 +89,7 @@ export default function Listing() {
 
             <div className="fixed top-5 right-5 z-10 rounded-full w-8 h-8 flex justify-center items-center bg-slate-400 cursor-pointer">
               <FaShare
-              className="text-white"
+                className="text-white"
                 onClick={() => {
                   navigator.clipboard.writeText(window.location.href);
                   setCopied(true);
@@ -157,14 +154,18 @@ export default function Listing() {
                   <li className="flex items-center gap-1 whitespace-nowrap ">
                     <FaUtensils className="text-lg" />
                     {listing.kitchens > 1
-                      ? `${listing.kitchens} Kitchens `
-                      : `${listing.kitchens} Kitchen `}
+                      ? `${listing.kitchens} Kitchens`
+                      : listing.kitchens === 1
+                      ? `${listing.kitchens} Kitchen`
+                      : "No Kitchen"}
                   </li>
                   <li className="flex items-center gap-1 whitespace-nowrap ">
                     <FaBuilding className="text-lg" />
                     {listing.halls > 1
-                      ? `${listing.halls} Halls `
-                      : `${listing.halls} Hall `}
+                      ? `${listing.halls} Halls`
+                      : listing.halls === 1
+                      ? `${listing.halls} hall`
+                      : "No Hall"}
                   </li>
                 </ul>
 
@@ -192,13 +193,17 @@ export default function Listing() {
             </div>
 
             <div className="flex justify-between max-w-4xl mx-auto mt-2 p-2">
-              <button onClick={goList}
-              className="bg-green-600 hover:bg-opacity-85 text-center w-[30%] text-white rounded-3xl p-2">
+              <button
+                onClick={goList}
+                className="bg-green-600 hover:bg-opacity-85 text-center w-[30%] text-white rounded-3xl p-2"
+              >
                 List Property
               </button>
 
-              <button 
-              onClick={goBack} className="bg-blue-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2">
+              <button
+                onClick={goBack}
+                className="bg-blue-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2"
+              >
                 Back
               </button>
             </div>
@@ -208,5 +213,3 @@ export default function Listing() {
     </div>
   );
 }
-
-

@@ -48,7 +48,7 @@ export default function Gallery() {
     setSelectedImage(null);
   };
 
-  const marginTop = '30px';
+  const marginTop = '10px';
 
   return (
     <div className="bg-slate-200 min-h-screen">

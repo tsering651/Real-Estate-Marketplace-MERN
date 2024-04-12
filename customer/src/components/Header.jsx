@@ -36,26 +36,27 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white bg-opacity-15 backdrop-blur-lg fixed w-full z-10">
+    <header className=" backdrop-blur-xl fixed w-full z-10">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <h1 className="font-bold bg-blue-100 bg-opacity-65 rounded-lg p-1 text-sm sm:text-xl flex flex-wrap gap-2">
-            <span className="bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">TVA</span>
-            <span className="bg-gradient-to-l from-blue-400 to-blue-800 bg-clip-text text-transparent">
+          <h1 className="font-bold rounded-lg p-1 text-sm sm:text-xl flex flex-wrap gap-2">
+            <span className="bg-gradient-to-r from-orange-500 to-blue-900 bg-clip-text text-transparent">TVA</span>
+            <span className="text-white">
               Group
             </span>
           </h1>
         </Link>
 
-        {/* <form className="bg-slate-100 p-2 rounded-2xl flex items-center">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="bg-transparent focus:outline-none w-24 sm:w-64"
-          />
-          <FaSearch className="text-slate-500 mr-2" />
-        </form> */}
-
+        {location.pathname !== "/" && (
+          <form className="bg-slate-100 p-2 rounded-2xl flex items-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="bg-transparent focus:outline-none w-24 sm:w-64"
+            />
+            <FaSearch className="text-slate-500 mr-2" />
+          </form>
+        )}
         <ul
           className={`flex gap-4 ${
             showMenu ? "flex-col sm:flex-row" : "hidden sm:flex"
@@ -64,7 +65,7 @@ export default function Header() {
           <Link to="/">
             <li
               className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/" ? "border text-blue-400  bg-blue-100 rounded-lg " : ""
+                location.pathname === "/" ? "border text-blue-900  bg-blue-100 rounded-full " : ""
               }`}
             >
               Explore
@@ -73,7 +74,7 @@ export default function Header() {
           <Link to="/gallery">
             <li
               className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/gallery" ? "border text-blue-400  bg-blue-100 rounded-lg " : ""
+                location.pathname === "/gallery" ? "border text-blue-900  bg-blue-100 rounded-full" : ""
               }`}
             >
               Gallery
@@ -82,7 +83,7 @@ export default function Header() {
           <Link to="/about">
             <li
               className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/about" ? "border text-blue-400  bg-blue-100 rounded-lg " : ""
+                location.pathname === "/about" ? "border text-blue-900  bg-blue-100 rounded-full " : ""
               }`}
             >
               About

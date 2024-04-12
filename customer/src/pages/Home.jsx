@@ -62,7 +62,7 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const threshold = 300; // Adjust this value as needed
+      const threshold = 297; // Adjust this value as needed
       
       if (scrollPosition > threshold) {
         setIsSearchVisible(false);
@@ -77,7 +77,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-blue-100">
+    <div className="bg-blue-100 pb-7 pr-1 pl-1  rounded-2xl">
       <div
         style={{
           background: `url(${exploreImage}) center fixed no-repeat`,
@@ -90,7 +90,7 @@ export default function Home() {
             <input
               type="text"
               placeholder="Search..."
-              className="p-2 fixed bg-slate-200 top-[35%] rounded-full w-[35%] focus:outline-none"
+              className="p-2 fixed bg-slate-200 top-[35%] rounded-full w-[25%] focus:outline-none"
             />
              <div className="fixed px-80 container max-w-7xl mx-auto items-center  top-[44%] text-white">
         <p>
@@ -102,8 +102,7 @@ export default function Home() {
         </p>
       </div>
      </form>
-     )}
-        
+     )}  
     </div>
       {/* top */}
       <div className=" flex flex-col gap-6 p-20 px-3 max-w-7xl mx-auto items-center bg-blue-300 rounded-2xl">
@@ -150,9 +149,9 @@ export default function Home() {
         </div>
 
       {/* listing results for offer, sale and rent */}
-      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 items-center mt-11 container bg-blue-200 rounded-2xl">
+      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 items-center mt-11 container bg-blue-300 rounded-2xl">
         {rentListings && rentListings.length > 0 && (
-          <div className="bg-blue-300  p-3 mt-3 rounded-2xl">
+          <div className="bg-blue-200 p-5 mt-3 rounded-2xl">
             <div className="my-3">
               <h2 className="text-2xl font-semibold text-slate-600">
                 Recent places for rent
@@ -172,7 +171,7 @@ export default function Home() {
           </div>
         )}
         {saleListings && saleListings.length > 0 && (
-          <div className="bg-blue-300  p-3 mt-3 rounded-2xl">
+          <div className="bg-blue-200 p-5 mt-3 rounded-2xl">
             <div className="my-3">
               <h2 className="text-2xl font-semibold text-slate-600">
                 Recent places for sale
