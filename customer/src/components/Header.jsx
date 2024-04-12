@@ -48,7 +48,7 @@ export default function Header() {
         </Link>
 
         {location.pathname !== "/" && (
-          <form className="bg-slate-100 p-2 rounded-2xl flex items-center">
+          <form className="bg-slate-100 p-2 rounded-full flex items-center">
             <input
               type="text"
               placeholder="Search..."
