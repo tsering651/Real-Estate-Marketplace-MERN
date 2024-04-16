@@ -45,7 +45,6 @@ function ReqInfo() {
             setLoading(false);
             setError(null);
             navigate("/");
-            // Show alert for successful data submission
             window.alert("Data sent successfully!");
         } catch (error) {
             setLoading(false);

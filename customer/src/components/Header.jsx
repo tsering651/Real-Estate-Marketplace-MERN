@@ -40,7 +40,7 @@ export default function Header() {
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
           <h1 className="font-bold rounded-lg p-1 text-sm sm:text-xl flex flex-wrap gap-2">
-            <span className="bg-gradient-to-r from-orange-500 to-blue-900 bg-clip-text text-transparent">TVA</span>
+            <span className="bg-gradient-to-r from-orange-500 to-blue-800 bg-clip-text text-transparent">TVA</span>
             <span className="text-white">
               Group
             </span>
