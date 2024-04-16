@@ -12,6 +12,8 @@ import ShowListing from "./pages/ShowListing";
 import UpdateListing from './pages/UpdateListing';
 import Listing from "./pages/Listing";
 import Footer from "./components/Footer";
+import ReqInfo from "./pages/ReqInfo";
+
 
 export default function App() {
   return (
@@ -29,11 +31,11 @@ export default function App() {
             path='/update-listing/:listingId'
             element={<UpdateListing />}
           />
-          
         </Route>
         <Route path="/about" element={<About />} />
         <Route path="/listing/:listingId" element={<Listing />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/request-info" element={<ReqInfo />}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

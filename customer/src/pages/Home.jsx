@@ -9,6 +9,7 @@ import photo1 from "./gallery/wanchu.png";
 import photo2 from "./gallery/my.jpg";
 import photo3 from "./gallery/vikash.jpg";
 
+
 const PhotoWithDescription = ({ photoUrl, description, contact, email }) => (
   <div className="container flex flex-col items-center ">
     <img src={photoUrl} alt="Photo" className="w-40 h-40 border rounded-full shadow-xl" />

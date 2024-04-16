@@ -69,7 +69,6 @@ export const google = async (req, res, next) => {
         .cookie("access_token", token, { httpOnly: true })
         .status(200)
         .json(rest);
-      // split(" ").join("").toLowerCase() + Math.random().toString(36).slice(-4)  it join to space of the username to make it uniqie and also
     }
   } catch (error) {
     next(error);

@@ -65,7 +65,7 @@ export default function Header() {
           <Link to="/">
             <li
               className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/" ? "border text-blue-900  bg-blue-100 rounded-full " : ""
+                location.pathname === "/" ? "border bg-blue-900  rounded-full " : ""
               }`}
             >
               Explore
@@ -74,7 +74,7 @@ export default function Header() {
           <Link to="/gallery">
             <li
               className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/gallery" ? "border text-blue-900  bg-blue-100 rounded-full" : ""
+                location.pathname === "/gallery" ? "border bg-blue-900 rounded-full" : ""
               }`}
             >
               Gallery
@@ -83,7 +83,7 @@ export default function Header() {
           <Link to="/about">
             <li
               className={`text-white p-1 font-semibold transition-transform hover:scale-125 duration-500 ${
-                location.pathname === "/about" ? "border text-blue-900  bg-blue-100 rounded-full " : ""
+                location.pathname === "/about" ? "border bg-blue-900  rounded-full " : ""
               }`}
             >
               About
@@ -128,10 +128,10 @@ export default function Header() {
                       </li>
                     </Link>
 
-                   <Link to="/request">
+                   <Link to="/request-info">
                       <li
                         className={`text-black p-1 font-thick text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${
-                          location.pathname === "/" ? "text-white border hover:text-black" : ""
+                          location.pathname === "/request-info" ? "text-white border hover:text-black" : ""
                         }`}
                       >
                         Request info
