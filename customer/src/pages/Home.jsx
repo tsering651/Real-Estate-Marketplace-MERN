@@ -93,13 +93,13 @@ export default function Home() {
               placeholder="Search..."
               className="p-2 fixed bg-slate-200 top-[35%] rounded-full w-[25%] focus:outline-none"
             />
-             <div className="fixed px-80 container max-w-7xl mx-auto items-center  top-[44%] text-white">
+             <div className="fixed px-80 container max-w-7xl mx-auto  top-[44%] text-white">
         <p>
-         <span className="text-orange-500 font-bold bg-slate-200 rounded-2xl p-1">TVA Group</span>, is your trusted partner for
+         <span className=" text-xl font-bold text-blue-300 text-border rounded-2xl p-1">TVA Group</span>, <span className="font-semibold text-xl item-center">is your trusted partner for
           buying, selling, and renting Luxury Property. Our
           dedicated and experienced team of agents are committed to providing
-          exceptional service and support, ensuring a seamless experience for
-          our clients.
+           service and support, ensuring a seamless experience for
+          our clients.</span> 
         </p>
       </div>
      </form>
