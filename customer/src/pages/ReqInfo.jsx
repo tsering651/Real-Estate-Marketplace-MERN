@@ -62,7 +62,7 @@ function ReqInfo() {
     }}
     >
     <div className="max-w-lg mx-auto w-[27%] p-8 mt-[6%] mr-[8%] backdrop-blur-md rounded-3xl border shadow-2xl">
-    <h2 className="text-xl font-bold text-white mb-4">Contact Us</h2>
+    <h2 className="text-xl font-bold text-white mb-4">Request Information</h2>
     <form onSubmit={handleSubmit}>
       <div className="mb-4">
         <input

@@ -95,10 +95,9 @@ export default function Home() {
             />
              <div className="fixed px-80 container max-w-7xl mx-auto  top-[44%] text-white">
         <p>
-         <span className=" text-xl font-bold text-blue-300 text-border rounded-2xl p-1">TVA Group</span>, <span className="font-semibold text-xl item-center">is your trusted partner for
-          buying, selling, and renting Luxury Property. Our
-          dedicated and experienced team of agents are committed to providing
-           service and support, ensuring a seamless experience for
+         <span className=" text-xl font-bold text-orange-400 text-border rounded-2xl p-1">TVA Group</span>, <span className="font-semibold  item-center">is your trusted partner for
+          buying, selling, and renting Luxury Property. Our dedicated and experienced team of agents are committed to providing
+          service and support, ensuring a seamless experience for
           our clients.</span> 
         </p>
       </div>
