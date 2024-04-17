@@ -8,6 +8,7 @@ import exploreImage from "./gallery/ann.jpg";
 import photo1 from "./gallery/wanchu.png";
 import photo2 from "./gallery/my.jpg";
 import photo3 from "./gallery/vikash.jpg";
+import { FaSearch } from 'react-icons/fa';
 
 
 const PhotoWithDescription = ({ photoUrl, description, contact, email }) => (
@@ -23,6 +24,7 @@ export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
+  const [searchTerm,setSearchTerm]=useState('');
   SwiperCore.use([Navigation]);
   console.log(offerListings);
   useEffect(() => {
@@ -88,12 +90,20 @@ export default function Home() {
       >
         {isSearchVisible && (
           <form className=" absolute p-2 gap-3 rounded-2xl inset-0  flex items-center justify-center">
-            <input
+            {/* <input
               type="text"
               placeholder="Search..."
+              value={searchTerm}
+              onChange={(e)=> setSearchTerm(e.target.value)}
               className="p-2 fixed bg-slate-200 top-[35%] rounded-full w-[25%] focus:outline-none"
             />
+             <button>
+             <FaSearch className='text-slate-600 text-xl' />
+
+           </button> */}
+             
              <div className="fixed px-80 container max-w-7xl mx-auto  top-[44%] text-white">
+           
         <p>
          <span className=" text-xl font-bold text-orange-400 text-border rounded-2xl p-1">TVA Group</span>, <span className="font-semibold  item-center">is your trusted partner for
           buying, selling, and renting Luxury Property. Our dedicated and experienced team of agents are committed to providing
