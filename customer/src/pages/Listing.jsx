@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
@@ -25,6 +25,7 @@ export default function Listing() {
   const [error, setError] = useState(false);
   const [copied, setCopied] = useState(false);
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -49,8 +50,16 @@ export default function Listing() {
     fetchListing();
   }, [params.listingId]);
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  const goList = () => {
+    navigate("/create-listing");
+  };
+
   return (
-    <div className="bg-slate-100 min-h-screen">
+    <div className="bg-slate-200 min-h-screen">
       <main className="container mx-auto">
         {loading && <p className="text-center my-7 text-2xl">Loading...</p>}
         {error && (
@@ -77,9 +86,10 @@ export default function Listing() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="fixed top-5 right-5 z-10 rounded-full w-8 h-8 flex justify-center items-center bg-slate-500 cursor-pointer">
+
+            <div className="fixed top-5 right-5 z-10 rounded-full w-8 h-8 flex justify-center items-center bg-slate-400 cursor-pointer">
               <FaShare
-              className="text-white"
+                className="text-white"
                 onClick={() => {
                   navigator.clipboard.writeText(window.location.href);
                   setCopied(true);
@@ -95,7 +105,7 @@ export default function Listing() {
               </p>
             )}
 
-            <div className="flex flex-col max-w-4xl mx-auto p-5 mt-3 gap-3 rounded-2xl bg-slate-400 shadow-2xl">
+            <div className="flex flex-col max-w-4xl mx-auto p-5 mt-3 gap-3 rounded-2xl bg-blue-300 shadow-2xl">
               <p className="font-semibold uppercase">
                 {listing.name} - ${" "}
                 {listing.offer
@@ -144,14 +154,18 @@ export default function Listing() {
                   <li className="flex items-center gap-1 whitespace-nowrap ">
                     <FaUtensils className="text-lg" />
                     {listing.kitchens > 1
-                      ? `${listing.kitchens} Kitchens `
-                      : `${listing.kitchens} Kitchen `}
+                      ? `${listing.kitchens} Kitchens`
+                      : listing.kitchens === 1
+                      ? `${listing.kitchens} Kitchen`
+                      : "No Kitchen"}
                   </li>
                   <li className="flex items-center gap-1 whitespace-nowrap ">
                     <FaBuilding className="text-lg" />
                     {listing.halls > 1
-                      ? `${listing.halls} Halls `
-                      : `${listing.halls} Hall `}
+                      ? `${listing.halls} Halls`
+                      : listing.halls === 1
+                      ? `${listing.halls} hall`
+                      : "No Hall"}
                   </li>
                 </ul>
 
@@ -179,12 +193,18 @@ export default function Listing() {
             </div>
 
             <div className="flex justify-between max-w-4xl mx-auto mt-2 p-2">
-              <button className="bg-green-600 hover:bg-opacity-85 text-center w-[30%] text-white rounded-3xl p-2">
-                <Link to="/create-listing">List Property</Link>
+              <button
+                onClick={goList}
+                className="bg-green-600 hover:bg-opacity-85 text-center w-[30%] text-white rounded-3xl p-2"
+              >
+                List Property
               </button>
 
-              <button className="bg-blue-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2">
-                <Link to="/show-listing">Back</Link>
+              <button
+                onClick={goBack}
+                className="bg-blue-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2"
+              >
+                Back
               </button>
             </div>
           </div>

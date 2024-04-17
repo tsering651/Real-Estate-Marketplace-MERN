@@ -35,75 +35,11 @@ const ShowListingCard = ({
     }
   };
 
-  const handleEdit = async (e) => {
-    e.preventDefault();
-    try {
-      if (formData.imageUrls.length < 1)
-        return setError("You must upload at least one image");
-      if (+formData.regularPrice < +formData.discountPrice)
-        return setError("Discount price must be lower than regular price");
-      setLoading(true);
-      setError(false);
-      const res = await fetch("/api/listing/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          userRef: currentUser._id,
-        }),
-      });
-      const data = await res.json();
-      setLoading(false);
-      if (data.success === false) {
-        setError(data.message);
-      }
-      navigate(`/show-listing`);
-    } catch (error) {
-      setError(error.message);
-      setLoading(false);
-    }
-  };
-
-  const handleView = async (e) => {
-    e.preventDefault();
-    try {
-      if (formData.imageUrls.length < 1)
-        return setError("You must upload at least one image");
-      if (+formData.regularPrice < +formData.discountPrice)
-        return setError("Discount price must be lower than regular price");
-      setLoading(true);
-      setError(false);
-      const res = await fetch("/api/listing/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          userRef: currentUser._id,
-        }),
-      });
-      const data = await res.json();
-      setLoading(false);
-      if (data.success === false) {
-        setError(data.message);
-      }
-      navigate(`/show-listing`);
-    } catch (error) {
-      setError(error.message);
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="backdrop-blur-md border rounded-lg text-white p-2 mt-10 hover:backdrop-blur-xl duration-500">
       <div className="flex items-center justify-between p-1">
         <h2 className="text-xl font-semibold uppercase">{name}</h2>
-        <p className="bg-blue-600 rounded-lg w-[20%] text-center">
-          {type}
-        </p>
+        <p className="bg-blue-600 rounded-lg w-[20%] text-center">{type}</p>
       </div>
 
       <div className="flex justify-between items-center p-1 rounded-lg">
@@ -126,7 +62,7 @@ const ShowListingCard = ({
             <strong>Swimming Pool:</strong> {swimmingpool ? "Yes" : "No"}
           </p>
           <p className="flex gap-1">
-            <strong>Balcony:</strong> {balcony ? "Yes" : "No"} 
+            <strong>Balcony:</strong> {balcony ? "Yes" : "No"}
             <p className="font-semibold">({balcony})</p>
           </p>
           <p>
@@ -170,26 +106,28 @@ const ShowListingCard = ({
         </div>
       )}
       <div className="flex space-x-4 mb-2">
+        
         <button
           onClick={() => handleListingDelete(_id)}
-          className="text-white bg-red-500 uppercase  p-1 rounded-lg w-[30%] mt-4 hover:bg-opacity-75"
+          className="text-white bg-red-500 p-1 rounded-lg w-[30%] mt-4 hover:bg-opacity-75"
         >
-          Delete
+          DELETE
         </button>
 
-        <button
-          onClick={handleEdit}
-          className="text-white bg-green-600 uppercase p-1 rounded-lg w-[30%] mt-4 hover:bg-opacity-75"
+        <Link
+          to={`/update-listing/${_id}`}
+          className="text-white bg-green-600 text-center p-1 rounded-lg w-[30%] mt-4 hover:bg-opacity-75"
         >
-          <Link to={`/update-listing/${_id}`}>Edit</Link>
-        </button>
+          <button className="">EDIT</button>
+        </Link>
 
-        <button
-          onClick={handleView}
-          className="text-white bg-blue-600 uppercase  p-1 rounded-lg w-[30%] mt-4 hover:bg-opacity-75"
+        <Link
+          to={`/listing/${_id}`}
+          className="text-white bg-blue-600 text-center  p-1 rounded-lg w-[30%] mt-4 hover:bg-opacity-75"
         >
-          <Link to={`/listing/${_id}`}>View</Link>
-        </button>
+          <button className="">VIEW</button>
+        </Link>
+
       </div>
     </div>
   );
