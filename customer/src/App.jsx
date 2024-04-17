@@ -13,6 +13,7 @@ import UpdateListing from './pages/UpdateListing';
 import Listing from "./pages/Listing";
 import Footer from "./components/Footer";
 import ReqInfo from "./pages/ReqInfo";
+import Search from './pages/Search';
 
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
             element={<UpdateListing />}
           />
         </Route>
+        <Route path='/search' element={<Search />} />
         <Route path="/about" element={<About />} />
         <Route path="/listing/:listingId" element={<Listing />} />
         <Route path="/gallery" element={<Gallery />} />
