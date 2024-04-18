@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css/bundle";
@@ -8,7 +8,7 @@ import exploreImage from "./gallery/ann.jpg";
 import photo1 from "./gallery/wanchu.png";
 import photo2 from "./gallery/my.jpg";
 import photo3 from "./gallery/vikash.jpg";
-import { FaSearch } from 'react-icons/fa';
+
 
 
 const PhotoWithDescription = ({ photoUrl, description, contact, email }) => (
@@ -25,6 +25,7 @@ export default function Home() {
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
   const [searchTerm,setSearchTerm]=useState('');
+
   SwiperCore.use([Navigation]);
   console.log(offerListings);
   useEffect(() => {
@@ -79,6 +80,17 @@ export default function Home() {
     };
   }, []);
 
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('searchTerm', searchTerm);
+    const searchQuery = urlParams.toString();
+    navigate(`/search?${searchQuery}`);
+  };
+
+  
+
   return (
     <div className="bg-blue-100 pb-7 pr-1 pl-1  rounded-2xl">
       <div
@@ -89,21 +101,16 @@ export default function Home() {
         className="h-[710px] mb-9 mx-auto rounded-sm relative"
       >
         {isSearchVisible && (
-          <form className=" absolute p-2 gap-3 rounded-2xl inset-0  flex items-center justify-center">
-            {/* <input
+          <form
+          onSubmit={handleSubmit} className=" absolute p-2 gap-3 rounded-2xl inset-0  flex items-center justify-center">
+            <input
               type="text"
               placeholder="Search..."
               value={searchTerm}
               onChange={(e)=> setSearchTerm(e.target.value)}
               className="p-2 fixed bg-slate-200 top-[35%] rounded-full w-[25%] focus:outline-none"
-            />
-             <button>
-             <FaSearch className='text-slate-600 text-xl' />
-
-           </button> */}
-             
+            />  
              <div className="fixed px-80 container max-w-7xl mx-auto  top-[44%] text-white">
-           
         <p>
          <span className=" text-xl font-bold text-orange-400 text-border rounded-2xl p-1">TVA Group</span>, <span className="font-semibold  item-center">is your trusted partner for
           buying, selling, and renting Luxury Property. Our dedicated and experienced team of agents are committed to providing
@@ -112,6 +119,7 @@ export default function Home() {
         </p>
       </div>
      </form>
+     
      )}  
     </div>
       {/* top */}
