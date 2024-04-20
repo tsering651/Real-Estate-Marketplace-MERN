@@ -14,6 +14,7 @@ import Listing from "./pages/Listing";
 import Footer from "./components/Footer";
 import ReqInfo from "./pages/ReqInfo";
 import Search from './pages/Search';
+import SubscriptionModelPage from "./pages/SubscriptionModel";
 
 
 export default function App() {
@@ -38,6 +39,8 @@ export default function App() {
         <Route path="/listing/:listingId" element={<Listing />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/request-info" element={<ReqInfo />}/>
+        <Route path="/subscription" element={<SubscriptionModelPage />}/>
+        
       </Routes>
       <Footer/>
     </BrowserRouter>
