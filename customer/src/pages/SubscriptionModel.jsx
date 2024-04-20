@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector} from "react-redux";
 import {loadStripe} from '@stripe/stripe-js';
+import backgroundImage from "./images/payment.jpg";
 
 const SubscriptionModelPage = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -9,8 +10,14 @@ const SubscriptionModelPage = () => {
      console.log(currentUser)
   }
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="max-w-lg bg-white p-8 shadow-md rounded-md">
+    <div className="bg-cover min-h-screen flex items-center justify-center"
+    style={{
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundPosition: "10% 70%",
+     }}
+      >
+      <div className="min-h-screen flex items-center  justify-center">
+      <div className="max-w-lg bg-white bg-opacity-65 p-8 shadow-md rounded-md">
         <h2 className="text-2xl font-bold mb-4">Choose Your Subscription Plan</h2>
         <div className="flex flex-col gap-4">
           {/* Free Tier */}
@@ -54,6 +61,8 @@ const SubscriptionModelPage = () => {
         </div>
       </div>
     </div>
+      </div>
+    
   );
 };
 

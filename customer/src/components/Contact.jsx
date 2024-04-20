@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Contact({ listing }) {
   const [landlord, setLandlord] = useState(null);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const onChange = (e) => {
     setMessage(e.target.value);
   };
@@ -25,29 +25,31 @@ export default function Contact({ listing }) {
   return (
     <>
       {landlord && (
-        <div className='flex flex-col gap-2'>
+        <div className="flex flex-col gap-2">
           <p>
-            Contact <span className='font-semibold'>{landlord.email}</span>{' '}
-            for{' '}
-            <span className='font-semibold'>{listing.name.toLowerCase()}</span>
+            Contact <span className="font-semibold">{landlord.email}</span> for{" "}
+            <span className="font-semibold">{listing.name.toUpperCase()}</span>
           </p>
           <textarea
-            name='message'
-            id='message'
-            rows='2'
+            name="message"
+            id="message"
+            rows="2"
             value={message}
             onChange={onChange}
-            placeholder='Enter your message here...'
-            className='w-full border p-3 rounded-lg'
+            placeholder="Enter your message here..."
+            className="w-full border p-3 rounded-lg"
           ></textarea>
 
-<Link
-  to={`mailto:${landlord.email}?subject=Regarding%20${encodeURIComponent(listing.name)}&body=${encodeURIComponent(message)}`}
-  className='bg-slate-700 text-white text-center p-3 uppercase rounded-lg hover:opacity-95'
->
-  Send Message
-</Link>
-
+          <Link
+            to={`mailto:${
+              landlord.email
+            }?subject=Regarding%20${encodeURIComponent(
+              listing.name
+            )}&body=${encodeURIComponent(message)}`}
+            className="bg-blue-700 text-white text-center p-3 uppercase rounded-lg hover:opacity-95"
+          >
+            Send Message
+          </Link>
         </div>
       )}
     </>
