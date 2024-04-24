@@ -70,8 +70,8 @@ export default function Search() {
   const handleChange = (e) => {
     if (
       e.target.id === 'all' ||
-      e.target.id === 'rent' ||
-      e.target.id === 'sale'
+      e.target.id === 'Rent' ||
+      e.target.id === 'Sale'
     ) {
       setSidebardata({ ...sidebardata, type: e.target.id });
     }
@@ -96,6 +96,8 @@ export default function Search() {
       const sort = e.target.value.split('_')[0] || 'created_at';
 
       const order = e.target.value.split('_')[1] || 'desc';
+
+      console.log(sidebardata);
 
       setSidebardata({ ...sidebardata, sort, order });
     }
@@ -166,20 +168,20 @@ export default function Search() {
             <div className='flex gap-2'>
               <input
                 type='checkbox'
-                id='rent'
+                id='Rent'
                 className='w-5'
                 onChange={handleChange}
-                checked={sidebardata.type === 'rent'}
+                checked={sidebardata.type === 'Rent'}
               />
               <span className='text-white'>Rent</span>
             </div>
             <div className='flex gap-2'>
               <input
                 type='checkbox'
-                id='sale'
+                id='Sale'
                 className='w-5'
                 onChange={handleChange}
-                checked={sidebardata.type === 'sale'}
+                checked={sidebardata.type === 'Sale'}
               />
               <span className='text-white'>Sale</span>
             </div>

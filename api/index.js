@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser';
 import listingRouter  from './routes/listing.route.js'
 import infoRouter from './routes/info.route.js'
 
+
 dotenv.config();
 mongoose
   .connect(process.env.MONGO)
@@ -34,6 +35,7 @@ app.use('/api/user',userRouter);
 app.use('/api/auth',authRouter);
 app.use('/api/listing',listingRouter);
 app.use('/api/information', infoRouter);
+
 
 
 //middleware
