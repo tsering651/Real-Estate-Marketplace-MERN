@@ -170,7 +170,7 @@ export default function CreateListing() {
     >
       <div className="p-9 mx-auto border backdrop-blur-sm rounded-2xl mt-14">
         <h1 className="text-3xl font-semibold text-center text-white ">
-          Create Listing
+          Create Listings
         </h1>
         <form onSubmit={handleSubmit}>
           <div className="gap-5 flex">
