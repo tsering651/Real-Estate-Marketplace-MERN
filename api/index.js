@@ -8,8 +8,7 @@ import authRouter from './routes/auth.route.js'
 import cookieParser from 'cookie-parser';
 import listingRouter  from './routes/listing.route.js'
 import infoRouter from './routes/info.route.js'
-
-// const stripe = require("stripe")(process.env.STRIPE_SECRET);
+import path from 'path';
 
 dotenv.config();
 mongoose
@@ -21,6 +20,8 @@ mongoose
     console.log("Error");
   });
   
+const __dirname = path.resolve();
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -37,6 +38,10 @@ app.use('/api/auth',authRouter);
 app.use('/api/listing',listingRouter);
 app.use('/api/information', infoRouter);
 
+app.use(express.static(path.join(__dirname, '/customer/dist')));
+app.get('*', (req, res) =>{
+  res.sendFile(path.join(__dirname, 'customer', 'dist', 'index.html'));
+});
 
 //middleware
 app.use((err, res) => {
