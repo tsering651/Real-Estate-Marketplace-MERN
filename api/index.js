@@ -9,6 +9,8 @@ import cookieParser from 'cookie-parser';
 import listingRouter  from './routes/listing.route.js'
 import infoRouter from './routes/info.route.js'
 
+// const stripe = require("stripe")(process.env.STRIPE_SECRET);
+
 dotenv.config();
 mongoose
   .connect(process.env.MONGO)
