@@ -6,8 +6,8 @@ import "swiper/css/bundle";
 import ListingItem from "../components/ListingItem";
 import exploreImage from "./gallery/ann.jpg";
 import photo1 from "./gallery/wanchu.png";
-import photo2 from "./gallery/my.jpg";
 import photo3 from "./gallery/vikash.jpg";
+import photo2 from "./gallery/akansha.jpeg";
 
 
 
@@ -154,16 +154,16 @@ export default function Home() {
             email="Email : tseringwang4039@gmail.com"
           />
           <PhotoWithDescription
-            photoUrl={photo2}
-            description="Vicky Verma"
-            contact="Contact : +91 99052 60820"
-            email="Email : vikkuma2302@gmail.com"
-          />
-          <PhotoWithDescription
             photoUrl={photo3}
             description="Vikash Verma"
-            contact="Contact : 9354040507"
+            contact="Contact :+91 93540 40507"
             email="Email : vkvermavk96@gmail.com"
+          />
+          <PhotoWithDescription
+            photoUrl={photo2}
+            description="Akansha Kumari"
+            contact="Contact :+91 99052 60820 "
+            email="Email : akankuma2302@gmail.com"
           />
           
         </div>

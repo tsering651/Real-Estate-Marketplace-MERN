@@ -1,8 +1,8 @@
 import React from "react";
 import backgroundImage from "./images/about.jpg";
 import photo1 from "./gallery/wanchu.png";
-import photo2 from "./gallery/my.jpg";
 import photo3 from "./gallery/vikash.jpg";
+import photo2 from "./gallery/akansha.jpeg";
 import terms from "./files/Terms and Conditions.pdf"; // Import the PDF file
 
 const PhotoWithDescription = ({ photoUrl, description, contact, email }) => (
@@ -43,23 +43,23 @@ export default function About() {
         <h1 className="text-2xl font-bold mb-2 p-2  text-white">TVA Management</h1>
         {/* Display photos with descriptions */}
         <div className="flex justify-between ">
-          <PhotoWithDescription
+        <PhotoWithDescription
             photoUrl={photo1}
             description="Tsering Wangchu"
             contact="Contact : +91 99717 07580"
             email="Email : tseringwang4039@gmail.com"
           />
           <PhotoWithDescription
-            photoUrl={photo2}
-            description="Vicky Verma"
-            contact="Contact : +91 99052 60820"
-            email="Email : vikkuma2302@gmail.com"
-          />
-          <PhotoWithDescription
             photoUrl={photo3}
             description="Vikash Verma"
-            contact="Contact : 9354040507"
+            contact="Contact :+91 93540 40507"
             email="Email : vkvermavk96@gmail.com"
+          />
+          <PhotoWithDescription
+            photoUrl={photo2}
+            description="Akansha Kumari"
+            contact="Contact :+91 99052 60820 "
+            email="Email : akankuma2302@gmail.com"
           />
           
         </div>
