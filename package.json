@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon api/index.js",
     "start": "node api/index.js",
-    "build":"npm install"
+    "build": "npm install && npm install --prefix customer && npm run build --prefix customer"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +24,8 @@
     "mongoose": "^8.1.2",
     "nodemailer": "^6.9.13",
     "nodemon": "^3.0.3",
-    "react-redux": "^9.1.0"
+    "path": "^0.12.7",
+    "react-redux": "^9.1.0",
+    "stripe": "^15.4.0"
   }
 }

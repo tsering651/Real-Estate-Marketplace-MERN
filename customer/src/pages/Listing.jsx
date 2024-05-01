@@ -200,7 +200,7 @@ export default function Listing() {
             <div className="flex justify-between max-w-4xl mx-auto mt-2 p-2">
               <button
                 onClick={goList}
-                className="bg-green-600 hover:bg-opacity-85 text-center w-[30%] text-white rounded-3xl p-2"
+                className="bg-green-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2"
               >
                 List Property
               </button>
@@ -208,13 +208,13 @@ export default function Listing() {
               {currentUser && listing.userRef !== currentUser._id && !contact && (
               <button
                 onClick={() => setContact(true)}
-                className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3'
+                className='bg-green-800 hover:bg-opacity-85 text-center w-[30%] text-white rounded-3xl p-2'
               >
-                Contact landlord
+                Contact Agent
               </button>
             )}
             {contact && <Contact listing={listing} />}
-
+            
               <button
                 onClick={goBack}
                 className="bg-blue-600 hover:bg-opacity-85 text-center w-[20%] text-white rounded-3xl p-2"

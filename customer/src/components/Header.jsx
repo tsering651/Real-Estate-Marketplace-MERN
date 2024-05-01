@@ -185,6 +185,7 @@ export default function Header() {
                         Terms & Conditions
                       </li>
                     </Link>
+
                     <Link to="/profile">
                       <li
                         className={`text-black p-1 font-thick text-center transition-transform hover:scale-105 duration-500 hover:bg-white rounded-2xl ${

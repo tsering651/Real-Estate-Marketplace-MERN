@@ -6,8 +6,8 @@ import "swiper/css/bundle";
 import ListingItem from "../components/ListingItem";
 import exploreImage from "./gallery/ann.jpg";
 import photo1 from "./gallery/wanchu.png";
-import photo2 from "./gallery/my.jpg";
 import photo3 from "./gallery/vikash.jpg";
+import photo2 from "./gallery/akansha.jpeg";
 
 
 
@@ -28,10 +28,11 @@ export default function Home() {
 
   SwiperCore.use([Navigation]);
   console.log(offerListings);
+
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
-        const res = await fetch("/api/listing/get?offer=true&limit=4");
+        const res = await fetch("/api/listing/get?offer=true&limit=6");
         const data = await res.json();
         setOfferListings(data);
         fetchRentListings();
@@ -153,33 +154,33 @@ export default function Home() {
             email="Email : tseringwang4039@gmail.com"
           />
           <PhotoWithDescription
-            photoUrl={photo2}
-            description="Vicky Verma"
-            contact="Contact : +91 99052 60820"
-            email="Email : vikkuma2302@gmail.com"
-          />
-          <PhotoWithDescription
             photoUrl={photo3}
             description="Vikash Verma"
-            contact="Contact : 9354040507"
+            contact="Contact :+91 93540 40507"
             email="Email : vkvermavk96@gmail.com"
+          />
+          <PhotoWithDescription
+            photoUrl={photo2}
+            description="Akansha Kumari"
+            contact="Contact :+91 99052 60820 "
+            email="Email : akankuma2302@gmail.com"
           />
           
         </div>
 
       {/* listing results for offer, sale and rent */}
-      <div className="max-w-8xl mx-auto p-3 flex flex-col gap-8 items-center mt-11 container bg-blue-300 rounded-2xl">
+      <div className="max-w-7xl mx-auto p-3 flex flex-col gap-8 items-center mt-11 container bg-blue-300 rounded-2xl">
         {rentListings && rentListings.length > 0 && (
           <div className="bg-blue-200 p-5 mt-3 rounded-2xl">
             <div className="my-3">
               <h2 className="text-2xl font-semibold text-slate-600">
-                Recent places for rent
+                Recent places for Rent
               </h2>
               <Link
                 className="text-sm text-blue-800 hover:underline mb-3"
                 to={"/search?type=rent"}
               >
-                Show more places for rent
+                Show more places for Rent
               </Link>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -193,13 +194,13 @@ export default function Home() {
           <div className="bg-blue-200 p-5 mt-3 rounded-2xl">
             <div className="my-3">
               <h2 className="text-2xl font-semibold text-slate-600">
-                Recent places for sale
+                Recent places for Sale
               </h2>
               <Link
                 className="text-sm text-blue-800 hover:underline"
                 to={"/search?type=sale"}
               >
-                Show more places for sale
+                Show more places for Sale
               </Link>
             </div>
             <div className="flex flex-wrap gap-4 mt-4">

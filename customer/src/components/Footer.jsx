@@ -17,6 +17,7 @@ const Footer = () => {
 
         <div className="flex space-x-10">
           <Link to = '/request-info' className='text-gray-700 font-semibold hover:text-gray-400'>Request info</Link>
+          
           <a href="#" className="text-gray-600 hover:text-gray-400">
             <FontAwesomeIcon icon={faFacebookF} />
           </a>
